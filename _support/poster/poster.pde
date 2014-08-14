@@ -17,8 +17,8 @@ void setup() {
 }
 
 void draw() {
-  strokeColor = randomColor();
+  strokeColor = randomColor(5, 5);
   pushStyle();
-    stroke(rHue, rSat, rVal, 100);
+    stroke(strokeColor);
   popStyle();
 }
