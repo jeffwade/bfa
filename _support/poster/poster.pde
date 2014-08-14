@@ -1,9 +1,14 @@
 color white, black, strokeColor;
-int[] lenRange, hueRange, satRange, valRange, alpRange;
-float rx, ry, rLen;
-int[] ;
+float rx, ry, rLen, rHue, rSat, rVal, rAlp;
+  //initialize ranges
+  int[] lenRange = {5, 100};
+  int[] hueRange = {47, 153};
+  int[] satRange = {32, 88};
+  int[] valRange = {27, 90};
+  int[] alpRange = {60, 100};
+
 void setup() {
-  //poster size is 16x30in
+  //actual poster size is 16x30in
   size(640, 1200);
 
   //init colors
@@ -11,10 +16,6 @@ void setup() {
   white = color(0, 0, 100, 100);
   black = color(0, 0, 0, 100);
 
-  //initialize ranges
-  lenRange = {5, 100};
-  hueRange = {}
-  //ranges for color picker
   background(white);
   // noStroke();
   noFill();
@@ -26,11 +27,34 @@ void draw() {
   ry = random(height);
   rLen = random (lenRange[0], lenRange[1]);
 
-  //strokeColor based on vertical location
-  strokeColor = randomColor(ry);
+  //hue is random within range
+  rHue = random(hueRange[0], hueRange[1]);
 
+  // saturation random within range
+  rSat = random(satRange[0], satRange[1]);
+
+  //inverse map color value to vertical position
+  rVal = map(ry, 0, height, valRange[1], valRange[0]);
+
+  //alpha random within range
+  rAlp = random(alpRange[0], alpRange[1]);
+  strokeColor = color(rHue, rSat, rVal, rAlp);
   pushStyle();
     stroke(strokeColor);
     line(rx, ry, rx, ry + rLen); //draw a vertical line of length rLen
   popStyle();
 }
+
+  /*
+  HUE KEY
+  Red: 0;
+  Orange: 30;
+  Yellow: 60;
+  Green: 120;
+  Cyan: 180;
+  Blue: 240;
+  Purple: 270
+  Magenta: 300;
+  Pink: 330;
+  Red: 360;
+  */
