@@ -23,9 +23,23 @@ void setup() {
 
 void draw() {
   //generate random location and length
-  rx = random(width);
-  ry = random(height);
+  // rx = random(width);
+  // ry = random(height);
+  rx = weightedRandomX(width, 5, 3);
+  ry = weightedRandomY(height, 5, 5);
   rLen = random (lenRange[0], lenRange[1]);
+
+  /*HUE KEY
+    Red: 0;
+    Orange: 30;
+    Yellow: 60;
+    Green: 120;
+    Cyan: 180;
+    Blue: 240;
+    Purple: 270
+    Magenta: 300;
+    Pink: 330;
+    Red: 360; */
 
   //hue is random within range
   rHue = random(hueRange[0], hueRange[1]);
@@ -39,22 +53,9 @@ void draw() {
   //alpha random within range
   rAlp = random(alpRange[0], alpRange[1]);
   strokeColor = color(rHue, rSat, rVal, rAlp);
+  
   pushStyle();
     stroke(strokeColor);
     line(rx, ry, rx, ry + rLen); //draw a vertical line of length rLen
   popStyle();
 }
-
-  /*
-  HUE KEY
-  Red: 0;
-  Orange: 30;
-  Yellow: 60;
-  Green: 120;
-  Cyan: 180;
-  Blue: 240;
-  Purple: 270
-  Magenta: 300;
-  Pink: 330;
-  Red: 360;
-  */
