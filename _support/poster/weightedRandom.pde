@@ -26,16 +26,22 @@ float weightedRandomX(float limit, int parts, int focus) {
 }
 
 float weightedRandomY(float limit, int parts, int focus) {
-  int p = floor(random(3));
+  int p = floor(random(5));
   float result;
   switch (p) {
     case 0 :
       result = random((4*limit/parts), limit);
       break;  
     case 1 :
-      result = random((2*limit/parts), limit);
+      result = random((3*limit/parts), limit);
       break;  
     case 2 :
+      result = random((2*limit/parts), limit);
+      break;  
+    case 3 :
+      result = random((1*limit/parts), limit);
+      break;  
+    case 4 :
       result = random(0, limit);
       break;  
     default :
