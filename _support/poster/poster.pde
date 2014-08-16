@@ -4,7 +4,7 @@ color white, black, strokeColor;
 float rx, ry, rLen, rHue, rSat, rVal, rAlp, rSW;
   //initialize ranges
   int[] lenRange = {3, 150};
-  int[] hueRange = {150, 235};
+  int[] hueRange = {60, 180};
     /*HUE KEY
     Red: 0;
     Orange: 30;
@@ -17,7 +17,7 @@ float rx, ry, rLen, rHue, rSat, rVal, rAlp, rSW;
     Pink: 330;
     Red: 360; */
   int[] satRange = {20, 80};
-  int[] valRange = {0, 99};
+  int[] valRange = {40, 100};
   int[] alpRange = {60, 100};
 boolean paused = false;
 void setup() {
@@ -59,7 +59,7 @@ void draw() {
   strokeColor = color(rHue, rSat, rVal, rAlp);
   rSW = random(2);
 
-  int s = floor(random(0,3));
+  int s = floor(random(1));
 
   pushStyle();
     strokeWeight(rSW);
