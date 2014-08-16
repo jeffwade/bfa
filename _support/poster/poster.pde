@@ -4,7 +4,11 @@ color white, black, strokeColor;
 float rx, ry, rLen, rHue, rSat, rVal, rAlp, rSW;
   //initialize ranges
   int[] lenRange = {3, 150};
+<<<<<<< HEAD
   int[] hueRange = {60, 180};
+=======
+  int[] hueRange = {90, 150};
+>>>>>>> 301913094f2bf3b316053e8899e4fbd7bf1ad179
     /*HUE KEY
     Red: 0;
     Orange: 30;
@@ -16,9 +20,15 @@ float rx, ry, rLen, rHue, rSat, rVal, rAlp, rSW;
     Magenta: 300;
     Pink: 330;
     Red: 360; */
+<<<<<<< HEAD
   int[] satRange = {20, 80};
   int[] valRange = {40, 100};
   int[] alpRange = {60, 100};
+=======
+  int[] satRange = {30, 90};
+  int[] valRange = {15, 90};
+  int[] alpRange = {0, 100};
+>>>>>>> 301913094f2bf3b316053e8899e4fbd7bf1ad179
 boolean paused = false;
 void setup() {
   //actual poster size is 16x30in
@@ -33,7 +43,7 @@ void setup() {
   // noStroke();
   noFill();
 
-  beginRecord(PDF, "posterpdf");
+  beginRecord(PDF, "poster.pdf");
 }
 
 void draw() {
@@ -67,17 +77,17 @@ void draw() {
     switch (s) {
       case 0 :
         line(rx, ry, rx, ry + rLen); //draw a vertical line of length rLen
-      break;  
+      break;
       case 1 :
         rect(rx, ry, rLen, 5*rLen);
-      break;  
+      break;
       case 2 :
         ellipse(rx, ry, rLen, rLen);
-      break;  
+      break;
     }
     // ellipse(rx, ry, rLen, rLen);
     // rect(rx, ry, rLen, 5*rLen);
-  popStyle();  
+  popStyle();
   }
   }
 
@@ -95,5 +105,5 @@ void keyPressed() {
   if (key == 'q') {
     endRecord();
     exit();
-  }  
+  }
 }
