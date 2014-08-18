@@ -1,12 +1,13 @@
 import java.util.*;
 
-int sides, d, r; // number of sides; diameter
+int sides, r; // number of sides; diameter
 PVector loc, vel, acc, mouse, center; //location, velocity, acceleration;
 color white, black;
 
+PShape s;
 
 void setup() {
-  size(displayWidth, displayHeight);
+  size(500, 500, P2D);
   colorMode(HSB, 360, 100, 100, 100);
   black = color(0, 0, 0, 100);
   white = color(0, 0, 100, 100);
@@ -14,6 +15,7 @@ void setup() {
 //  frame.setUndecorated(true);
   smooth();
   r = 100;
+  sides = 4; //min: 3; max: ?; max+1: circle;
 }
 
 void draw() {
@@ -27,17 +29,23 @@ void draw() {
   translate(center.x, center.y);
 
   pushStyle();
-  noStroke();
-  fill(black, 80);
-  triangle(r*cos(0), r*sin(0), r*cos(2*PI/3), r*sin(2*PI/3), r*cos(4*PI/3), r*sin(4*PI/3));
-  popStyle();
+  s = createShape();
+  s.beginShape();
+  s.fill(black, 80);
+  s.noStroke();
+  for (int i = 0; i < sides; i++) {
+    s.vertex(r*cos(i*TAU/sides), r*sin(i*TAU/sides));
+  }
+  s.endShape(CLOSE);
+  shape(s, 0, 0);
+    popStyle();
 
-  pushStyle();
-  stroke(black);
-  line(0, 0, mouse.x, mouse.y);
-  popStyle();
+  // pushStyle();
+  // stroke(black);
+  // line(0, 0, mouse.x, mouse.y);
+  // popStyle();
   popMatrix();
 }
 void keyPressed() {
-  if (key == ESC) {key = 0;};
+  // if (key == ESC) {key = 0;};
 }
