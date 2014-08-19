@@ -13,6 +13,10 @@ Repository for my BFA Final Show
 
 ###CODE
 + [ ] Shape.pde: multiplication
++ [ ] variable randomness (for use with slider)
++ [ ] should I use a particle system for these?
++ [ ] 
+
 
 ###DESIGN
 + [ ] design control box

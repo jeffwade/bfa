@@ -3,7 +3,7 @@ import java.util.*;
 int sides, r; // number of sides; diameter
 PVector loc, vel, acc, mouse, center; //location, velocity, acceleration;
 color white, black;
-
+int H, S, V, A; //Hue, Saturation, Value, Alpha
 PShape s;
 
 void setup() {
@@ -16,6 +16,22 @@ void setup() {
   smooth(8);
   r = 100;
   sides = 13; //min: 3; max: ?; max+1: circle;
+  //Initial color settings
+    /*HUE KEY
+    Red: 0;
+    Orange: 30;
+    Yellow: 60;
+    Green: 120;
+    Cyan: 180;
+    Blue: 240;
+    Purple: 270
+    Magenta: 300;
+    Pink: 330;
+    Red: 360; */
+ 
+  H = 150;
+  S = V = 100;
+  A = 80;
 }
 
 void draw() {
@@ -25,29 +41,47 @@ void draw() {
   center = new PVector(width/2, height/2);
   mouse = new PVector(mouseX, mouseY);
   mouse.sub(center);
-  r = (int) map(mouseY, 0, height, 250, 10);
+  r = (int) map(mouseY, 0, height, 230, 10);
   sides = (int) map(mouseX, 0, width-5, 2, 25);
+  // println(sides);
 
-  println(sides);
   pushMatrix();
     translate(center.x, center.y);
     // rotate(-PI/(2*sides)); //*** FIGURE OUT HOW TO ROTATE EVERY SHAPE SO THAT IT SITS 'FLAT' ***
 
     pushStyle();
       s = createShape();
-
-      s.beginShape();
-        s.fill(black, 80);
+      
+      if (sides < 3) {
+      s.beginShape(LINES);
+        s.noFill();
+        s.stroke(H, S, V, A);
+        s.strokeWeight(2);
+        println("r: "+r);
+        s.vertex(-r, 0);
+        s.vertex(r, 0);
+        s.endShape();
+      } else {   
+        s.beginShape();
+        if (sides >= 24) {
+           sides = 100;
+         } 
+        s.fill(H,S,V,A);
         s.noStroke();
         for (int i = 0; i < sides; i++) {
           s.vertex(r*cos(i*TAU/sides), r*sin(i*TAU/sides));
         }
-      s.endShape(CLOSE);
+         s.endShape(CLOSE);
+      }
+     
 
-      shape(s, 0, 0);
+      shape(s);
     popStyle();
   popMatrix();
 }
 void keyPressed() {
   // if (key == ESC) {key = 0;};
+  if (key == ' ') {
+    H = (H+30)%360;    
+  }
 }
