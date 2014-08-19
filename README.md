@@ -1,28 +1,6 @@
 #IN FIERI
 Repository for my BFA Final Show
 
-##DESCRIPTION
-
-
-##RESOURCES
-###LIBRARIES
-
-####Consider
-##### Geometry/Math
-`point2line`, `Combinatorics`, `ComputationalGeometry`
-##### Physics/Animation
-`Fisica`, `Ani`, `Motion`, `Hermes`, `Executor`, `TimedEvents`
-##### Arduino/Serials
-`Arduino (Firmata)`, `serial`,  `video`, `VSync for Processing`
-##### Type
-`Geomerative`
-##### Web
-`network`, `Post to Web`, `GifAnimation`, `HTTP Requests for Processing`
-##### Other
-`GenerativeDesign`, `SimpleMultiTouch`
-
-
-
 ##TASK LIST
 ###RESEARCH
 + [ ] posting online (eg. to twitter)
@@ -37,7 +15,7 @@ Repository for my BFA Final Show
 + [ ] Shape.pde: multiplication
 
 ###DESIGN
-+ [ ] design
++ [ ] design control box
   - hide arduino
   - slider/knob
   - hold cubes
@@ -52,3 +30,20 @@ Repository for my BFA Final Show
   - [ ] sealing
   - [ ] metal strip?
 + [ ] control box
+
+
+##LIBRARIES
+###Consider
+#### Geometry/Math
+`point2line`, `Combinatorics`, `ComputationalGeometry`
+#### Physics/Animation
+`Fisica`, `Ani`, `Motion`, `Hermes`, `Executor`, `TimedEvents`
+#### Arduino/Serials
+`Arduino (Firmata)`, `serial`,  `video`, `VSync for Processing`
+#### Type
+`Geomerative`
+#### Web
+`network`, `Post to Web`, `GifAnimation`, `HTTP Requests for Processing`
+#### Other
+`GenerativeDesign`, `SimpleMultiTouch`
+
