@@ -1,6 +1,6 @@
 import java.util.*;
 
-int sides, r, number; // number of sides; diameter; number of shapes drawn
+int sides, r, d, number; // number of sides; radius; diameter; number of shapes drawn
 PVector loc, vel, acc, mouse, center; //location, velocity, acceleration;
 color white, black;
 int H, S, V, A; //Hue, Saturation, Value, Alpha
@@ -43,7 +43,9 @@ void draw() {
   mouse = new PVector(mouseX, mouseY);
   mouse.sub(center);
   r = (int) map(mouseY, 0, height, 230, 10);
+  d = 2*r;
   sides = (int) map(mouseX, 0, width-5, 2, 25);
+  number = 3;
   // println(sides);
 
   pushMatrix();
@@ -75,12 +77,18 @@ void draw() {
          s.endShape(CLOSE);
       }
      
-
-      shape(s);
-      
+      if (number == 1) {
+          shape(s);
+      } else {   
+        for (int i = 1; i < number; i++) {
+          shape(s, i*r, 0);
+          shape(s, -i*r, 0);
+        }
+      }
     popStyle();
   popMatrix();
 }
+
 void keyPressed() {
   // if (key == ESC) {key = 0;};
   if (key == ' ') {
