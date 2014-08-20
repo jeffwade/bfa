@@ -1,6 +1,6 @@
 import java.util.*;
 
-int sides, r; // number of sides; diameter
+int sides, r, number; // number of sides; diameter; number of shapes drawn
 PVector loc, vel, acc, mouse, center; //location, velocity, acceleration;
 color white, black;
 int H, S, V, A; //Hue, Saturation, Value, Alpha
@@ -16,6 +16,7 @@ void setup() {
   smooth(8);
   r = 100;
   sides = 13; //min: 3; max: ?; max+1: circle;
+  number = 
   //Initial color settings
     /*HUE KEY
     Red: 0;
@@ -57,7 +58,7 @@ void draw() {
         s.noFill();
         s.stroke(H, S, V, A);
         s.strokeWeight(2);
-        println("r: "+r);
+        // println("r: "+r);
         s.vertex(-r, 0);
         s.vertex(r, 0);
         s.endShape();
@@ -76,6 +77,7 @@ void draw() {
      
 
       shape(s);
+      
     popStyle();
   popMatrix();
 }
@@ -84,4 +86,15 @@ void keyPressed() {
   if (key == ' ') {
     H = (H+30)%360;    
   }
+  if (key == CODED) {
+    if (keyCode == UP) {
+      A = abs((A+10))%110;
+    } else if (keyCode == DOWN) {
+      if (A == 0) {
+        A=110;
+      }
+      A = abs((A-10)%110);
+    }
+  }
+  // println("A: "+A);
 }
