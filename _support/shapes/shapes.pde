@@ -7,12 +7,12 @@ int H, S, V, A; //Hue, Saturation, Value, Alpha
 PShape s;
 
 void setup() {
-  size(500, 500, P2D);
+  size(800, 800, P2D);
+ // frame.removeNotify();
+ // frame.setUndecorated(true);
   colorMode(HSB, 360, 100, 100, 100);
   black = color(0, 0, 0, 100);
   white = color(0, 0, 100, 100);
-//  frame.removeNotify();
-//  frame.setUndecorated(true);
   smooth(8);
   r = 100;
   sides = 13; //min: 3; max: ?; max+1: circle;
