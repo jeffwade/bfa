@@ -16,7 +16,7 @@ void setup() {
   smooth(8);
   r = 100;
   sides = 13; //min: 3; max: ?; max+1: circle;
-  number = 
+  number =
   //Initial color settings
     /*HUE KEY
     Red: 0;
@@ -29,7 +29,7 @@ void setup() {
     Magenta: 300;
     Pink: 330;
     Red: 360; */
- 
+
   H = 150;
   S = V = 100;
   A = 80;
@@ -42,9 +42,9 @@ void draw() {
   center = new PVector(width/2, height/2);
   mouse = new PVector(mouseX, mouseY);
   mouse.sub(center);
-  r = (int) map(mouseY, 0, height, 230, 10);
+  r = (int) map(mouseY, 0, height, 250, 10);
   d = 2*r;
-  sides = (int) map(mouseX, 0, width-5, 2, 25);
+  sides = (int) map(mouseX, 0, width, 2, 50);
   number = 3;
   // println(sides);
 
@@ -54,7 +54,7 @@ void draw() {
 
     pushStyle();
       s = createShape();
-      
+
       if (sides < 3) {
       s.beginShape(LINES);
         s.noFill();
@@ -64,11 +64,11 @@ void draw() {
         s.vertex(-r, 0);
         s.vertex(r, 0);
         s.endShape();
-      } else {   
+      } else {
         s.beginShape();
-        if (sides >= 24) {
-           sides = 100;
-         } 
+        // if (sides >= 24) {
+        //    sides = 100;
+        //  }
         s.fill(H,S,V,A);
         s.noStroke();
         for (int i = 0; i < sides; i++) {
@@ -76,23 +76,17 @@ void draw() {
         }
          s.endShape(CLOSE);
       }
-     
-      if (number == 1) {
-          shape(s);
-      } else {   
-        for (int i = 1; i < number; i++) {
-          shape(s, i*r, 0);
-          shape(s, -i*r, 0);
-        }
-      }
-    popStyle();
+
+      for (int i = 0; i < sides; i++) {
+        shape(s, d*cos(i*TAU/sides), d*sin(i*TAU/sides));
+      }    popStyle();
   popMatrix();
 }
 
 void keyPressed() {
   // if (key == ESC) {key = 0;};
   if (key == ' ') {
-    H = (H+30)%360;    
+    H = (H+30)%360;
   }
   if (key == CODED) {
     if (keyCode == UP) {
