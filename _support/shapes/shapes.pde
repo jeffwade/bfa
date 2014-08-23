@@ -44,7 +44,7 @@ void draw() {
   mouse.sub(center);
   r = (int) map(mouseY, 0, height, 250, 10);
   d = 2*r;
-  sides = (int) map(mouseX, 0, width, 2, 50);
+  sides = (int) map(mouseX, 0, width, 1, 50);
   number = 3;
   // println(sides);
 
@@ -54,8 +54,15 @@ void draw() {
 
     pushStyle();
       s = createShape();
-
-      if (sides < 3) {
+      if (sides < 2) {
+        s.beginShape(POINTS);
+        s.noFill();
+        s.stroke(H, S, V, A);
+        s.strokeWeight(2);
+        // println("r: "+r);
+        s.vertex(0, 0);
+        s.endShape();
+      } else if (sides == 2) {
       s.beginShape(LINES);
         s.noFill();
         s.stroke(H, S, V, A);

@@ -12,10 +12,16 @@ Repository for my BFA Final Show
 
 
 ###CODE
-+ [ ] Shape.pde: multiplication
++ [ ] FUNCTIONS
+    + [ ] multiplication
+    + [ ] arrangement
+    + [ ] spacing
+    + [ ] order
+    + [ ] rotational center
++ [ ] switch combinations
 + [ ] variable randomness (for use with slider)
 + [ ] should I use a particle system for these?
-+ [ ] 
++ [ ] Shape class
 
 
 ###DESIGN
@@ -24,7 +30,7 @@ Repository for my BFA Final Show
   - slider/knob
   - hold cubes
 + [ ] property icons
-+ [ ] logos
++ [ ] logos?
   - [ ] to SVG
 
 ###BUILD
@@ -32,7 +38,7 @@ Repository for my BFA Final Show
   - [ ] sanding
   - [ ] staining
   - [ ] sealing
-  - [ ] metal strip?
+  - [ ] aluminum strip
 + [ ] control box
 
 
