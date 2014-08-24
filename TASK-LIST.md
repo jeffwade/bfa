@@ -3,6 +3,8 @@
 + [ ] posting online (eg. to twitter)
 
 ###Arduino
++ [ ] Read from potentiometer
++ [ ] Switches using resistor ladder
 
 ###Processing
 + [ ] smooth transitions (eg. when adding vertex)
