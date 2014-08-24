@@ -20,13 +20,15 @@ void loop() {
   // Convert the analog reading (which goes from 0 - 1023) to a voltage (0 - 5V):
   Serial.println(sensorValue);
 
-  if(sensorValue >= 1000){
+  if(sensorValue >= 1013){
+    noTone(8);
+  } else if(sensorValue >= 900){
       tone(8, notes[0]);
-  } else if(sensorValue >= 750){
+  } else if(sensorValue >= 650){
       tone(8, notes[1]);
-  } else if(sensorValue >= 500){
+  } else if(sensorValue >= 400){
       tone(8, notes[2]);
-  } else if(sensorValue >= 250){
+  } else if(sensorValue >= 150){
       tone(8, notes[3]);
   } else if (sensorValue >= 10) {
     tone(8, notes[4]);
