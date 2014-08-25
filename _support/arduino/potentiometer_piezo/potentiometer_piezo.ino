@@ -6,7 +6,7 @@
  */
 
 // the setup routine runs once when you press reset:
-int notes[] = {262, 294, 330, 349, 392};
+int midNotes[] = {262, 294, 330, 349, 392};
 
 void setup() {
   // initialize serial communication at 9600 bits per second:
@@ -17,21 +17,24 @@ void setup() {
 void loop() {
   // read the input on analog pin 0:
   float sensorValue = analogRead(A0);
+  float keyVal = analogRead(A1);
+
   // Convert the analog reading (which goes from 0 - 1023) to a voltage (0 - 5V):
   Serial.println(sensorValue);
 
   if(sensorValue >= 1013){
     noTone(8);
   } else if(sensorValue >= 900){
-      tone(8, notes[0]);
+      tone(8, midNotes[0]);
+
   } else if(sensorValue >= 650){
-      tone(8, notes[1]);
+      tone(8, midNotes[1]);
   } else if(sensorValue >= 400){
-      tone(8, notes[2]);
+      tone(8, midNotes[2]);
   } else if(sensorValue >= 150){
-      tone(8, notes[3]);
+      tone(8, midNotes[3]);
   } else if (sensorValue >= 10) {
-    tone(8, notes[4]);
+    tone(8, midNotes[4]);
   } else {
     noTone(8);
   }
