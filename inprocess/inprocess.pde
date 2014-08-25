@@ -4,6 +4,11 @@ Serial arduino;
  int xPos = 1;         // horizontal position of the graph
 int H = 0; //hue
 color white;
+int switch1 = 8; //first switch is on pin 8
+int switch2 = 9; //second is on pin 9
+int switch3 = 10; //third is pin 10
+int switch4 = 11; //fourth is pin 11
+
 void setup() {
   size(512, 512);
   colorMode(HSB, 360, 100, 100, 100);
