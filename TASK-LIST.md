@@ -3,8 +3,8 @@
 + [ ] posting online (eg. to twitter)
 
 ###Arduino
-+ [ ] Read from potentiometer
-+ [ ] Switches using resistor ladder
++ [x] Read from potentiometer
++ [ ] Switches in combination
 
 ###Processing
 + [ ] smooth transitions (eg. when adding vertex)
@@ -18,7 +18,7 @@
     + [ ] order
     + [ ] rotational center
 + [ ] switch combinations
-+ [ ] variable randomness (for use with slider)
++ [ ] variable randomness (for use with dial)
 + [ ] should I use a particle system for these?
 + [ ] Shape class
 
@@ -26,7 +26,7 @@
 ##DESIGN
 + [ ] design control box
   - hide arduino
-  - slider/knob
+  - dial
   - hold cubes
 + [ ] property icons
 + [ ] logos?
