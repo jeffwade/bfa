@@ -4,8 +4,8 @@
 
 ###Arduino
 + [x] Read from potentiometer
-+ [ ] Switch and potentiometer
-+ [ ] Switches in combination
++ [x] Switch and potentiometer
++ [x] Switches in combination
 
 ###Processing
 + [ ] smooth transitions (eg. when adding vertex)
@@ -18,7 +18,7 @@
     + [ ] spacing
     + [ ] order
     + [ ] rotational center
-+ [ ] switch combinations
++ [x] switch combinations
 + [ ] variable randomness (for use with dial)
 + [ ] should I use a particle system for these?
 + [ ] Shape class
