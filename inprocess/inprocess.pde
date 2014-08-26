@@ -1,42 +1,42 @@
 import processing.serial.*;
-Serial arduino;
-// float ptVal; //Value read from potentiometer
- int xPos = 1;         // horizontal position of the graph
-int H = 0; //hue
-color white;
-int switch1 = 8; //first switch is on pin 8
-int switch2 = 9; //second is on pin 9
-int switch3 = 10; //third is pin 10
-int switch4 = 11; //fourth is pin 11
+import cc.arduino.*;
+
+Arduino arduino;
+
+//set pins
+int pot = 8; //potentiometer on pin 8
+int switch1 = 2; //first switch on pin 2
+int switch2 = 3; //second switch on pin 3
+int switch3 = 4; //third switch on pin 4
+int switch4 = 5; //fourth switch on pin 5
+
+color white, black;
 
 void setup() {
   size(512, 512);
   colorMode(HSB, 360, 100, 100, 100);
   white = color(0,0,100,100);
-  background(0, 0, 100, 100);
+  black = color(0,0,0,100);
+
+  background(white);
   noStroke();
 
-  String usbPort = Serial.list()[7];
-  arduino = new Serial(this, usbPort, 9600);
-  arduino.bufferUntil('\n');
+  //set up to recognize arduino
+  println(Arduino.list()); //list serial ports
+  String usbPort = Arduino.list()[7]; //on wMac, the arduino is connected to 7
+  arduino = new Arduino(this, usbPort, 57600);
+
+  //set pin modes
+  arduino.pinMode(switch1, Arduino.INPUT);
+  arduino.pinMode(switch2, Arduino.INPUT);
+  arduino.pinMode(switch3, Arduino.INPUT);
+  arduino.pinMode(switch4, Arduino.INPUT);
+  arduino.pinMode(pot, Arduino.INPUT);
+
+
 }
 
  void draw () {
- // everything happens in the serialEvent()
- }
+  state1
 
- void serialEvent (Serial arduino) {
-   // get the ASCII string:
-   String inString = arduino.readStringUntil('\n');
-
-   if (inString != null) {
-     // trim off any whitespace:
-     inString = trim(inString);
-     // convert to an int and map to the screen height:
-     float inByte = float(inString);
-     H = (int) map(inByte, 0, 1023, 0, 360);
-     background(H, 100, 100, 100);
-     fill(white);
-     ellipse(width/2, height/2, H, H);
-   }
  }

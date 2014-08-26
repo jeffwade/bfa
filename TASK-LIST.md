@@ -4,6 +4,7 @@
 
 ###Arduino
 + [x] Read from potentiometer
++ [ ] Switch and potentiometer
 + [ ] Switches in combination
 
 ###Processing

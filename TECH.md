@@ -1,11 +1,16 @@
 #TECHNOLOGIES
 
-##HARDWARE
-[Arduino UNO R3](http://www.arduino.cc)
+##Hardware
+[Arduino UNO R3](http://www.arduino.cc) : my first microcontroller!
 
-##SOFTWARE
-[Processing](http://processing.org)
+##Software
+[Processing](http://processing.org) : java-based coding for visual projects
+[Fritzing](http://fritzing.org/home/) : app for creating electronics schematics
+###Libraries
+#### Arduino/Serials
+[Arduino (Firmata)](http://arduino.cc/en/Reference/Firmata) : standard arduino firmware for integration with Porcessing
 
+[serial](http://processing.org/reference/libraries/serial/) : serial communication for processing
 
 ###LIBRARIES (under consideration)
 #### Geometry/Math
@@ -13,7 +18,7 @@
 #### Physics/Animation
 `Fisica`, `Ani`, `Motion`, `Hermes`, `Executor`, `TimedEvents`
 #### Arduino/Serials
-`Arduino (Firmata)`, `serial`,  `video`, `VSync for Processing`
+`video`, `VSync for Processing`
 #### Type
 `Geomerative`
 #### Web

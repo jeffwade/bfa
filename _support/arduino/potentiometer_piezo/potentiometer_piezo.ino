@@ -17,7 +17,6 @@ void setup() {
 void loop() {
   // read the input on analog pin 0:
   float sensorValue = analogRead(A0);
-  float keyVal = analogRead(A1);
 
   // Convert the analog reading (which goes from 0 - 1023) to a voltage (0 - 5V):
   Serial.println(sensorValue);
