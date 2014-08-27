@@ -50,7 +50,7 @@ void setup() {
 
   //set up to recognize arduino
   println(Arduino.list()); //list serial ports
-  String usbPort = Arduino.list()[7]; //on wMac, the arduino is connected to 7
+  String usbPort = Arduino.list()[5]; //on wMac, the arduino is connected to 7
   arduino = new Arduino(this, usbPort, 57600);
 
   //set pin modes
@@ -86,8 +86,9 @@ void setup() {
     B = (int) map(pv, 0, 1023, 0, 100);
   }
   if (ss4 == HI) {
+    println("YES");
     A = (int) map(pv, 0, 1023, 0, 100);
   }
-  println("r: " + r + " H: " + H + ", S: " + S + ", B: " + B + ", A: " + A);
+  // println("r: " + r + " H: " + H + ", S: " + S + ", B: " + B + ", A: " + A);
 
 }
