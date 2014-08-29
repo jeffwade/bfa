@@ -4,7 +4,7 @@ class Shape {
   float r, d; //radius; diameter
 
   //motion variables
-  float m; //mass
+  int m, b; //mass, bounce
   PVector loc, vel, acc; //location, velocity, acceleration;
   float theta, aVel, aAcc; //angle, angular velocity, angular acceleration;
 
@@ -16,9 +16,11 @@ class Shape {
 
     r = 200;
     d = 2*r;
-    m = 50;
 
     sides = 6;
+
+    m = 50;
+    b = 1;
 
     loc = center.get();
     vel = new PVector();
@@ -50,6 +52,7 @@ void update(){
 
 void display() {
   pushMatrix();
+    translate(loc.x, loc.y);
     pushStyle();
       fill(H, S, B, A);
       noStroke();
@@ -58,4 +61,11 @@ void display() {
   popMatrix();
 }
 
+public int getHue() {
+    return H;
+}
+
+public void setHue(int newH) {
+    H = newH;
+}
 }

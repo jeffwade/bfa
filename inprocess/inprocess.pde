@@ -4,6 +4,10 @@ import cc.arduino.*;
 
 Arduino arduino;
 
+//Array of shapes
+ArrayList<Shape> shapes;
+
+
 //Pins
 int pot = 0; //potentiometer on pin 0
 int switch1 = 3; //first switch on pin 3
@@ -20,36 +24,20 @@ boolean[] sw = {false, false, false, false}; //array holding switch states
 color white, black;
 
 //Global Vectors
-PVector center = new PVector(width/2, height/2);
-/*
-  HUE KEY:
-----------------
-  Red: 0;
-  Orange: 30;
-  Yellow: 60;
-  Green: 120;
-  Cyan: 180;
-  Blue: 240;
-  Purple: 270
-  Magenta: 300;
-  Pink: 330;
-  Red: 360;
-*/
-
-int H, S, B, A;
-float r;
+PVector center;
 
 void setup() {
   size(512, 512);
   colorMode(HSB, 360, 100, 100, 100);
   white = color(0,0,100,100);
   black = color(0,0,0,100);
-
+  center = new PVector(width/2, height/2);
   background(white);
   noStroke();
 
-  r = width;
-  H = S = B = A = 360;
+  //initialize shapes
+  shapes = new ArrayList<Shape>();
+  shapes.add(new Shape());
 
   //set up to recognize arduino
   println(Arduino.list()); //list serial ports
@@ -64,10 +52,10 @@ void setup() {
 }
 
  void draw () {
-  background(white);
-  fill(H, S, B, A);
-  rectMode(CENTER);
-  rect(width/2, height/2, r, r);
+  pushStyle();
+    fill(white, 25);
+    rect(0, 0, width, height);
+  popStyle();
 
   //read states of switches and value of potentiometer
   pv = arduino.analogRead(pot);
@@ -81,22 +69,13 @@ void setup() {
   }
 
   if (!(sw[0] || sw[1] || sw[2] || sw[3])) {
-    r = map(pv, 0, 1023, 25, width);
-  }
-  if (sw[0]) {
-    H = (int) map(pv, 0, 1023, 0, 360);
-  }
-  if (sw[1]) {
-    S = (int) map(pv, 0, 1023, 0, 100);
-  }
-  if (sw[2]) {
-    B = (int) map(pv, 0, 1023, 0, 100);
-  }
-  if (sw[3]) {
-    A = (int) map(pv, 0, 1023, 0, 100);
+    for (int i = 0; i < shapes.size(); ++i) {
+      Shape s = shapes.get(i);
+      s.setHue( (int) map(pv, 0, 1023, 0, 360) );
+      s.run();
+    }
   }
 
-  println(sw[3]);
   // println(sw);
   // println("r: " + r + " H: " + H + ", S: " + S + ", B: " + B + ", A: " + A);
 

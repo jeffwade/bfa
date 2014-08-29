@@ -10,18 +10,19 @@
 ###Processing
 + [ ] smooth transitions (eg. when adding vertex)
 + [ ] how to deal with jumping values
++ [ ] bounce
++ [ ] sound
 
 ##CODE
-+ [ ] Shape class
-  + [ ] PROPERTIES.md
++ [ ] Shape class (see `PROPERTIES.md`)
+  + [x] Default construction
+  + getters/setters
+  + [ ] `display` method
+  + [ ] `update` method
 + [x] switch combinations
-+ [ ] include random as final value on ranges
-+ [ ] should I use a particle system for these?
-
-
 
 ##DESIGN
-+ [ ] design control box
++ [ ] control box
   - hide arduino
   - dial
   - hold cubes
@@ -36,3 +37,7 @@
   - [ ] sealing
   - [ ] aluminum strip
 + [ ] control box
+
+##Questions
++ [x] include random as final value on ranges? : YES
++ [ ] should I use a particle system for these?
