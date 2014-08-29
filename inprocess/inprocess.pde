@@ -13,6 +13,8 @@ int switch4 = 9; //fourth switch on pin 9
 //variables for switch states and potentiometer value
 int ss1, ss2, ss3, ss4; //switch states corresponing to swtiches of same number
 float pv; //potentiometer value
+int[] switches = {switch1, switch2, switch3, switch4};
+boolean[] sw = {false, false, false, false};
 
 color white, black, cyan, magenta, yellow;
 /*HUE KEY
@@ -26,9 +28,6 @@ color white, black, cyan, magenta, yellow;
     Magenta: 300;
     Pink: 330;
     Red: 360; */
-
-int HI = Arduino.HIGH;
-int LO = Arduino.LOW;
 
 int H, S, B, A;
 float r;
@@ -54,10 +53,9 @@ void setup() {
   arduino = new Arduino(this, usbPort, 57600);
 
   //set pin modes
-  arduino.pinMode(switch1, Arduino.INPUT);
-  arduino.pinMode(switch2, Arduino.INPUT);
-  arduino.pinMode(switch3, Arduino.INPUT);
-  arduino.pinMode(switch4, Arduino.INPUT);
+  for (int i = 0; i < switches.length; ++i) {
+    arduino.pinMode(switches[i], Arduino.INPUT);
+  }
   arduino.pinMode(pot, Arduino.INPUT);
 }
 
@@ -68,26 +66,34 @@ void setup() {
   rect(width/2, height/2, r, r);
 
   //read states of switches and value of potentiometer
-  ss1 = arduino.digitalRead(switch1);
-  ss2 = arduino.digitalRead(switch2);
-  ss3 = arduino.digitalRead(switch3);
-  ss4 = arduino.digitalRead(switch4);
   pv = arduino.analogRead(pot);
-  if (ss1 == LO && ss2 == LO && ss3 == LO && ss4 == LO) {
+  for (int i = 0; i < switches.length; ++i) {
+    int state = arduino.digitalRead(switches[i]);
+    if (state == Arduino.HIGH) {
+      sw[i] = true;
+    } else {
+      sw[i] = false;
+    }
+  }
+
+  if (!(sw[0] || sw[1] || sw[2] || sw[3])) {
     r = map(pv, 0, 1023, 25, width);
   }
-  if (ss1 == HI) {
+  if (sw[0]) {
     H = (int) map(pv, 0, 1023, 0, 360);
   }
-  if (ss2 == HI) {
+  if (sw[1]) {
     S = (int) map(pv, 0, 1023, 0, 100);
   }
-  if (ss3 == HI) {
+  if (sw[2]) {
     B = (int) map(pv, 0, 1023, 0, 100);
   }
-  if (ss4 == HI) {
+  if (sw[3]) {
     A = (int) map(pv, 0, 1023, 0, 100);
   }
+
+  println(sw[3]);
+  // println(sw);
   // println("r: " + r + " H: " + H + ", S: " + S + ", B: " + B + ", A: " + A);
 
 }
