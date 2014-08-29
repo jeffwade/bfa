@@ -1,33 +1,40 @@
+import java.util.*;
 import processing.serial.*;
 import cc.arduino.*;
 
 Arduino arduino;
 
-//set pins
+//Pins
 int pot = 0; //potentiometer on pin 0
 int switch1 = 3; //first switch on pin 3
 int switch2 = 5; //second switch on pin 5
 int switch3 = 7; //third switch on pin 7
 int switch4 = 9; //fourth switch on pin 9
-
-//variables for switch states and potentiometer value
-int ss1, ss2, ss3, ss4; //switch states corresponing to swtiches of same number
-float pv; //potentiometer value
 int[] switches = {switch1, switch2, switch3, switch4};
-boolean[] sw = {false, false, false, false};
 
-color white, black, cyan, magenta, yellow;
-/*HUE KEY
-    Red: 0;
-    Orange: 30;
-    Yellow: 60;
-    Green: 120;
-    Cyan: 180;
-    Blue: 240;
-    Purple: 270
-    Magenta: 300;
-    Pink: 330;
-    Red: 360; */
+//Inputs
+float pv; //potentiometer value
+boolean[] sw = {false, false, false, false}; //array holding switch states
+
+//Global Colors
+color white, black;
+
+//Global Vectors
+PVector center = new PVector(width/2, height/2);
+/*
+  HUE KEY:
+----------------
+  Red: 0;
+  Orange: 30;
+  Yellow: 60;
+  Green: 120;
+  Cyan: 180;
+  Blue: 240;
+  Purple: 270
+  Magenta: 300;
+  Pink: 330;
+  Red: 360;
+*/
 
 int H, S, B, A;
 float r;
@@ -37,9 +44,6 @@ void setup() {
   colorMode(HSB, 360, 100, 100, 100);
   white = color(0,0,100,100);
   black = color(0,0,0,100);
-  cyan = color(180,100,100,100);
-  magenta = color(300,100,100,100);
-  yellow = color(60,100,100,100);
 
   background(white);
   noStroke();

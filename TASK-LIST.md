@@ -9,19 +9,15 @@
 
 ###Processing
 + [ ] smooth transitions (eg. when adding vertex)
-
++ [ ] how to deal with jumping values
 
 ##CODE
-+ [ ] FUNCTIONS
-    + [ ] multiplication
-    + [ ] arrangement
-    + [ ] spacing
-    + [ ] order
-    + [ ] rotational center
-+ [x] switch combinations
-+ [ ] variable randomness (for use with dial)
-+ [ ] should I use a particle system for these?
 + [ ] Shape class
+  + [ ] PROPERTIES.md
++ [x] switch combinations
++ [ ] include random as final value on ranges
++ [ ] should I use a particle system for these?
+
 
 
 ##DESIGN
