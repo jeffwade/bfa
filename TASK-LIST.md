@@ -16,9 +16,10 @@
 ##CODE
 + [ ] Shape class (see `PROPERTIES.md`)
   + [x] Default construction
-  + getters/setters
+  + [x] getters/setters
   + [ ] `display` method
   + [ ] `update` method
+  + [ ] physics (look into libraries for this)
 + [x] switch combinations
 
 ##DESIGN
