@@ -135,7 +135,9 @@ class Shape {
         velocity.x = newX;
         velocity.y = newY;
     }
-    public void setVelocity(float newAngle, float newMagnitude) {
+    public void setVelocity(String a, float newAngle, float newMagnitude) {
+        //the string doesn't actually matter at all.
+        //if you have it, then this setter will be used
         float newX = newMagnitude*cos(newAngle);
         float newY = newMagnitude*sin(newAngle);
         velocity.x = newX;
@@ -151,7 +153,9 @@ class Shape {
         acceleration.x = newX;
         acceleration.y = newY;
     }
-    public void setAcceleration(float newAngle, float newMagnitude) {
+    public void setAcceleration(String a, float newAngle, float newMagnitude) {
+        //the string doesn't actually matter at all.
+        //if you have it, then this setter will be used
         float newX = newMagnitude*cos(newAngle);
         float newY = newMagnitude*sin(newAngle);
         acceleration.x = newX;
