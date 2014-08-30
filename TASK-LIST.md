@@ -45,6 +45,6 @@
 
 ##Humans
 ###Contact
-- [ ] Brian Christiansen about using shop
-- [ ] Mechanical engineering about laser & plasma cutters
+- [x] Brian Christiansen about using shop
+- [x] Mechanical engineering about laser & plasma cutters
 - [ ] Linda about show
