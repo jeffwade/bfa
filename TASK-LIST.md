@@ -42,3 +42,9 @@
 ##Questions
 + [x] include random as final value on ranges? : YES
 + [ ] should I use a particle system for these?
+
+##Humans
+###Contact
+- [ ] Brian Christiansen about using shop
+- [ ] Mechanical engineering about laser & plasma cutters
+- [ ] Linda about show
