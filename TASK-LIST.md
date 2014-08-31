@@ -30,7 +30,7 @@
 + [ ] property icons
 + [ ] logos?
   - [ ] to SVG
-
+0.010?
 ##BUILD
 + [ ] wood cubes, cone
   - [ ] sanding

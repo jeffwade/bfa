@@ -23,18 +23,26 @@
 
   float pv; //potentiometer value
   boolean[] sw = {false, false, false, false}; //array holding switch states
+//Global Property variables
+  int shapeHue;
+  float radius;
+  float angle;
+  int sides;
 
-
+//Global limits
+  int maxShapes = 10;
+  int maxSides = 10;
 
 void setup() {
   //general sketch settings
-    size(512, 512);
+    size(512, 512, P2D);
     colorMode(HSB, 360, 100, 100, 100);
     white = color(0,0,100,100);
     black = color(0,0,0,100);
     center = new PVector(width/2, height/2);
     background(white);
     noStroke();
+    smooth();
   //initialize arraylist of shapes
     shapes = new ArrayList<Shape>();
     shapes.add(new Shape());
@@ -53,6 +61,7 @@ void draw () {
   motionBlur(white, 25); //set color and level of motion blur
   readInputs();  //read states of switches and value of potentiometer
   changeProperties(sw);
+  //arrange shapes
   //grab snapshot/gif
   //post/store the above
 }

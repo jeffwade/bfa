@@ -1,25 +1,44 @@
 class Shape {
   //Class variables
     PShape s;
-    int sides; // number of sides
+    int n; // number of sides
     float r; //radius
 
     //motion variables
     int m, b; //mass, bounce
-    PVector position, velocity, acceleration; //location, velocity, acceleration;
+    PVector position, velocity, acceleration; //position, velocity, acceleration;
     float theta, aVel, aAcc; //angle, angular velocity, angular acceleration;
 
     int H, S, B, A; //Hue, Saturation, Value, Alpha
-
+    color c;
   //Constructors
     //default constructor
     Shape() {
       H = 150;
       S = B = A = 90;
+      c = color(H,S,B,A);
 
-      r = 200;
+      r = 200.0;
 
-      sides = 6;
+      n = 6;
+
+      m = 50;
+      b = 1;
+
+      position = center.get();
+      velocity = new PVector();
+      acceleration = new PVector();
+
+      theta = aVel = aAcc = 0;
+    }
+
+    Shape(int _H, float _r) {
+      H = _H;
+      S = B = A = 90;
+
+      r = _r;
+
+      n = 6;
 
       m = 50;
       b = 1;
@@ -38,16 +57,14 @@ class Shape {
     }
 
     void update(){
-
+      c = color(H,S,B,A);
     }
 
     void display() {
       pushMatrix();
         translate(position.x, position.y);
         pushStyle();
-          fill(H, S, B, A);
-          noStroke();
-          ellipse(0, 0, 2*r, 2*r);
+          drawShape(n, r, c);
         popStyle();
       popMatrix();
     }
@@ -70,11 +87,11 @@ class Shape {
     }
 
     public int getSides() {
-        return sides;
+        return n;
     }
 
     public void setSides(int newSides) {
-        sides = newSides;
+        n = newSides;
     }
 
     public int getM() {
@@ -114,6 +131,12 @@ class Shape {
     }
     public void setAAcc(float newAAcc) {
         aAcc = newAAcc;
+    }
+    public float getX() {
+        return position.x;
+    }
+    public void setX(float newY) {
+        position.x = newY;
     }
     public PVector getPosition() {
         return position;

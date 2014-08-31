@@ -35,7 +35,7 @@
   - based on shape, color, size, speed, angle, mass, bounce, random
 
 ## Implement in Main Program
-- [ ] Number
+- [x] Number
 - [ ] Spacing
 - [ ] Arrangement
 - [ ] Order
