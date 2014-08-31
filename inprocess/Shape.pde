@@ -63,6 +63,7 @@ class Shape {
     void display() {
       pushMatrix();
         translate(position.x, position.y);
+        rotate(theta);
         pushStyle();
           drawShape(n, r, c);
         popStyle();
