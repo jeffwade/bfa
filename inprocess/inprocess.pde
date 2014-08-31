@@ -30,6 +30,7 @@
   float speed;
   float heading = 0.0;
   int sides;
+  float padding = 50;
 
 
 //Global limits
@@ -62,7 +63,7 @@ void setup() {
 }
 
 void draw () {
-  motionBlur(white, 25); //set color and level of motion blur
+  motionBlur(white, 50); //set color and level of motion blur
   readInputs();  //read states of switches and value of potentiometer
   changeProperties(sw);
   //arrange shapes

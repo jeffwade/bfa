@@ -12,7 +12,7 @@
   - range: 0–360º
 - [ ][ ][ ][x] : Speed - Magnitude (velocity)
   - range: 0–10
-- [x][x][ ][ ] : Spacing
+- [x][x][ ][ ] : Padding
   - max less than width or height
 - [x][ ][x][ ] : Heading - Direction (velocity)
   - range: 0–360º
@@ -38,7 +38,7 @@
 
 ## Implement in Main Program
 - [x] Number
-- [ ] Spacing
+- [x] Padding
 - [ ] Arrangement
 - [ ] Order
 - [ ] Walls

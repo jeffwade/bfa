@@ -18,7 +18,7 @@ class Shape {
       S = B = A = 90;
       c = color(H,S,B,A);
 
-      r = 200.0;
+      r = height/6;
 
       n = 6;
 
