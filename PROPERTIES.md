@@ -9,11 +9,11 @@
   - range, 1–???
 - [ ][ ][x][ ] : Angle
   - 0–360º
-- [ ][ ][ ][x] : Magnitude (velocity)
+- [ ][ ][ ][x] : Speed - Magnitude (velocity)
   - 0–(10?)
 - [x][x][ ][ ] : Spacing
   - max less than width or height
-- [x][ ][x][ ] : Direction (velocity)
+- [x][ ][x][ ] : Heading - Direction (velocity)
   - 0–360º
 - [ ][x][x][ ] : Shape
   - number of sides: 2=line; 3...???= polygon; >???=circle; top=random?
@@ -44,14 +44,14 @@
 ## Implement in Shape Class
 - [x] Color
 - [x] Radius
+- [x] Angle
 - [ ] Shape
 - [ ] Mass
 - [ ] Bounce/center of rotation
-- [ ] Angle
 - [ ] Location
   - (determined by `Number`, `Spacing`, and `Arrangment` when stationary)
-- [ ] Magnitude (velocity)
-- [ ] Direction (velocity)
+- [ ] Speed - Magnitude (velocity)
+- [ ] Heading - Direction (velocity)
 - [ ] Magnitude (acceleration)
 - [ ] Duration (acceleration)
 - [ ] Direction (acceleration)

@@ -35,7 +35,7 @@ void changeProperties(boolean[] sw) {
     // if the dial is set to the current size, do nothing
     if (difference > 0) {
       for (int i = 0; i < difference; ++i) {
-        shapes.add(new Shape(shapeHue, radius));
+        shapes.add(new Shape(shapeHue, radius, angle, speed, heading));
       }
     } else if (difference < 0) {
       for (int i = 0; i < abs(difference); ++i) {
@@ -65,6 +65,18 @@ void changeProperties(boolean[] sw) {
 
 //[ ][ ][ ][x]
 //fourth switch changes speed (ie magnitude of velocity)
+  if (sw[3] && !(sw[0] || sw[1] || sw[2])) {
+    for (int i = 0; i < shapes.size(); ++i) {
+      Shape s = shapes.get(i);
+
+      speed = map(pv, 0, 1023, 0, maxSpeed);
+      println(speed);
+      PVector p = new PVector(speed*cos(heading), speed*sin(heading));
+      s.setVelocity(p);
+      s.run();
+      println(s.getVelocity());
+    }
+  }
 
 
 }

@@ -30,7 +30,8 @@
 + [ ] property icons
 + [ ] logos?
   - [ ] to SVG
-0.010?
++ HUD
+
 ##BUILD
 + [ ] wood cubes, cone
   - [ ] sanding
@@ -41,7 +42,7 @@
 
 ##Questions
 + [x] include random as final value on ranges? : YES
-+ [ ] should I use a particle system for these?
++ [-] should I use a particle system for these?
 
 ##Humans
 ###Contact

@@ -32,7 +32,7 @@ class Shape {
       theta = aVel = aAcc = 0;
     }
 
-    Shape(int _H, float _r) {
+    Shape(int _H, float _r, float _theta, float _speed, float _heading) {
       H = _H;
       S = B = A = 90;
 
@@ -44,10 +44,11 @@ class Shape {
       b = 1;
 
       position = center.get();
-      velocity = new PVector();
+      velocity = new PVector(_speed*cos(_heading), _speed*sin(_heading));
       acceleration = new PVector();
 
-      theta = aVel = aAcc = 0;
+      theta = _theta;
+      aVel = aAcc = 0;
     }
 
   //Main methods
@@ -58,6 +59,10 @@ class Shape {
 
     void update(){
       c = color(H,S,B,A);
+
+      velocity.add(acceleration);
+      position.add(velocity);
+      acceleration.mult(0);
     }
 
     void display() {
