@@ -13,7 +13,11 @@ _in fieri_
   + `infierino.ino` : main arduino code
 + `inprocess/` : main processing project folder
   + `inprocess.pde` : main processing code
+    + `motionBlur.pde` : function for emulating motion blur
+    + `readInputs.pde` : funtion for reading arduino inputs
+    + `changeProperties.pde` : function containing interaction rules
   + `Shape.pde` : Shape class
+    + `drawShape.pde` : function to draw shape according to number of sides
 
 
 ###Documentation
