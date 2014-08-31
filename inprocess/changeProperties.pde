@@ -75,6 +75,11 @@ void changeProperties(boolean[] sw) {
       }
   }
 
+
+
+
+
+//run all of the shapes
   for (int i = 0; i < shapes.size(); ++i) {
     Shape s = shapes.get(i);
     s.run();
