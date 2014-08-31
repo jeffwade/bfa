@@ -39,7 +39,7 @@
 
 void setup() {
   //general sketch settings
-    size(1000, 1000, P2D);
+    size(displayWidth/2, displayHeight/2, P2D);
     colorMode(HSB, 360, 100, 100, 100);
     white = color(0,0,100,100);
     black = color(0,0,0,100);

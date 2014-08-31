@@ -54,6 +54,7 @@ class Shape {
   //Main methods
     void run(){
       update();
+      checkEdges();
       display();
     }
 
@@ -65,6 +66,20 @@ class Shape {
       acceleration.mult(0);
     }
 
+    void checkEdges() {
+        if (position.x < 0) {
+            position.x = width;
+        }
+        if (position.y < 0) {
+            position.y = height;
+        }
+        if (position.x > width) {
+            position.x = 0;
+        }
+        if (position.y > height) {
+            position.y = 0;
+        }
+    }
     void display() {
       pushMatrix();
         translate(position.x, position.y);

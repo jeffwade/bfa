@@ -44,9 +44,10 @@ void changeProperties(boolean[] sw) {
     }
     int r = 25;
     int h = 0;
+    float currentX = shapes.get(0).getX();
     for (int i = 0; i < shapes.size(); ++i) {
       Shape s = shapes.get(i);
-      s.setX(i*50);
+      s.setX((currentX + i*50)%width);
       s.run();
     }
     println(shapes.size());
@@ -64,17 +65,14 @@ void changeProperties(boolean[] sw) {
   }
 
 //[ ][ ][ ][x]
-//fourth switch changes speed (ie magnitude of velocity)
+//fourth switch changes speed (velocity.mag())
   if (sw[3] && !(sw[0] || sw[1] || sw[2])) {
     for (int i = 0; i < shapes.size(); ++i) {
       Shape s = shapes.get(i);
-
       speed = map(pv, 0, 1023, 0, maxSpeed);
-      println(speed);
       PVector p = new PVector(speed*cos(heading), speed*sin(heading));
       s.setVelocity(p);
       s.run();
-      println(s.getVelocity());
     }
   }
 
