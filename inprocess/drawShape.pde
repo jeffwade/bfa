@@ -17,38 +17,4 @@ void drawShape(int n, float r, color c, float dx){
     fill(c);
     ellipse(dx, 0, 2*r, 2*r);
   }
-
-
-
-
-      // PShape s = createShape();
-      // if (sides < 2) {
-      //   s.beginShape(POINTS);
-      //   s.noFill();
-      //   s.stroke(H, S, V, A);
-      //   s.strokeWeight(2);
-      //   // println("r: "+r);
-      //   s.vertex(0, 0);
-      //   s.endShape();
-      // } else if (sides == 2) {
-      // s.beginShape(LINES);
-      //   s.noFill();
-      //   s.stroke(H, S, V, A);
-      //   s.strokeWeight(2);
-      //   // println("r: "+r);
-      //   s.vertex(-r, 0);
-      //   s.vertex(r, 0);
-      //   s.endShape();
-      // } else {
-      //   s.beginShape();
-      //   // if (sides >= 24) {
-      //   //    sides = 100;
-      //   //  }
-      //   s.fill(H,S,V,A);
-      //   s.noStroke();
-      //   for (int i = 0; i < sides; i++) {
-      //     s.vertex(r*cos(i*TAU/sides), r*sin(i*TAU/sides));
-      //   }
-      //    s.endShape(CLOSE);
-      // }
 }

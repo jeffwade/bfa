@@ -69,7 +69,7 @@ void setup() {
 }
 
 void draw () {
-  motionBlur(white, 50); //set color and level of motion blur
+  motionBlur(white, 60); //set color and level of motion blur
   readInputs();  //read states of switches and value of potentiometer
   changeProperties(sw);
   arrangeShapes();

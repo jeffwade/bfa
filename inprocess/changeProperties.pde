@@ -129,8 +129,6 @@ void changeProperties(boolean[] sw) {
 //[ ][x][x][x]: Walls
 //[x][x][x][x]: Order
 
-
-
 //run all of the shapes
   for (int i = 0; i < shapes.size(); ++i) {
     Shape s = shapes.get(i);

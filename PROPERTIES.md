@@ -45,7 +45,7 @@
 ## Implement in Shape Class
 - [x] Color
 - [x] Radius
-- [x] Heading
+- [x] Angle
 - [x] Shape
 - [x] Mass
 - [ ] Attraction
