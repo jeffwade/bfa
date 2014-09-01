@@ -65,6 +65,8 @@ class Shape {
       velocity.limit(maxSpeed);
       position.add(velocity);
       acceleration.mult(0);
+
+      theta += aVel;
     }
 
     void checkEdges() {
@@ -87,6 +89,14 @@ class Shape {
       acceleration.add(force);
     }
 
+    void spin(float _s) {
+      aVel = _s;
+    }
+
+    void move(PVector _v) {
+      PVector v =_v.get();
+      position.add(v);
+    }
     void display() {
       pushMatrix();
         translate(position.x, position.y);

@@ -10,31 +10,29 @@
   - range: 1–???
 - [ ][ ][x][ ] : Angle
   - range: 0–360º
-- [ ][ ][ ][x] : Speed - Magnitude (velocity)
+- [ ][ ][ ][x] : Force Strength
   - range: 0–10
 - [x][x][ ][ ] : Padding
   - max less than width or height
-- [x][ ][x][ ] : Heading - Direction (velocity)
+- [x][ ][x][ ] : Force Heading
   - range: 0–360º
+- [x][ ][ ][x] : Attraction
 - [ ][x][x][ ] : Shape
   - number of sides: 2=line; 3...???= polygon; >???=circle; top=random?
   - range: 0–??
-- [x][ ][ ][x] : Magnitude (force)
-  - range: 0–??
-- [ ][x][ ][x] : Direction (force)
-  - range: 0–360º
-- [ ][ ][x][x] : Angular velocity
+- [ ][x][ ][x] : Bounce
+- [ ][ ][x][x] : Spin
   - range: 0–360º
 - [x][x][x][ ] : Arrangement
   - options: grid, checker, circle, shape, ???
 - [x][x][ ][x] : Mass
   - range: 1–100;
   -also turns gravity on/off
-- [x][ ][x][x] : Bounce (coeff. of restitution)/center of rotation
+- [x][ ][x][x] : Center of rotation
   -
 - [ ][x][x][x] : Walls
   - options: combinations of
-- [x][x][x][x] : Order/attraction/repulsion
+- [x][x][x][x] : Order
   - options: shape, color, size, speed, angle, mass, bounce, random
 
 ## Implement in Main Program
@@ -49,10 +47,10 @@
 - [x] Radius
 - [x] Angle
 - [x] Shape
-- [ ] Mass
-- [ ] Bounce/center of rotation
-- [x] Speed - Magnitude (velocity)
-- [x] Heading - Direction (velocity)
-- [ ] Magnitude (acceleration)
-- [ ] Direction (acceleration)
-- [ ] Angular velocity
+- [x] Mass
+- [ ] Attraction
+- [ ] Bounce
+- [x] Force Strength
+- [x] Force Heading
+- [ ] Spin
+- [ ] Center of rotation

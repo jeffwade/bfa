@@ -27,19 +27,19 @@
   int shapeHue = 150;
   float radius = height/6;
   float angle = 0.0;
-  float speed = 0;
+  float strength = 10;
   float heading = 0.0;
-  float padding = 50;
+  PVector velocity = new PVector(0,0);
+  float padding = 2*radius;
   int sides = 6;
-  float magAcc = 0.0;
-  float dirAcc = 0.0;
   int mass = 1;
-
 
 //Global limits
   int maxShapes = 10;
   int maxSides = 10;
-  float maxSpeed = 10;
+  float maxStrength = 5;
+  float maxSpeed = 0;
+  float maxSpin = 0.05;
 
 void setup() {
   //general sketch settings
@@ -69,8 +69,8 @@ void draw () {
   motionBlur(white, 50); //set color and level of motion blur
   readInputs();  //read states of switches and value of potentiometer
   changeProperties(sw);
+  arrangeShapes();
   applyForces();
-  //arrange shapes
   //grab snapshot/gif
   //post/store the above
 }

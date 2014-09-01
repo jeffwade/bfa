@@ -11,11 +11,9 @@ void applyForces() {
       //no mass => no gravity
     }
   }
-  //Other forces
-  // for (int i = 0; i < shapes.size(); ++i) {
-  //   Shape s = shapes.get(i);
-
-
-  // }
-
+  //Variable force
+  for (int i = 0; i < shapes.size(); ++i) {
+    Shape s = shapes.get(i);
+    s.applyForce(new PVector(strength*cos(heading), strength*sin(heading)));
+  }
 }
