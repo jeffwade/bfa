@@ -1,6 +1,7 @@
 void changeProperties(boolean[] sw) {
     float initX = shapes.get(0).getX();
 
+
 //[ ][ ][ ][ ]: Color
   if (!(sw[0] || sw[1] || sw[2] || sw[3])) {
     for (int i = 0; i < shapes.size(); ++i) {
@@ -31,7 +32,7 @@ void changeProperties(boolean[] sw) {
     // if the dial is set to the current size, do nothing
     if (difference > 0) {
       for (int i = 0; i < difference; ++i) {
-        shapes.add(new Shape(shapeHue, radius, angle, speed, heading));
+        shapes.add(new Shape(shapeHue, radius, angle, speed, heading, sides));
       }
     } else if (difference < 0) {
       for (int i = 0; i < abs(difference); ++i) {
@@ -44,7 +45,7 @@ void changeProperties(boolean[] sw) {
       Shape s = shapes.get(i);
       s.setX((initX + i*padding)%width);
       }
-    println(shapes.size());
+    // println(shapes.size());
   }
 
 //[ ][ ][x][ ]: Angle
@@ -75,6 +76,14 @@ void changeProperties(boolean[] sw) {
       }
   }
 
+//[ ][x][x][ ]: Shape
+  if (sw[1] && sw[2] && !(sw[0] || sw[3])) {
+    for (int i = 0; i < shapes.size(); ++i) {
+      Shape s = shapes.get(i);
+      sides = (int) map(pv, 0, 1023, 0, 10);
+      s.setSides(sides);
+      }
+  }
 
 
 

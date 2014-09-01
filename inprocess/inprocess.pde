@@ -29,8 +29,8 @@
   float angle;
   float speed;
   float heading = 0.0;
-  int sides;
   float padding = 50;
+  int sides = 6;
 
 
 //Global limits

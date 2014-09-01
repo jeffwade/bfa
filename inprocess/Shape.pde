@@ -12,7 +12,7 @@ class Shape {
     int H, S, B, A; //Hue, Saturation, Value, Alpha
     color c;
   //Constructors
-    //default constructor
+  //default constructor (no params)
     Shape() {
       H = 150;
       S = B = A = 90;
@@ -31,14 +31,14 @@ class Shape {
 
       theta = aVel = aAcc = 0;
     }
-
-    Shape(int _H, float _r, float _theta, float _speed, float _heading) {
+  //constructor (all params)
+    Shape(int _H, float _r, float _theta, float _speed, float _heading, int _sides) {
       H = _H;
       S = B = A = 90;
 
       r = _r;
 
-      n = 6;
+      n = _sides;
 
       m = 50;
       b = 1;
