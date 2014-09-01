@@ -9,6 +9,7 @@
 
 ###Processing
 + [ ] smooth transitions (eg. when adding vertex)
+  > adding partial differences?
 + [ ] how to deal with jumping values
 + [ ] bounce
 + [ ] sound
