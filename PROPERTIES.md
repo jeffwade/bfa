@@ -47,7 +47,7 @@
 - [x] Color
 - [x] Radius
 - [x] Angle
-- [ ] Shape
+- [x] Shape
 - [ ] Mass
 - [ ] Bounce/center of rotation
 - [x] Speed - Magnitude (velocity)
