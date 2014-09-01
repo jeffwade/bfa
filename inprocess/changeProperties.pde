@@ -32,7 +32,7 @@ void changeProperties(boolean[] sw) {
     // if the dial is set to the current size, do nothing
     if (difference > 0) {
       for (int i = 0; i < difference; ++i) {
-        shapes.add(new Shape(shapeHue, radius, angle, speed, heading, sides));
+        shapes.add(new Shape(shapeHue, radius, angle, speed, heading, sides, mass));
       }
     } else if (difference < 0) {
       for (int i = 0; i < abs(difference); ++i) {
@@ -86,7 +86,15 @@ void changeProperties(boolean[] sw) {
       }
   }
 
-//[x][ ][ ][x]: ||Acceleration||
+//[x][ ][ ][x]: ||Force||
+  // if (sw[0] && sw[3] && !(sw[1] || sw[2])) {
+  //   for (int i = 0; i < shapes.size(); ++i) {
+  //     Shape s = shapes.get(i);
+  //     magAcc = map(pv, 0, 1023, 0, 10);
+  //     PVector a = new PVector(speed*cos(heading), speed*sin(heading));
+  //     s.applyForce(a);
+  //     }
+  // }
 
 //[ ][x][x][ ]: Shape
   if (sw[1] && sw[2] && !(sw[0] || sw[3])) {
@@ -97,10 +105,19 @@ void changeProperties(boolean[] sw) {
       }
   }
 
-//[ ][x][ ][x]: Direction of Acceleration
+//[ ][x][ ][x]: Direction of Force
 //[ ][ ][x][x]: Angular Velocity
 //[x][x][x][ ]: Arrangement
+
 //[x][x][ ][x]: Mass
+  if ( sw[0] && sw[1] && sw[3] && !(sw[2]) ) {
+    for (int i = 0; i < shapes.size(); ++i) {
+      Shape s = shapes.get(i);
+      mass = (int) map(pv, 0, 1023, 1, 100);
+      s.setMass(mass);
+      }
+  }
+
 //[x][ ][x][x]: Bounce
 //[ ][x][x][x]: Walls
 //[x][x][x][x]: Order/Attraction/Repulsion

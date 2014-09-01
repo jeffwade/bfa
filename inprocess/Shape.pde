@@ -22,17 +22,17 @@ class Shape {
 
       n = 6;
 
-      m = 50;
+      m = 1;
       b = 1;
 
       position = center.get();
       velocity = new PVector();
-      acceleration = new PVector();
+      acceleration = new PVector(0,0);
 
       theta = aVel = aAcc = 0;
     }
   //constructor (all params)
-    Shape(int _H, float _r, float _theta, float _speed, float _heading, int _sides) {
+    Shape(int _H, float _r, float _theta, float _speed, float _heading, int _sides, int _mass) {
       H = _H;
       S = B = A = 90;
 
@@ -40,12 +40,12 @@ class Shape {
 
       n = _sides;
 
-      m = 50;
+      m = _mass;
       b = 1;
 
       position = center.get();
       velocity = new PVector(_speed*cos(_heading), _speed*sin(_heading));
-      acceleration = new PVector();
+      acceleration = new PVector(0,0);
 
       theta = _theta;
       aVel = aAcc = 0;
@@ -62,6 +62,7 @@ class Shape {
       c = color(H,S,B,A);
 
       velocity.add(acceleration);
+      velocity.limit(maxSpeed);
       position.add(velocity);
       acceleration.mult(0);
     }
@@ -80,6 +81,12 @@ class Shape {
             position.y = 0;
         }
     }
+
+    void applyForce(PVector f) {
+      PVector force = PVector.div(f, m);
+      acceleration.add(force);
+    }
+
     void display() {
       pushMatrix();
         translate(position.x, position.y);
@@ -115,7 +122,7 @@ class Shape {
         n = newSides;
     }
 
-    public int getM() {
+    public int getMass() {
         return m;
     }
 

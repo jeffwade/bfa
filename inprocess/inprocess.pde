@@ -31,6 +31,9 @@
   float heading = 0.0;
   float padding = 50;
   int sides = 6;
+  float magAcc = 0.0;
+  float dirAcc = 0.0;
+  int mass = 1;
 
 
 //Global limits
@@ -66,6 +69,7 @@ void draw () {
   motionBlur(white, 50); //set color and level of motion blur
   readInputs();  //read states of switches and value of potentiometer
   changeProperties(sw);
+  applyForces();
   //arrange shapes
   //grab snapshot/gif
   //post/store the above

@@ -19,16 +19,17 @@
 - [ ][x][x][ ] : Shape
   - number of sides: 2=line; 3...???= polygon; >???=circle; top=random?
   - range: 0–??
-- [x][ ][ ][x] : Magnitude (acceleration)
+- [x][ ][ ][x] : Magnitude (force)
   - range: 0–??
-- [ ][x][ ][x] : Direction (acceleration)
+- [ ][x][ ][x] : Direction (force)
   - range: 0–360º
 - [ ][ ][x][x] : Angular velocity
   - range: 0–360º
 - [x][x][x][ ] : Arrangement
   - options: grid, checker, circle, shape, ???
 - [x][x][ ][x] : Mass
-  - range: ???
+  - range: 1–100;
+  -also turns gravity on/off
 - [x][ ][x][x] : Bounce (coeff. of restitution)/center of rotation
   -
 - [ ][x][x][x] : Walls
