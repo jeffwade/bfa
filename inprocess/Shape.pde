@@ -7,6 +7,7 @@ class Shape {
     //motion variables
     int m, b; //mass, bounce
     PVector position, velocity, acceleration; //position, velocity, acceleration;
+    float dx; //horizontal offset (center of rotation)
     float theta, aVel, aAcc; //angle, angular velocity, angular acceleration;
 
     int H, S, B, A; //Hue, Saturation, Value, Alpha
@@ -26,13 +27,14 @@ class Shape {
       b = 1;
 
       position = center.get();
+      dx = 0;
       velocity = new PVector();
       acceleration = new PVector(0,0);
 
       theta = aVel = aAcc = 0;
     }
   //constructor (all params)
-    Shape(int _H, float _r, float _theta, float _speed, float _heading, int _sides, int _mass) {
+    Shape(int _H, float _r, float _theta, float _speed, float _heading, int _sides, int _mass, float _spin, float _offset) {
       H = _H;
       S = B = A = 90;
 
@@ -44,11 +46,13 @@ class Shape {
       b = 1;
 
       position = center.get();
+      dx = _offset;
       velocity = new PVector(_speed*cos(_heading), _speed*sin(_heading));
       acceleration = new PVector(0,0);
 
       theta = _theta;
-      aVel = aAcc = 0;
+      aVel = _spin;
+      aAcc = 0;
     }
 
   //Main methods
@@ -102,7 +106,7 @@ class Shape {
         translate(position.x, position.y);
         rotate(theta);
         pushStyle();
-          drawShape(n, r, c);
+          drawShape(n, r, c, dx);
         popStyle();
       popMatrix();
     }
@@ -227,5 +231,11 @@ class Shape {
         float newY = newMagnitude*sin(newAngle);
         acceleration.x = newX;
         acceleration.y = newY;
+    }
+    public float getOffset() {
+        return dx;
+    }
+    public void setOffset(float newOffset) {
+        dx = newOffset;
     }
 }

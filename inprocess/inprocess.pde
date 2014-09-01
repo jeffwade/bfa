@@ -10,6 +10,7 @@
 //Generic global variables
   color white, black;
   PVector center;
+  boolean change = false;
 //Global objects
   ArrayList<Shape> shapes;
   Arduino arduino;
@@ -27,18 +28,20 @@
   int shapeHue = 150;
   float radius = height/6;
   float angle = 0.0;
-  float strength = 10;
+  float strength = 0;
   float heading = 0.0;
   PVector velocity = new PVector(0,0);
   float padding = 2*radius;
   int sides = 6;
   int mass = 1;
+  float spin = 0;
+  float offset = 0;
 
 //Global limits
   int maxShapes = 10;
   int maxSides = 10;
-  float maxStrength = 5;
-  float maxSpeed = 0;
+  float maxStrength = 1;
+  float maxSpeed = 10;
   float maxSpin = 0.05;
 
 void setup() {

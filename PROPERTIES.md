@@ -28,11 +28,11 @@
 - [x][x][ ][x] : Mass
   - range: 1–100;
   -also turns gravity on/off
-- [x][ ][x][x] : Center of rotation
+- [x][ ][x][x] : Center of rotation (offset)
   -
 - [ ][x][x][x] : Walls
   - options: combinations of
-- [x][x][x][x] : Order
+- [x][x][x][x] : Order/Randomness?
   - options: shape, color, size, speed, angle, mass, bounce, random
 
 ## Implement in Main Program
@@ -45,12 +45,12 @@
 ## Implement in Shape Class
 - [x] Color
 - [x] Radius
-- [x] Angle
+- [x] Heading
 - [x] Shape
 - [x] Mass
 - [ ] Attraction
 - [ ] Bounce
 - [x] Force Strength
 - [x] Force Heading
-- [ ] Spin
-- [ ] Center of rotation
+- [x] Spin
+- [x] Center of rotation

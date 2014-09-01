@@ -4,11 +4,12 @@ void changeProperties(boolean[] sw) {
 
 //[ ][ ][ ][ ]: Color
   if (!(sw[0] || sw[1] || sw[2] || sw[3])) {
-    for (int i = 0; i < shapes.size(); ++i) {
-      Shape s = shapes.get(i);
-      shapeHue = (int) map(pv, 0, 1023, 0, 360);
-      s.setHue(shapeHue);
+      shapeHue = (int) map(pv, 0, 1023, 0, 360);;
+      for (int i = 0; i < shapes.size(); ++i) {
+        Shape s = shapes.get(i);
+        s.setHue(shapeHue);
       }
+    // println("Hue: "+shapeHue);
   }
 
 //[x][ ][ ][ ]: Radius
@@ -17,7 +18,8 @@ void changeProperties(boolean[] sw) {
       Shape s = shapes.get(i);
       radius = map(pv, 0, 1023, 25.0, height / 6);
       s.setRadius(radius);
-      }
+    }
+    // println("Radius: "+radius);
   }
 
 //[ ][x][ ][ ]: Number
@@ -27,18 +29,20 @@ void changeProperties(boolean[] sw) {
     // find the difference between dialed number and current number
     int difference = number - shapes.size();
 
-    // if the dial is higher than the current size, then add a new shape
-    // if the dial is less than current size, remove shapes from the end
-    // if the dial is set to the current size, do nothing
+    /*  if the dial is higher than the current size, then add a new shape
+    |   if the dial is less than current size, remove shapes from the end
+    |   if the dial is set to the current size, do nothing
+    */
     if (difference > 0) {
       for (int i = 0; i < difference; ++i) {
-        shapes.add(new Shape(shapeHue, radius, angle, strength, heading, sides, mass));
+        shapes.add(new Shape(shapeHue, radius, angle, strength, heading, sides, mass, spin, offset));
       }
     } else if (difference < 0) {
       for (int i = 0; i < abs(difference); ++i) {
         shapes.remove(shapes.size() - 1);
       }
     }
+    // println("shapes: "+shapes.size());
   }
 
 //[ ][ ][x][ ]: Angle
@@ -46,35 +50,34 @@ void changeProperties(boolean[] sw) {
     for (int i = 0; i < shapes.size(); ++i) {
       Shape s = shapes.get(i);
       angle = map(pv, 0, 1023, 0, TAU);
+      s.spin(0); //stop spin if setting angle
       s.setTheta(angle);
-      }
+    }
+    // println("angle: "+angle);
   }
 
 //[ ][ ][ ][x]: Force Strength
   if (sw[3] && !(sw[0] || sw[1] || sw[2])) {
-    for (int i = 0; i < shapes.size(); ++i) {
-      Shape s = shapes.get(i);
-      strength = map(pv, 0, 1023, 0, maxStrength);
-      println("strength: "+strength);
+    strength = map(pv, 0, 1023, 0, maxStrength);
+    if (strength == 0) {
+      for (int i = 0; i < shapes.size(); ++i) {
+        Shape s = shapes.get(i);
+        s.setVelocity(new PVector(0,0));
       }
+    }
+    // println("strength: "+strength);
   }
 
 //[x][x][ ][ ]: Padding
   if (sw[0] && sw[1] && !(sw[2] || sw[3])) {
     padding = map(pv, 0, 1023, radius, 4*radius);
-    for (int i = 0; i < shapes.size(); ++i) {
-      Shape s = shapes.get(i);
-      s.setX((initX + i*padding)%width);
-      s.setY((initY));
-    }
+    // println("padding: "+padding);
   }
 
 //[x][ ][x][ ]: Force Heading
   if (sw[0] && sw[2] && !(sw[1] || sw[3])) {
-    for (int i = 0; i < shapes.size(); ++i) {
-      Shape s = shapes.get(i);
-      heading = map(pv, 0, 1023, 0, TAU);
-      }
+    heading = map(pv, 0, 1023, 0, TAU);
+    // println("heading: "+heading);
   }
 
 //[x][ ][ ][x]: Attraction
@@ -86,11 +89,22 @@ void changeProperties(boolean[] sw) {
       Shape s = shapes.get(i);
       sides = (int) map(pv, 0, 1023, 0, 10);
       s.setSides(sides);
-      }
+    }
+    // println("sides: "+sides);
   }
 
 //[ ][x][ ][x]: Bounce
+
 //[ ][ ][x][x]: Angular Velocity
+  if (sw[2] && sw[3] && !(sw[0] || sw[1])) {
+    for (int i = 0; i < shapes.size(); ++i) {
+      Shape s = shapes.get(i);
+      spin = map(pv, 0, 1023, 0, maxSpin);
+      s.spin(spin);
+    }
+    // println("spin: "+spin);
+  }
+
 //[x][x][x][ ]: Arrangement
 
 //[x][x][ ][x]: Mass
@@ -99,12 +113,21 @@ void changeProperties(boolean[] sw) {
       Shape s = shapes.get(i);
       mass = (int) map(pv, 0, 1023, 1, 100);
       s.setMass(mass);
-      }
+    }
+    // println("mass: "+mass);
   }
 
-//[x][ ][x][x]: Bounce
+//[x][ ][x][x]: Center of Rotation (offset)
+  if (sw[0] && sw[2] && sw[3] && !(sw[1])) {
+  for (int i = 0; i < shapes.size(); ++i) {
+    Shape s = shapes.get(i);
+    offset = map(pv, 0, 1023, -radius, radius);
+    s.setOffset(offset);
+  }
+  // println("offset: "+offset);
+  }
 //[ ][x][x][x]: Walls
-//[x][x][x][x]: Order/Attraction/Repulsion
+//[x][x][x][x]: Order
 
 
 

@@ -1,9 +1,9 @@
-void drawShape(int n, float r, color c){
+void drawShape(int n, float r, color c, float dx){
   if (n < 3) {
     noFill();
     stroke(c);
     strokeWeight(random(1, 3));
-    line(-r, 0, r, 0);
+    line(-r + dx, 0, r, 0);
   } else if (n >= 3 && n < maxSides) {
     fill(c);
     PShape s = createShape();
@@ -12,10 +12,10 @@ void drawShape(int n, float r, color c){
       s.vertex(r*cos(i*TAU/n), r*sin(i*TAU/n));
     }
     s.endShape(CLOSE);
-    shape(s, 0, 0);
+    shape(s, dx, 0);
   } else { //n == maxSides
     fill(c);
-    ellipse(0, 0, 2*r, 2*r);
+    ellipse(dx, 0, 2*r, 2*r);
   }
 
 
