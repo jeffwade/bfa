@@ -156,8 +156,14 @@ class Shape {
     public float getX() {
         return position.x;
     }
-    public void setX(float newY) {
-        position.x = newY;
+    public void setX(float newX) {
+        position.x = newX;
+    }
+    public float getY() {
+        return position.y;
+    }
+    public void setY(float newY) {
+        position.y = newY;
     }
     public PVector getPosition() {
         return position;

@@ -1,6 +1,6 @@
 void changeProperties(boolean[] sw) {
     float initX = shapes.get(0).getX();
-
+    float initY = shapes.get(0).getY();
 
 //[ ][ ][ ][ ]: Color
   if (!(sw[0] || sw[1] || sw[2] || sw[3])) {
@@ -76,6 +76,18 @@ void changeProperties(boolean[] sw) {
       }
   }
 
+//[x][ ][x][ ]: Heading
+  if (sw[0] && sw[2] && !(sw[1] || sw[3])) {
+    for (int i = 0; i < shapes.size(); ++i) {
+      Shape s = shapes.get(i);
+      heading = map(pv, 0, 1023, 0, TAU);
+      PVector p = new PVector(speed*cos(heading), speed*sin(heading));
+      s.setVelocity(p);
+      }
+  }
+
+//[x][ ][ ][x]: ||Acceleration||
+
 //[ ][x][x][ ]: Shape
   if (sw[1] && sw[2] && !(sw[0] || sw[3])) {
     for (int i = 0; i < shapes.size(); ++i) {
@@ -85,6 +97,13 @@ void changeProperties(boolean[] sw) {
       }
   }
 
+//[ ][x][ ][x]: Direction of Acceleration
+//[ ][ ][x][x]: Angular Velocity
+//[x][x][x][ ]: Arrangement
+//[x][x][ ][x]: Mass
+//[x][ ][x][x]: Bounce
+//[ ][x][x][x]: Walls
+//[x][x][x][x]: Order/Attraction/Repulsion
 
 
 

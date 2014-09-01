@@ -23,11 +23,11 @@
 
   float pv; //potentiometer value
   boolean[] sw = {false, false, false, false}; //array holding switch states
-//Global Property variables
-  int shapeHue;
-  float radius;
-  float angle;
-  float speed;
+//Global/Default Property values
+  int shapeHue = 150;
+  float radius = height/6;
+  float angle = 0.0;
+  float speed = 0;
   float heading = 0.0;
   float padding = 50;
   int sides = 6;

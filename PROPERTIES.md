@@ -31,9 +31,9 @@
   - range: ???
 - [x][ ][x][x] : Bounce (coeff. of restitution)/center of rotation
   -
-- [ ][x][x][x] : Walls/Angular velocity
+- [ ][x][x][x] : Walls
   - options: combinations of
-- [x][x][x][x] : Order
+- [x][x][x][x] : Order/attraction/repulsion
   - options: shape, color, size, speed, angle, mass, bounce, random
 
 ## Implement in Main Program
@@ -51,7 +51,7 @@
 - [ ] Mass
 - [ ] Bounce/center of rotation
 - [x] Speed - Magnitude (velocity)
-- [ ] Heading - Direction (velocity)
+- [x] Heading - Direction (velocity)
 - [ ] Magnitude (acceleration)
 - [ ] Direction (acceleration)
 - [ ] Angular velocity
