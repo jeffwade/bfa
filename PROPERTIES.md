@@ -32,7 +32,7 @@
   -
 - [ ][x][x][x] : Walls
   - options: combinations of
-- [x][x][x][x] : Order/Randomness?
+- [x][x][x][x] : Randomness
   - options: shape, color, size, speed, angle, mass, bounce, random
 
 ## Implement in Main Program
