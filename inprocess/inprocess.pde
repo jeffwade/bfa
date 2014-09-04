@@ -38,7 +38,9 @@
   float offset = 0;
 
 //Global limits
-  int maxShapes = 10;
+  float minRadius = 15;
+  float maxRadius;
+  int maxShapes = 9;
   int maxSides = 10;
   float maxStrength = 1;
   float maxSpeed = 10;
@@ -51,6 +53,7 @@ void setup() {
     white = color(0,0,100,100);
     black = color(0,0,0,100);
     center = new PVector(width/2, height/2);
+    maxRadius = height/6;
     background(white);
     noStroke();
     smooth();

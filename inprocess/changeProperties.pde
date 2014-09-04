@@ -16,7 +16,7 @@ void changeProperties(boolean[] sw) {
   if (sw[0] && !(sw[1] || sw[2] || sw[3])) {
     for (int i = 0; i < shapes.size(); ++i) {
       Shape s = shapes.get(i);
-      radius = map(pv, 0, 1023, 25.0, height / 6);
+      radius = map(pv, 0, 1023, minRadius, maxRadius);
       s.setRadius(radius);
     }
     // println("Radius: "+radius);
@@ -50,7 +50,7 @@ void changeProperties(boolean[] sw) {
     for (int i = 0; i < shapes.size(); ++i) {
       Shape s = shapes.get(i);
       angle = map(pv, 0, 1023, 0, TAU);
-      s.spin(0); //stop spin if setting angle
+      // s.spin(0); //stop spin if setting angle
       s.setTheta(angle);
     }
     // println("angle: "+angle);
