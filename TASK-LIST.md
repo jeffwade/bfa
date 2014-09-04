@@ -8,7 +8,7 @@
 + [x] Switches in combination
 
 ###Processing
-+ [ ] smooth transitions (eg. when adding vertex)
++ [x] smooth transitions (eg. when adding vertex)
   > adding partial differences?
 + [ ] how to deal with jumping values
 + [ ] bounce
@@ -28,10 +28,12 @@
   - hide arduino
   - dial
   - hold cubes
-+ [ ] property icons
+  - export to .dxf
++ [x] property icons
 + [ ] logos?
   - [ ] to SVG
-+ HUD
++ [ ] HUD
++ [ ] cut vinyl
 
 ##BUILD
 + [ ] wood cubes, cone

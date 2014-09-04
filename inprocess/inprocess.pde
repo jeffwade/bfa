@@ -31,14 +31,28 @@
   float strength = 0;
   float heading = 0.0;
   PVector velocity = new PVector(0,0);
-  float padding = 2*radius;
+  float padding = 100;
   int sides = 6;
   int mass = 1;
   float spin = 0;
   float offset = 0;
+  int arrangement = 2; //default is GRID
+  boolean arranged = false;
+  int number = 1;
+
+//Global property constants
+  //ARRANGEMENTS
+  final int NONE = 0; //add new shapes at center
+  final int LINE = 1; //add new shapes behind previous
+  final int GRID = 2; //arrange shapes in grid formation
+  final int RADIAL = 3; //arrange shapes around center
+  final int RANDOM = 4; //new shapes added in random location
+
 
 //Global limits
-  int maxShapes = 10;
+  float minRadius = 15;
+  float maxRadius;
+  int maxShapes = 9;
   int maxSides = 10;
   float maxStrength = 1;
   float maxSpeed = 10;
@@ -51,6 +65,7 @@ void setup() {
     white = color(0,0,100,100);
     black = color(0,0,0,100);
     center = new PVector(width/2, height/2);
+    maxRadius = height/6;
     background(white);
     noStroke();
     smooth();
@@ -72,8 +87,14 @@ void draw () {
   motionBlur(white, 60); //set color and level of motion blur
   readInputs();  //read states of switches and value of potentiometer
   changeProperties(sw);
-  arrangeShapes();
   applyForces();
   //grab snapshot/gif
   //post/store the above
+}
+
+void keyPressed() {
+  if (key == 'n') {
+    arrangement = (int) map(pv, 0, 1023, 0, 4);
+    println("arrangement: "+arrangement);
+  }
 }

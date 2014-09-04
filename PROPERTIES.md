@@ -38,7 +38,7 @@
 ## Implement in Main Program
 - [x] Number
 - [x] Padding
-- [ ] Arrangement
+- [x] Arrangement
 - [ ] Order
 - [ ] Walls
 
