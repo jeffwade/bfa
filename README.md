@@ -16,11 +16,13 @@ _in fieri_
     + `motionBlur.pde` : function for emulating motion blur
     + `readInputs.pde` : funtion for reading arduino inputs
     + `changeProperties.pde` : function containing interaction rules
+      +`arrangeShapes.pde` : defines how shapes are arranged
   + `Shape.pde` : Shape class
     + `drawShape.pde` : function to draw shape according to number of sides
 
 
 ###Documentation
 + `README.md` : this document
++ `STATEMENT.md` : artist's statement
 + `TASK-LIST.md` : current work plan
-+ `TECH.md` : Technologies used
++ `TECH.md` : technologies used

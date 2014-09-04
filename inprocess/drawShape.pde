@@ -3,7 +3,7 @@ void drawShape(int n, float r, color c, float dx){
     noFill();
     stroke(c);
     strokeWeight(random(1, 3));
-    line(-r + dx, 0, r, 0);
+    line(-r + dx, 0, r + dx, 0);
   } else if (n >= 3 && n < maxSides) {
     fill(c);
     PShape s = createShape();

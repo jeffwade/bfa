@@ -1,11 +1,13 @@
 #TECHNOLOGIES
 
 ##Hardware
-[Arduino UNO R3](http://www.arduino.cc) : my first microcontroller!
+[Arduino UNO R3](http://www.arduino.cc) : The Arduino Starter Kit
+<!-- [Bluetooth Module] -->
 
 ##Software
 [Processing](http://processing.org) : java-based coding for visual projects
 [Fritzing](http://fritzing.org/home/) : app for creating electronics schematics
+
 ###Libraries
 #### Arduino/Serials
 [Arduino (Firmata)](http://arduino.cc/en/Reference/Firmata) : standard arduino firmware for integration with Porcessing

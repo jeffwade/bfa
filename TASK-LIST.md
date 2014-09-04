@@ -18,8 +18,8 @@
 + [ ] Shape class (see `PROPERTIES.md`)
   + [x] Default construction
   + [x] getters/setters
-  + [ ] `display` method
-  + [ ] `update` method
+  + [x] `display` method
+  + [x] `update` method
   + [ ] physics (look into libraries for this)
 + [x] switch combinations
 
@@ -44,8 +44,6 @@
 + [ ] control box
 
 ##Questions
-+ [x] include random as final value on ranges? : YES
-+ [-] should I use a particle system for these?
 
 ##Humans
 ###Contact
