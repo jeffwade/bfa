@@ -28,10 +28,12 @@
   - hide arduino
   - dial
   - hold cubes
-+ [ ] property icons
+  - export to .dxf
++ [x] property icons
 + [ ] logos?
   - [ ] to SVG
-+ HUD
++ [ ] HUD
++ [ ] cut vinyl
 
 ##BUILD
 + [ ] wood cubes, cone

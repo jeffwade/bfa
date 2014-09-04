@@ -12,6 +12,8 @@ class Shape {
 
     int H, S, B, A; //Hue, Saturation, Value, Alpha
     color c;
+
+    boolean arranged = false;
   //Constructors
   //default constructor (no params)
     Shape() {
@@ -97,10 +99,6 @@ class Shape {
       aVel = _s;
     }
 
-    void move(PVector _v) {
-      PVector v =_v.get();
-      position.add(v);
-    }
     void display() {
       pushMatrix();
         translate(position.x, position.y);
@@ -196,6 +194,9 @@ class Shape {
         position.x = newX;
         position.y = newY;
     }
+    public float getSpeed() {
+        return velocity.mag();
+    }
     public PVector getVelocity() {
         return velocity;
     }
@@ -237,5 +238,11 @@ class Shape {
     }
     public void setOffset(float newOffset) {
         dx = newOffset;
+    }
+    public boolean isArranged() {
+        return arranged;
+    }
+    public void setArranged(boolean newArranged) {
+        arranged = newArranged;
     }
 }

@@ -24,7 +24,13 @@ void changeProperties(boolean[] sw) {
 
 //[ ][x][ ][ ]: Number
   if (sw[1] && !(sw[0] || sw[2] || sw[3])) {
-    int number = (int) map(pv, 0, 1023, 1, maxShapes);
+    int initNumber = number;
+    number = (int) map(pv, 0, 1023, 1, maxShapes);
+    if (number != initNumber) {
+      for (int i = 0; i < shapes.size(); ++i) {
+        shapes.get(i).setArranged(false);
+      }
+    }
 
     // find the difference between dialed number and current number
     int difference = number - shapes.size();
@@ -35,13 +41,15 @@ void changeProperties(boolean[] sw) {
     */
     if (difference > 0) {
       for (int i = 0; i < difference; ++i) {
-        shapes.add(new Shape(shapeHue, radius, angle, strength, heading, sides, mass, spin, offset));
+        float speed = shapes.get(0).getSpeed();
+        shapes.add(new Shape(shapeHue, radius, angle, speed, heading, sides, mass, spin, offset));
       }
     } else if (difference < 0) {
       for (int i = 0; i < abs(difference); ++i) {
         shapes.remove(shapes.size() - 1);
       }
     }
+    arrangeShapes();
     // println("shapes: "+shapes.size());
   }
 
@@ -106,6 +114,18 @@ void changeProperties(boolean[] sw) {
   }
 
 //[x][x][x][ ]: Arrangement
+  if ( sw[0] && sw[1] && sw[2] && !(sw[3]) ) {
+    int initArr = arrangement;
+    arrangement = (int) map(pv, 0, 1023, 0, 4);
+    if (arrangement != initArr) {
+      for (int i = 0; i < shapes.size(); ++i) {
+        shapes.get(i).setArranged(false);
+      }
+    }
+    arrangeShapes();
+    // println("arrangement: "+arrangement);
+  }
+
 
 //[x][x][ ][x]: Mass
   if ( sw[0] && sw[1] && sw[3] && !(sw[2]) ) {
