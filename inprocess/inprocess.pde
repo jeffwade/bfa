@@ -16,10 +16,10 @@
   Arduino arduino;
 //Pins and Inputs
   int pot = 0; //potentiometer on pin 0
-  int switch1 = 3; //first switch on pin 3
-  int switch2 = 5; //second switch on pin 5
-  int switch3 = 7; //third switch on pin 7
-  int switch4 = 9; //fourth switch on pin 9
+  int switch1 = 8; //first switch on pin 3
+  int switch2 = 9; //second switch on pin 5
+  int switch3 = 10; //third switch on pin 7
+  int switch4 = 11; //fourth switch on pin 9
   int[] switches = {switch1, switch2, switch3, switch4};
 
   float pv; //potentiometer value
