@@ -73,9 +73,9 @@ void setup() {
     shapes = new ArrayList<Shape>();
     shapes.add(new Shape());
   //initialize arduino
-    println(Arduino.list()); //list serial ports
+    // println(Arduino.list()); //list serial ports
     String port = Arduino.list()[5]; //on wMac: 5 is tty.usb
-    arduino = new Arduino(this, port, 9600);
+    arduino = new Arduino(this, port, 57600);
   //set pin modes
     for (int i = 0; i < switches.length; ++i) {
       arduino.pinMode(switches[i], Arduino.INPUT);
