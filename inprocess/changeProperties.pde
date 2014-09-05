@@ -90,7 +90,6 @@ void changeProperties(boolean[] sw) {
 
 //[x][ ][ ][x]: Attraction
 
-
 //[ ][x][x][ ]: Shape
   if (sw[1] && sw[2] && !(sw[0] || sw[3])) {
     for (int i = 0; i < shapes.size(); ++i) {

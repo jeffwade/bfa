@@ -88,6 +88,7 @@ void draw () {
   readInputs();  //read states of switches and value of potentiometer
   changeProperties(sw);
   applyForces();
+  drawHUD();
   //grab snapshot/gif
   //post/store the above
 }

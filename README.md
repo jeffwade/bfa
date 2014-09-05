@@ -5,7 +5,7 @@ Code base for my BFA capstone exhibit
 _in fieri_
 : _L_. being in process of accomplishment, in progress, pending; beginning to have existence, not yet completely formed, becoming; to become, be made
 
-##Project File Structure
+##Project Files
 + `_support/` : partials and experimentation
   - `arduino/` : support files for arduino
   - `processing/` : support files for processing

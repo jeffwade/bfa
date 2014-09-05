@@ -65,6 +65,9 @@ class Shape {
     }
 
     void update(){
+      int satVar = (int) map(position.y, 0, height, -10, 10);
+      S = (S + satVar)%100;
+
       c = color(H,S,B,A);
 
       velocity.add(acceleration);
