@@ -69,8 +69,12 @@ void changeProperties(boolean[] sw) {
     */
     if (difference > 0) {
       for (int i = 0; i < difference; ++i) {
-        float speed = shapes.get(0).getSpeed();
-        shapes.add(new Shape(shapeHue, radius, angle, speed, heading, sides, mass, spin, offset));
+        speed = shapes.get(0).getSpeed();
+        Shape s = new Shape(shapeHue, radius, angle, speed, heading, sides, mass, spin, offset);
+        if (randomizer > 0) {
+          randomize(s, randomizer);
+        }
+        shapes.add(s);
       }
     } else if (difference < 0) {
       for (int i = 0; i < abs(difference); ++i) {
@@ -155,18 +159,10 @@ void changeProperties(boolean[] sw) {
 
 //[x][x][x][x]: RANDOM
   if (sw[0] && sw[1] && sw[2] && sw[3]) {
-    int prop = (int) map(pv, 0, 1023, 0, 16);
+    randomizer = (int) map(pv, 0, 1023, 0, 16);
     for (int i = 0; i < shapes.size(); ++i) {
       Shape s = shapes.get(i);
-      switch (prop) {
-        case 0 :
-          //no random properties
-        break;
-        case 1 :
-          float r = random(minRadius, maxRadius);
-          s.setRadius(r);
-        break;
-      }
+      randomize(s, randomizer);
     }
   }
 

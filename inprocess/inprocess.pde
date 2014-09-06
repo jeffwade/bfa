@@ -27,18 +27,20 @@
 //Global/Default Property values
   int shapeHue = 150;
   float radius = 100;
-  float angle = 0.0;
+  int sides = 6;
+  float speed = 0;
+  PVector velocity = new PVector(0,0);
   float strength = 0;
   float heading = 0.0;
-  PVector velocity = new PVector(0,0);
+  float angle = 0.0;
   float padding = 100;
-  int sides = 6;
   int mass = 1;
   float spin = 0;
   float offset = 0;
   int arrangement = 1; //default is LINE
   boolean arranged = false;
   int number = 1;
+  int randomizer = 0;
 
 //Global property constants
   //ARRANGEMENTS
@@ -60,7 +62,7 @@
 
 void setup() {
   //general sketch settings
-    size(displayWidth/2, displayHeight/2, P2D);
+    size(displayWidth, displayHeight, P2D);
     colorMode(HSB, 360, 100, 100, 100);
     white = color(0,0,100,100);
     black = color(0,0,0,100);
