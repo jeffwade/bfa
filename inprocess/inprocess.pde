@@ -91,11 +91,34 @@ void draw () {
   drawHUD();
   //grab snapshot/gif
   //post/store the above
-}
+  }
 
-void keyPressed() {
-  if (key == 'n') {
-    arrangement = (int) map(pv, 0, 1023, 0, 4);
-    println("arrangement: "+arrangement);
+
+// void keyPressed() {
+//   if (key == 'a') {
+//     sw[0] = true;
+//   }
+//   if (key == 's') {
+//     sw[1] = true;
+//   }
+//   if (key == 'd') {
+//     sw[2] = true;
+//   }
+//   if (key == 'f') {
+//     sw[3] = true;
+//   }
+// }
+void keyReleased() {
+  if (key == 'a') {
+    sw[0] = false;
+  }
+  if (key == 's') {
+    sw[1] = false;
+  }
+  if (key == 'd') {
+    sw[2] = false;
+  }
+  if (key == 'f') {
+    sw[3] = false;
   }
 }
