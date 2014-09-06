@@ -143,33 +143,32 @@ void keyReleased() {
     }
     //ARRANGEMENT
     if (key == 'z') {
-      sw[0] = false;
-      sw[1] = false;
-      sw[2] = false;
+      sw[0] = true;
+      sw[1] = true;
+      sw[2] = true;
     }
     //MASS
-    if (key == 'z') {
-      sw[0] = false;
-      sw[1] = false;
-      sw[3] = false;
+    if (key == 'x') {
+      sw[0] = true;
+      sw[1] = true;
+      sw[3] = true;
     }
     //CENTER
-    if (key == 'z') {
-      sw[0] = false;
-      sw[2] = false;
-      sw[3] = false;
+    if (key == 'c') {
+      sw[0] = true;
+      sw[2] = true;
+      sw[3] = true;
     }
     //WALLS
-    if (key == 'z') {
-      sw[1] = false;
-      sw[2] = false;
-      sw[3] = false;
+    if (key == 'v') {
+      sw[1] = true;
+      sw[2] = true;
+      sw[3] = true;
     }
     //RANDOM
-    if (key == 'z') {
-      sw[0] = false;
-      sw[1] = false;
-      sw[2] = false;
-      sw[3] = false;
-    }
+    if (key == 'b') {
+      sw[0] = true;
+      sw[1] = true;
+      sw[2] = true;
+      sw[3] = true;
 }
