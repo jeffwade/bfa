@@ -1,7 +1,7 @@
 void randomize(Shape _s, int property) {
 
   switch (property) {
-    case 0 :
+    case 0 : //RESET
       for (int i = 0; i < shapes.size(); ++i) {
         Shape s = shapes.get(i);
         s.setRadius(radius);
@@ -14,7 +14,7 @@ void randomize(Shape _s, int property) {
         // s.setBounce(bounce);
       }
     break;
-    case 1 :
+    case 1 : //SIZE
       for (int i = 0; i < shapes.size(); ++i) {
         float r = random(minRadius,maxRadius);
         Shape s = shapes.get(i);
@@ -23,7 +23,7 @@ void randomize(Shape _s, int property) {
         }
       }
     break;
-    case 2 :
+    case 2 : //SHAPE
       for (int i = 0; i < shapes.size(); ++i) {
         int n = (int) random(2,maxSides);
         Shape s = shapes.get(i);
@@ -32,7 +32,7 @@ void randomize(Shape _s, int property) {
         }
       }
     break;
-    case 3 :
+    case 3 : //SPEED
       for (int i = 0; i < shapes.size(); ++i) {
         float v = random(0,maxSpeed);
         Shape s = shapes.get(i);
@@ -41,13 +41,35 @@ void randomize(Shape _s, int property) {
         }
       }
     break;
-    case 4 :
+    case 4 : //HEADING
       for (int i = 0; i < shapes.size(); ++i) {
         float h = random(0,maxSpeed);
         Shape s = shapes.get(i);
         if (!(s.isRandomized())) {
           s.setHeading(h);
         }
+      }
+    break;
+    case 5 : //NUMBER
+      //randomize number
+    break;
+    case 6 : //ARRANGEMENT
+      //randomize arrangement
+    break;
+    case 7 : //PADDING
+      //randomize padding
+    break;
+    case 8 : //ANGLE
+      for (int i = 0; i < shapes.size(); ++i) {
+        Shape s = shapes.get(i);
+        float theta = random(0, TAU);
+        s.setTheta(theta);
+      }
+    break;
+    case 9 : //SPIN
+      for (int i = 0; i < shapes.size(); ++i) {
+        Shape s = shapes.get(i);
+        float da = 0.0;
       }
     break;
   }
