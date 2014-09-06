@@ -94,31 +94,82 @@ void draw () {
   }
 
 
-// void keyPressed() {
-//   if (key == 'a') {
-//     sw[0] = true;
-//   }
-//   if (key == 's') {
-//     sw[1] = true;
-//   }
-//   if (key == 'd') {
-//     sw[2] = true;
-//   }
-//   if (key == 'f') {
-//     sw[3] = true;
-//   }
-// }
 void keyReleased() {
-  if (key == 'a') {
-    sw[0] = false;
-  }
-  if (key == 's') {
-    sw[1] = false;
-  }
-  if (key == 'd') {
-    sw[2] = false;
-  }
-  if (key == 'f') {
-    sw[3] = false;
-  }
+    //SIZE
+    if (key == 'q') {
+      sw[0] = false;
+    }
+    //NUMBER
+    if (key == 'w') {
+      sw[1] = false;
+    }
+    //ANGLE
+    if (key == 'e') {
+      sw[2] = false;
+    }
+    //SPEED
+    if (key == 'r') {
+      sw[3] = false;
+    }
+    //PADDING
+    if (key == 'a') {
+      sw[0] = false;
+      sw[1] = false;
+    }
+    //HEADING
+    if (key == 's') {
+      sw[0] = false;
+      sw[2] = false;
+    }
+    //ATTRACTION
+    if (key == 'd') {
+      sw[0] = false;
+      sw[3] = false;
+    }
+    //SHAPE
+    if (key == 'f') {
+      sw[1] = false;
+      sw[2] = false;
+    }
+    //BOUNCE
+    if (key == 'g') {
+      sw[1] = false;
+      sw[3] = false;
+    }
+    //SPIN
+    if (key == 'h') {
+      sw[2] = false;
+      sw[3] = false;
+    }
+    //ARRANGEMENT
+    if (key == 'z') {
+      sw[0] = false;
+      sw[1] = false;
+      sw[2] = false;
+    }
+    //MASS
+    if (key == 'z') {
+      sw[0] = false;
+      sw[1] = false;
+      sw[3] = false;
+    }
+    //CENTER
+    if (key == 'z') {
+      sw[0] = false;
+      sw[2] = false;
+      sw[3] = false;
+    }
+    //WALLS
+    if (key == 'z') {
+      sw[1] = false;
+      sw[2] = false;
+      sw[3] = false;
+    }
+    //RANDOM
+    if (key == 'z') {
+      sw[0] = false;
+      sw[1] = false;
+      sw[2] = false;
+      sw[3] = false;
+    }
 }
