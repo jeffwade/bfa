@@ -212,15 +212,24 @@ class Shape {
        velocity = new PVector(cos(heading), sin(heading));
        velocity.mult(newSpeed);
     }
+    public float getHeading() {
+        return velocity.heading();
+    }
+    public void setHeading(float newHeading) {
+        float heading = newHeading;
+        float speed = velocity.mag();
+        velocity = new PVector(speed*cos(heading), speed*sin(heading));
+    }
+
     public PVector getVelocity() {
         return velocity;
     }
     public void setVelocity(PVector newVelocity) {
         velocity = newVelocity.get();
     }
-    public void setVelocity(float newSpeed, float newHeading) {
-        velocity.x = newSpeed*cos(newHeading);
-        velocity.y = newSpeed*sin(newHeading);
+    public void setVelocity(float newX, float newY) {
+        velocity.x = newX;
+        velocity.y = newY;
     }
     public void setVelocity(String a, float newAngle, float newMagnitude) {
         //the string doesn't actually matter at all.
@@ -230,6 +239,7 @@ class Shape {
         velocity.x = newX;
         velocity.y = newY;
     }
+
     public PVector getAcceleration() {
         return acceleration;
     }

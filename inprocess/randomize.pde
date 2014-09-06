@@ -23,5 +23,32 @@ void randomize(Shape _s, int property) {
         }
       }
     break;
+    case 2 :
+      for (int i = 0; i < shapes.size(); ++i) {
+        int n = (int) random(2,maxSides);
+        Shape s = shapes.get(i);
+        if (!(s.isRandomized())) {
+          s.setShape(n);
+        }
+      }
+    break;
+    case 3 :
+      for (int i = 0; i < shapes.size(); ++i) {
+        float v = random(0,maxSpeed);
+        Shape s = shapes.get(i);
+        if (!(s.isRandomized())) {
+          s.setSpeed(v);
+        }
+      }
+    break;
+    case 4 :
+      for (int i = 0; i < shapes.size(); ++i) {
+        float h = random(0,maxSpeed);
+        Shape s = shapes.get(i);
+        if (!(s.isRandomized())) {
+          s.setHeading(h);
+        }
+      }
+    break;
   }
 }
