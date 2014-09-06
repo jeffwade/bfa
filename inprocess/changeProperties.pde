@@ -2,7 +2,7 @@ void changeProperties(boolean[] sw) {
     float initX = shapes.get(0).getX();
     float initY = shapes.get(0).getY();
 
-//[ ][ ][ ][ ]: Color
+//[ ][ ][ ][ ]: COLOR
   if (!(sw[0] || sw[1] || sw[2] || sw[3])) {
       shapeHue = (int) map(pv, 0, 1023, 0, 360);;
       for (int i = 0; i < shapes.size(); ++i) {
@@ -12,7 +12,7 @@ void changeProperties(boolean[] sw) {
     // println("Hue: "+shapeHue);
   }
 
-//[x][ ][ ][ ]: Radius
+//[x][ ][ ][ ]: SIZE
   if (sw[0] && !(sw[1] || sw[2] || sw[3])) {
     for (int i = 0; i < shapes.size(); ++i) {
       Shape s = shapes.get(i);
@@ -22,8 +22,36 @@ void changeProperties(boolean[] sw) {
     // println("Radius: "+radius);
   }
 
-//[ ][x][ ][ ]: Number
+//[ ][x][ ][ ]: SHAPE
   if (sw[1] && !(sw[0] || sw[2] || sw[3])) {
+    for (int i = 0; i < shapes.size(); ++i) {
+      Shape s = shapes.get(i);
+      sides = (int) map(pv, 0, 1023, 0, 10);
+      s.setSides(sides);
+    }
+    // println("sides: "+sides);
+  }
+
+//[ ][ ][x][ ]: SPEED
+  if (sw[2] && !(sw[0] || sw[1] || sw[3])) {
+    strength = map(pv, 0, 1023, 0, maxStrength);
+    if (strength == 0) {
+      for (int i = 0; i < shapes.size(); ++i) {
+        Shape s = shapes.get(i);
+        s.setVelocity(new PVector(0,0));
+      }
+    }
+    // println("strength: "+strength);
+  }
+
+//[ ][ ][ ][x]: HEADING
+  if (sw[3] && !(sw[0] || sw[1] || sw[2])) {
+    heading = map(pv, 0, 1023, 0, TAU);
+    // println("heading: "+heading);
+  }
+
+//[x][x][ ][ ]: NUMBER
+  if (sw[0] && sw[1] && !(sw[2] || sw[3])) {
     int initNumber = number;
     number = (int) map(pv, 0, 1023, 1, maxShapes);
     if (number != initNumber) {
@@ -53,67 +81,8 @@ void changeProperties(boolean[] sw) {
     // println("shapes: "+shapes.size());
   }
 
-//[ ][ ][x][ ]: Angle
-  if (sw[2] && !(sw[0] || sw[1] || sw[3])) {
-    for (int i = 0; i < shapes.size(); ++i) {
-      Shape s = shapes.get(i);
-      angle = map(pv, 0, 1023, 0, TAU);
-      // s.spin(0); //stop spin if setting angle
-      s.setTheta(angle);
-    }
-    // println("angle: "+angle);
-  }
-
-//[ ][ ][ ][x]: Force Strength
-  if (sw[3] && !(sw[0] || sw[1] || sw[2])) {
-    strength = map(pv, 0, 1023, 0, maxStrength);
-    if (strength == 0) {
-      for (int i = 0; i < shapes.size(); ++i) {
-        Shape s = shapes.get(i);
-        s.setVelocity(new PVector(0,0));
-      }
-    }
-    // println("strength: "+strength);
-  }
-
-//[x][x][ ][ ]: Padding
-  if (sw[0] && sw[1] && !(sw[2] || sw[3])) {
-    padding = map(pv, 0, 1023, radius, 4*radius);
-    // println("padding: "+padding);
-  }
-
-//[x][ ][x][ ]: Force Heading
-  if (sw[0] && sw[2] && !(sw[1] || sw[3])) {
-    heading = map(pv, 0, 1023, 0, TAU);
-    // println("heading: "+heading);
-  }
-
-//[x][ ][ ][x]: Attraction
-
-//[ ][x][x][ ]: Shape
-  if (sw[1] && sw[2] && !(sw[0] || sw[3])) {
-    for (int i = 0; i < shapes.size(); ++i) {
-      Shape s = shapes.get(i);
-      sides = (int) map(pv, 0, 1023, 0, 10);
-      s.setSides(sides);
-    }
-    // println("sides: "+sides);
-  }
-
-//[ ][x][ ][x]: Bounce
-
-//[ ][ ][x][x]: Angular Velocity
-  if (sw[2] && sw[3] && !(sw[0] || sw[1])) {
-    for (int i = 0; i < shapes.size(); ++i) {
-      Shape s = shapes.get(i);
-      spin = map(pv, 0, 1023, 0, maxSpin);
-      s.spin(spin);
-    }
-    // println("spin: "+spin);
-  }
-
-//[x][x][x][ ]: Arrangement
-  if ( sw[0] && sw[1] && sw[2] && !(sw[3]) ) {
+//[x][ ][x][ ]: ARRANGEMENT
+  if ( sw[0] && sw[2] && !(sw[1] || sw[3]) ) {
     int initArr = arrangement;
     arrangement = (int) map(pv, 0, 1023, 0, 4);
     if (arrangement != initArr) {
@@ -125,9 +94,50 @@ void changeProperties(boolean[] sw) {
     // println("arrangement: "+arrangement);
   }
 
+//[x][ ][ ][x]: PADDING 
 
-//[x][x][ ][x]: Mass
-  if ( sw[0] && sw[1] && sw[3] && !(sw[2]) ) {
+  if (sw[0] && sw[3] && !(sw[1] || sw[2])) {
+    padding = map(pv, 0, 1023, radius, 4*radius);
+    // println("padding: "+padding);
+  }
+
+//[ ][x][x][ ]: ANGLE
+  if (sw[1] && sw[2] && !(sw[0] || sw[3])) {
+    for (int i = 0; i < shapes.size(); ++i) {
+      Shape s = shapes.get(i);
+      angle = map(pv, 0, 1023, 0, TAU);
+      // s.spin(0); //stop spin if setting angle
+      s.setTheta(angle);
+    }
+    // println("angle: "+angle);
+  }
+
+//[ ][x][ ][x]: SPIN
+  if (sw[1] && sw[3] && !(sw[0] || sw[2])) {
+    for (int i = 0; i < shapes.size(); ++i) {
+      Shape s = shapes.get(i);
+      spin = map(pv, 0, 1023, 0, maxSpin);
+      s.spin(spin);
+    }
+    // println("spin: "+spin);
+  }
+
+//[ ][ ][x][x]: CENTER
+  if (sw[2] && sw[3] && !(sw[0] || sw[1])) {
+  for (int i = 0; i < shapes.size(); ++i) {
+    Shape s = shapes.get(i);
+    offset = map(pv, 0, 1023, -radius, radius);
+    s.setOffset(offset);
+  }
+  // println("offset: "+offset);
+  }
+
+//[x][x][x][ ]: ATTRACTION
+
+//[x][x][ ][x]: BOUNCE
+
+//[x][ ][x][x]: GRAVITY
+  if ( sw[0] && sw[2] && sw[3] && !(sw[1]) ) {
     for (int i = 0; i < shapes.size(); ++i) {
       Shape s = shapes.get(i);
       mass = (int) map(pv, 0, 1023, 1, 100);
@@ -136,17 +146,9 @@ void changeProperties(boolean[] sw) {
     // println("mass: "+mass);
   }
 
-//[x][ ][x][x]: Center of Rotation (offset)
-  if (sw[0] && sw[2] && sw[3] && !(sw[1])) {
-  for (int i = 0; i < shapes.size(); ++i) {
-    Shape s = shapes.get(i);
-    offset = map(pv, 0, 1023, -radius, radius);
-    s.setOffset(offset);
-  }
-  // println("offset: "+offset);
-  }
-//[ ][x][x][x]: Walls
-//[x][x][x][x]: Order
+//[ ][x][x][x]: WALLS
+
+//[x][x][x][x]: RANDOM
 
 //run all of the shapes
   for (int i = 0; i < shapes.size(); ++i) {
