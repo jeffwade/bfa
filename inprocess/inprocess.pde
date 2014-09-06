@@ -99,77 +99,77 @@ void keyReleased() {
     if (key == 'q') {
       sw[0] = false;
     }
-    //NUMBER
+    //SHAPE
     if (key == 'w') {
       sw[1] = false;
     }
-    //ANGLE
+    //SPEED
     if (key == 'e') {
       sw[2] = false;
     }
-    //SPEED
+    //HEADING
     if (key == 'r') {
       sw[3] = false;
     }
-    //PADDING
+    //NUMBER
     if (key == 'a') {
       sw[0] = false;
       sw[1] = false;
     }
-    //HEADING
+    //ARRANGEMENT
     if (key == 's') {
       sw[0] = false;
       sw[2] = false;
     }
-    //ATTRACTION
+    //PADDING
     if (key == 'd') {
       sw[0] = false;
       sw[3] = false;
     }
-    //SHAPE
+    //ANGLE
     if (key == 'f') {
       sw[1] = false;
       sw[2] = false;
     }
-    //BOUNCE
+    //SPIN
     if (key == 'g') {
       sw[1] = false;
       sw[3] = false;
     }
-    //SPIN
+    //CENTER
     if (key == 'h') {
       sw[2] = false;
       sw[3] = false;
     }
-    //ARRANGEMENT
+    //ATTRACTION
     if (key == 'z') {
-      sw[0] = true;
-      sw[1] = true;
-      sw[2] = true;
+      sw[0] = false;
+      sw[1] = false;
+      sw[2] = false;
     }
-    //MASS
+    //BOUNCE
     if (key == 'x') {
-      sw[0] = true;
-      sw[1] = true;
-      sw[3] = true;
+      sw[0] = false;
+      sw[1] = false;
+      sw[3] = false;
     }
-    //CENTER
+    //GRAVITY
     if (key == 'c') {
-      sw[0] = true;
-      sw[2] = true;
-      sw[3] = true;
+      sw[0] = false;
+      sw[2] = false;
+      sw[3] = false;
     }
     //WALLS
     if (key == 'v') {
-      sw[1] = true;
-      sw[2] = true;
-      sw[3] = true;
+      sw[1] = false;
+      sw[2] = false;
+      sw[3] = false;
     }
     //RANDOM
     if (key == 'b') {
-      sw[0] = true;
-      sw[1] = true;
-      sw[2] = true;
-      sw[3] = true;
+      sw[0] = false;
+      sw[1] = false;
+      sw[2] = false;
+      sw[3] = false;
     }
 }

@@ -13,78 +13,79 @@ void readInputs() {
     if (key == 'q') {
       sw[0] = true;
     }
-    //NUMBER
+    //SHAPE
     if (key == 'w') {
       sw[1] = true;
     }
-    //ANGLE
+    //SPEED
     if (key == 'e') {
       sw[2] = true;
     }
-    //SPEED
+    //HEADING
     if (key == 'r') {
       sw[3] = true;
     }
-    //PADDING
+    //NUMBER
     if (key == 'a') {
       sw[0] = true;
       sw[1] = true;
     }
-    //HEADING
+    //ARRANGEMENT
     if (key == 's') {
       sw[0] = true;
       sw[2] = true;
     }
-    //ATTRACTION
+    //PADDING
     if (key == 'd') {
       sw[0] = true;
       sw[3] = true;
     }
-    //SHAPE
+    //ANGLE
     if (key == 'f') {
       sw[1] = true;
       sw[2] = true;
     }
-    //BOUNCE
+    //SPIN
     if (key == 'g') {
       sw[1] = true;
       sw[3] = true;
     }
-    //SPIN
+    //CENTER
     if (key == 'h') {
       sw[2] = true;
       sw[3] = true;
     }
-    //ARRANGEMENT
+    //ATTRACTION
     if (key == 'z') {
       sw[0] = true;
       sw[1] = true;
       sw[2] = true;
     }
-    //MASS
-    if (key == 'z') {
+    //BOUNCE
+    if (key == 'x') {
       sw[0] = true;
       sw[1] = true;
       sw[3] = true;
     }
-    //CENTER
-    if (key == 'z') {
+    //GRAVITY
+    if (key == 'c') {
       sw[0] = true;
       sw[2] = true;
       sw[3] = true;
     }
     //WALLS
-    if (key == 'z') {
+    if (key == 'v') {
       sw[1] = true;
       sw[2] = true;
       sw[3] = true;
     }
     //RANDOM
-    if (key == 'z') {
+    if (key == 'b') {
       sw[0] = true;
       sw[1] = true;
       sw[2] = true;
       sw[3] = true;
     }
+
   }
 }
