@@ -1,56 +1,68 @@
 #PROPERTIES
 
 ##Switch Combos
-- [ ][ ][ ][ ] : Color
-  - Hue
-  - range: 0–360
-- [x][ ][ ][ ] : Radius
-  - range: 25–???
-- [ ][x][ ][ ] : Number
-  - range: 1–???
-- [ ][ ][x][ ] : Angle
-  - range: 0–360º
-- [ ][ ][ ][x] : Force Strength
-  - range: 0–10
-- [x][x][ ][ ] : Padding
-  - max less than width or height
-- [x][ ][x][ ] : Force Heading
-  - range: 0–360º
-- [x][ ][ ][x] : Attraction
-- [ ][x][x][ ] : Shape
-  - number of sides: 2=line; 3...???= polygon; >???=circle; top=random?
-  - range: 0–??
-- [ ][x][ ][x] : Bounce
-- [ ][ ][x][x] : Spin
-  - range: 0–360º
-- [x][x][x][ ] : Arrangement
-  - options: grid, checker, circle, shape, ???
-- [x][x][ ][x] : Mass
-  - range: 1–100;
-  -also turns gravity on/off
-- [x][ ][x][x] : Center of rotation (offset)
-  -
-- [ ][x][x][x] : Walls
-  - options: combinations of
-- [x][x][x][x] : Randomness
-  - options: shape, color, size, speed, angle, mass, bounce, random
+- [ ][ ][ ][ ] : COLOR
+  - Hue : [0, 360]
+
+- [x][ ][ ][ ] : RADIUS
+  - r: [25, height/6] 
+
+- [ ][x][ ][ ] : SHAPE
+  - number of sides: 2 => line; [3, 9] => polygon; 10 => circle
+
+- [ ][ ][x][ ] : SPEED
+  - [0,10]
+
+- [ ][ ][ ][x] : HEADING
+  - angle: [0,360]
+
+- [x][x][ ][ ] : NUMBER
+  - [1, 9]
+
+- [x][ ][x][ ] : ARRANGEMENT
+  - options: none, line, grid, radial, random
+
+- [x][ ][ ][x] : PADDING
+  - [r, 3r]
+
+- [ ][x][x][ ] : ANGLE
+  - Theta : [0, 360]
+
+- [ ][x][ ][x] : SPIN
+  - Angular velocity : [0, 360]
+
+- [ ][ ][x][x] : CENTER
+  - x:[-100,100]
+
+- [x][x][x][ ] : ATTRACTION
+
+- [x][x][ ][x] : BOUNCE
+  - range: [0,1]
+
+- [x][ ][x][x] : GRAVITY
+
+- [ ][x][x][x] : WALLS
+  - options: combinations of screen sides
+
+- [x][x][x][x] : RANDOM
+  - options: shape, color, size, speed, angle, mass, bounce, etc.
 
 ## Implement in Main Program
 - [x] Number
-- [x] Padding
 - [x] Arrangement
-- [ ] Order
+- [x] Padding
 - [ ] Walls
+- [ ] Random
 
 ## Implement in Shape Class
 - [x] Color
 - [x] Radius
-- [x] Angle
 - [x] Shape
+- [x] Force Strength
+- [x] Force Heading
+- [x] Angle
+- [x] Spin
+- [x] Center
 - [x] Mass
 - [ ] Attraction
 - [ ] Bounce
-- [x] Force Strength
-- [x] Force Heading
-- [x] Spin
-- [x] Center of rotation
