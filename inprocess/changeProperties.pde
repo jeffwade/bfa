@@ -101,7 +101,7 @@ void changeProperties(boolean[] sw) {
 //[x][ ][ ][x]: PADDING
 
   if (sw[0] && sw[3] && !(sw[1] || sw[2])) {
-    padding = map(pv, 0, 1023, radius, 4*radius);
+    padding = map(pv, 0, 1023, minRadius, 4*maxRadius);
     for (int i = 0; i < shapes.size(); ++i) {
       Shape s = shapes.get(i);
       s.setArranged(false);

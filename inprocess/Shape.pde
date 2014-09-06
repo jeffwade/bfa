@@ -14,6 +14,7 @@ class Shape {
     color c;
 
     boolean arranged = false;
+    boolean randomized = false;
   //Constructors
   //default constructor (no params)
     Shape() {
@@ -136,6 +137,13 @@ class Shape {
     public void setSides(int newSides) {
         n = newSides;
     }
+    public int getShape() {
+        return n;
+    }
+
+    public void setShape(int newSides) {
+        n = newSides;
+    }
 
     public int getMass() {
         return m;
@@ -200,15 +208,19 @@ class Shape {
     public float getSpeed() {
         return velocity.mag();
     }
+    public void setSpeed(float newSpeed) {
+       velocity = new PVector(cos(heading), sin(heading));
+       velocity.mult(newSpeed);
+    }
     public PVector getVelocity() {
         return velocity;
     }
     public void setVelocity(PVector newVelocity) {
         velocity = newVelocity.get();
     }
-    public void setVelocity(float newX, float newY) {
-        velocity.x = newX;
-        velocity.y = newY;
+    public void setVelocity(float newSpeed, float newHeading) {
+        velocity.x = newSpeed*cos(newHeading);
+        velocity.y = newSpeed*sin(newHeading);
     }
     public void setVelocity(String a, float newAngle, float newMagnitude) {
         //the string doesn't actually matter at all.

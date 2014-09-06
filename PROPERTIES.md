@@ -5,7 +5,7 @@
   - Hue : [0, 360]
 
 - [x][ ][ ][ ] : RADIUS
-  - r: [25, height/6] 
+  - r: [25, height/6]
 
 - [ ][x][ ][ ] : SHAPE
   - number of sides: 2 => line; [3, 9] => polygon; 10 => circle
@@ -51,6 +51,7 @@
 - [x] Number
 - [x] Arrangement
 - [x] Padding
+- [ ] Gravity
 - [ ] Walls
 - [ ] Random
 
