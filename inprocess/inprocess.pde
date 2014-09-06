@@ -171,4 +171,5 @@ void keyReleased() {
       sw[1] = true;
       sw[2] = true;
       sw[3] = true;
+    }
 }
