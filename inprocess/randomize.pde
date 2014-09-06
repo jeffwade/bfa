@@ -18,7 +18,7 @@ void randomize(Shape _s, int property) {
       for (int i = 0; i < shapes.size(); ++i) {
         float r = random(minRadius,maxRadius);
         Shape s = shapes.get(i);
-        if (!s.isRadomized()) {
+        if (!(s.isRandomized())) {
           s.setRadius(r);
         }
       }

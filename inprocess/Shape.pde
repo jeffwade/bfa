@@ -260,4 +260,10 @@ class Shape {
     public void setArranged(boolean newArranged) {
         arranged = newArranged;
     }
+    public boolean isRandomized() {
+        return randomized;
+    }
+    public void setRandomized(boolean newRandomized) {
+        randomized = newRandomized;
+    }
 }
