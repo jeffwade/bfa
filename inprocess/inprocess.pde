@@ -26,7 +26,7 @@
   boolean[] sw = {false, false, false, false}; //array holding switch states
 //Global/Default Property values
   int shapeHue = 150;
-  float radius = height/6;
+  float radius = 100;
   float angle = 0.0;
   float strength = 0;
   float heading = 0.0;
@@ -36,7 +36,7 @@
   int mass = 1;
   float spin = 0;
   float offset = 0;
-  int arrangement = 2; //default is GRID
+  int arrangement = 1; //default is LINE
   boolean arranged = false;
   int number = 1;
 

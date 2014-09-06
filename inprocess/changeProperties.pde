@@ -94,10 +94,15 @@ void changeProperties(boolean[] sw) {
     // println("arrangement: "+arrangement);
   }
 
-//[x][ ][ ][x]: PADDING 
+//[x][ ][ ][x]: PADDING
 
   if (sw[0] && sw[3] && !(sw[1] || sw[2])) {
     padding = map(pv, 0, 1023, radius, 4*radius);
+    for (int i = 0; i < shapes.size(); ++i) {
+      Shape s = shapes.get(i);
+      s.setArranged(false);
+    }
+    arrangeShapes();
     // println("padding: "+padding);
   }
 
@@ -149,6 +154,21 @@ void changeProperties(boolean[] sw) {
 //[ ][x][x][x]: WALLS
 
 //[x][x][x][x]: RANDOM
+  if (sw[0] && sw[1] && sw[2] && sw[3]) {
+    int prop = (int) map(pv, 0, 1023, 0, 16);
+    for (int i = 0; i < shapes.size(); ++i) {
+      Shape s = shapes.get(i);
+      switch (prop) {
+        case 0 :
+          //no random properties
+        break;
+        case 1 :
+          float r = random(minRadius, maxRadius);
+          s.setRadius(r);
+        break;
+      }
+    }
+  }
 
 //run all of the shapes
   for (int i = 0; i < shapes.size(); ++i) {

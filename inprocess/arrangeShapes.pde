@@ -32,8 +32,11 @@ void arrangeShapes() {
       for (int i = 0; i < columns; ++i) {
         for (int j = 0; j < rows; ++j) {
           Shape s = shapes.get(i*rows+j);
-          s.setX(first.getX() + padding*i);
-          s.setY(first.getY() + padding*j);
+          if (!s.isArranged()) {
+
+            s.setX(first.getX() + padding*i);
+            s.setY(first.getY() + padding*j);
+          }
         }
       }
     break;
