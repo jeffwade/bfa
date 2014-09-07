@@ -69,7 +69,7 @@ void randomize(Shape _s, int property) {
     case 9 : //SPIN
       for (int i = 0; i < shapes.size(); ++i) {
         Shape s = shapes.get(i);
-        float da = random(maxSpin);
+        float da = random(-maxSpin, maxSpin);
         s.spin(da);
       }
     break;

@@ -125,7 +125,7 @@ void changeProperties(boolean[] sw) {
   if (sw[1] && sw[3] && !(sw[0] || sw[2])) {
     for (int i = 0; i < shapes.size(); ++i) {
       Shape s = shapes.get(i);
-      spin = map(pv, 0, 1023, 0, maxSpin);
+      spin = map(pv, 0, 1023, -maxSpin, maxSpin);
       s.spin(spin);
     }
     // println("spin: "+spin);
