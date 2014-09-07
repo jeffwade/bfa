@@ -24,7 +24,7 @@
 + [x] switch combinations
 
 ##DESIGN
-+ [ ] control box
++ [x] control box
   - hide arduino
   - dial
   - hold cubes
