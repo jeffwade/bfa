@@ -73,5 +73,17 @@ void randomize(Shape _s, int property) {
         s.spin(da);
       }
     break;
+    case 10 : //CENTER
+      for (int i = 0; i < shapes.size(); ++i) {
+        Shape s = shapes.get(i);
+        float dx = random(-maxRadius, maxRadius);
+        s.setOffset(dx);
+      }
+    break;
+    case 11 : //ATTRACTION
+      for (int i = 0; i < shapes.size(); ++i) {
+
+      }
+    break;
   }
 }

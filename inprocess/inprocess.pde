@@ -53,11 +53,11 @@
 
 //Global limits
   float minRadius = 15;
-  float maxRadius;
+  float maxRadius; //(height/6); set in setup
   int maxShapes = 9;
   int maxSides = 10;
-  float maxStrength = 1;
-  float maxSpeed = 10;
+  float maxStrength = 1.0;
+  float maxSpeed = 10.0;
   float maxSpin = 0.05;
 
 void setup() {
