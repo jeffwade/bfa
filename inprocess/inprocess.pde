@@ -63,6 +63,7 @@
 void setup() {
   //general sketch settings
     size(displayWidth, displayHeight, P2D);
+
     colorMode(HSB, 360, 100, 100, 100);
     white = color(0,0,100,100);
     black = color(0,0,0,100);
@@ -71,6 +72,7 @@ void setup() {
     background(white);
     noStroke();
     smooth();
+
   //initialize arraylist of shapes
     shapes = new ArrayList<Shape>();
     shapes.add(new Shape());
@@ -174,4 +176,8 @@ void keyReleased() {
       sw[2] = false;
       sw[3] = false;
     }
+}
+
+boolean sketchFullScreen() {
+  return true;
 }
