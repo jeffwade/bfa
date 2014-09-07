@@ -1,8 +1,15 @@
+#osx
 .DS_Store
+#temp files
+*~
+#processing
 applet
 application.linux32
 application.linux64
 application.windows32
 application.windows64
 application.macosx
+#processing in sublime
 **/build-tmp/**
+#arduino in sublime
+**stino.settings
