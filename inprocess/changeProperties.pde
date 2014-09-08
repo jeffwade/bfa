@@ -4,12 +4,18 @@ void changeProperties(boolean[] sw) {
 
 //[ ][ ][ ][ ]: COLOR
   if (!(sw[0] || sw[1] || sw[2] || sw[3])) {
-      shapeHue = (int) map(pv, 0, 1023, 0, 360);;
-      for (int i = 0; i < shapes.size(); ++i) {
-        Shape s = shapes.get(i);
-        s.setHue(shapeHue);
+    if (pv != initPV) {
+      int initHue = shapeHue;
+      shapeHue = (int) map(pv, 0, 1023, 0, 360);
+      if (shapeHue > 5 + initHue || shapeHue < initHue - 5 && !(randomizer == 17 || randomizer == 1)) {
+        for (int i = 0; i < shapes.size(); ++i) {
+          Shape s = shapes.get(i);
+          s.setHue(shapeHue);
+        }
       }
+      initPV = pv;
     // println("Hue: "+shapeHue);
+    }
   }
 
 //[x][ ][ ][ ]: SIZE
@@ -19,6 +25,7 @@ void changeProperties(boolean[] sw) {
       radius = map(pv, 0, 1023, minRadius, maxRadius);
       s.setRadius(radius);
     }
+    initPV = pv;
     // println("Radius: "+radius);
   }
 

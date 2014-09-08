@@ -39,7 +39,7 @@
 - [x][x][ ][x] : BOUNCE
   - range: [0,1]
 
-- [x][ ][x][x] : GRAVITY
+- [x][ ][x][x] : MASS
 
 - [ ][x][x][x] : WALLS
   - options: combinations of screen sides

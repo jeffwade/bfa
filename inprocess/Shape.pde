@@ -6,6 +6,7 @@ class Shape {
 
     //motion variables
     int m, b; //mass, bounce
+    float G;
     PVector position, velocity, acceleration; //position, velocity, acceleration;
     float dx; //horizontal offset (center of rotation)
     float theta, aVel, aAcc; //angle, angular velocity, angular acceleration;
@@ -22,12 +23,13 @@ class Shape {
       S = B = A = 90;
       c = color(H,S,B,A);
 
-      r = height/6;
+      r = radius;
 
       n = 6;
 
-      m = 1;
+      m = 10;
       b = 1;
+      G = 0;
 
       position = center.get();
       dx = 0;
@@ -111,6 +113,17 @@ class Shape {
           drawShape(n, r, c, dx);
         popStyle();
       popMatrix();
+    }
+
+    PVector attract(Shape s) {
+      PVector force = PVector.sub(position, s.getPosition());
+      float distance = force.mag();
+      distance = constrain(distance, 5.0, 25.0);
+
+      force.normalize();
+      float traction = (G*m*s.getMass())/(distance*distance);
+      force.mult(traction);
+      return force;
     }
 
   //getters and setters

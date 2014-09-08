@@ -22,7 +22,8 @@
   int switch4 = 11; //fourth switch on pin 9
   int[] switches = {switch1, switch2, switch3, switch4};
 
-  float pv; //potentiometer value
+  int pv; //potentiometer value
+  int initPV; //to control value jumps
   boolean[] sw = {false, false, false, false}; //array holding switch states
 //Global/Default Property values
   int shapeHue = 150;
@@ -34,7 +35,7 @@
   float heading = 0.0;
   float angle = 0.0;
   float padding = 100;
-  int mass = 1;
+  int mass = 10;
   float spin = 0;
   float offset = 0;
   int arrangement = 1; //default is LINE
@@ -54,11 +55,13 @@
 //Global limits
   float minRadius = 15;
   float maxRadius; //(height/6); set in setup
-  int maxShapes = 9;
+  int maxShapes = 16;
   int maxSides = 10;
   float maxStrength = 1.0;
   float maxSpeed = 10.0;
   float maxSpin = 0.05;
+  int minMass = 1;
+  int maxMass = 75;
 
 void setup() {
   //general sketch settings
