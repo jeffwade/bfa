@@ -24,16 +24,14 @@
 + [x] switch combinations
 
 ##DESIGN
-+ [ ] control box
++ [x] control box
   - hide arduino
   - dial
   - hold cubes
-  - export to .dxf
++ [ ] .dxf for laser cutter
 + [x] property icons
-+ [ ] logos?
-  - [ ] to SVG
 + [ ] HUD
-+ [ ] cut vinyl
++ [ ] cut vinyl artist statement
 
 ##BUILD
 + [ ] wood cubes, cone

@@ -4,12 +4,18 @@ void changeProperties(boolean[] sw) {
 
 //[ ][ ][ ][ ]: COLOR
   if (!(sw[0] || sw[1] || sw[2] || sw[3])) {
-      shapeHue = (int) map(pv, 0, 1023, 0, 360);;
-      for (int i = 0; i < shapes.size(); ++i) {
-        Shape s = shapes.get(i);
-        s.setHue(shapeHue);
+    if (pv != initPV) {
+      int initHue = shapeHue;
+      shapeHue = (int) map(pv, 0, 1023, 0, 360);
+      if (shapeHue > 5 + initHue || shapeHue < initHue - 5 && !(randomizer == 17 || randomizer == 1)) {
+        for (int i = 0; i < shapes.size(); ++i) {
+          Shape s = shapes.get(i);
+          s.setHue(shapeHue);
+        }
       }
+      initPV = pv;
     // println("Hue: "+shapeHue);
+    }
   }
 
 //[x][ ][ ][ ]: SIZE
@@ -19,6 +25,7 @@ void changeProperties(boolean[] sw) {
       radius = map(pv, 0, 1023, minRadius, maxRadius);
       s.setRadius(radius);
     }
+    initPV = pv;
     // println("Radius: "+radius);
   }
 
@@ -69,8 +76,12 @@ void changeProperties(boolean[] sw) {
     */
     if (difference > 0) {
       for (int i = 0; i < difference; ++i) {
-        float speed = shapes.get(0).getSpeed();
-        shapes.add(new Shape(shapeHue, radius, angle, speed, heading, sides, mass, spin, offset));
+        speed = shapes.get(0).getSpeed();
+        Shape s = new Shape(shapeHue, radius, angle, speed, heading, sides, mass, spin, offset);
+        if (randomizer > 0) {
+          randomize(s, randomizer);
+        }
+        shapes.add(s);
       }
     } else if (difference < 0) {
       for (int i = 0; i < abs(difference); ++i) {
@@ -94,10 +105,15 @@ void changeProperties(boolean[] sw) {
     // println("arrangement: "+arrangement);
   }
 
-//[x][ ][ ][x]: PADDING 
+//[x][ ][ ][x]: PADDING
 
   if (sw[0] && sw[3] && !(sw[1] || sw[2])) {
-    padding = map(pv, 0, 1023, radius, 4*radius);
+    padding = map(pv, 0, 1023, minRadius, 4*maxRadius);
+    for (int i = 0; i < shapes.size(); ++i) {
+      Shape s = shapes.get(i);
+      s.setArranged(false);
+    }
+    arrangeShapes();
     // println("padding: "+padding);
   }
 
@@ -116,7 +132,7 @@ void changeProperties(boolean[] sw) {
   if (sw[1] && sw[3] && !(sw[0] || sw[2])) {
     for (int i = 0; i < shapes.size(); ++i) {
       Shape s = shapes.get(i);
-      spin = map(pv, 0, 1023, 0, maxSpin);
+      spin = map(pv, 0, 1023, -maxSpin, maxSpin);
       s.spin(spin);
     }
     // println("spin: "+spin);
@@ -133,6 +149,13 @@ void changeProperties(boolean[] sw) {
   }
 
 //[x][x][x][ ]: ATTRACTION
+if (sw[0] && sw[1] && sw[2] && !(sw[3])) {
+  for (int i = 0; i < shapes.size(); ++i) {
+    Shape s = shapes.get(i);
+    attraction = map(pv, 0, 1023, -maxAttract, maxAttract);
+    s.setAttraction(attraction);
+  }
+}
 
 //[x][x][ ][x]: BOUNCE
 
@@ -149,6 +172,16 @@ void changeProperties(boolean[] sw) {
 //[ ][x][x][x]: WALLS
 
 //[x][x][x][x]: RANDOM
+  if (sw[0] && sw[1] && sw[2] && sw[3]) {
+    int initRandomizer = randomizer;
+    randomizer = (int) map(pv, 0, 1023, 0, 17);
+    if (randomizer != initRandomizer) {
+      for (int i = 0; i < shapes.size(); ++i) {
+        Shape s = shapes.get(i);
+        randomize(s, randomizer);
+      }
+    }
+  }
 
 //run all of the shapes
   for (int i = 0; i < shapes.size(); ++i) {

@@ -1,5 +1,7 @@
 void arrangeShapes() {
   Shape first = shapes.get(0);
+  float _x = 0.0f;
+  float _y = 0.0f;
 
   switch (arrangement) {
     case NONE :
@@ -18,8 +20,10 @@ void arrangeShapes() {
       for (int i = 0; i < shapes.size(); ++i) {
         Shape s = shapes.get(i);
         if (!s.isArranged()) {
-          s.setX(first.getX() + padding*i*cos(heading - PI));
-          s.setY(first.getY() + padding*i*sin(heading - PI));
+          _x = first.getX() + padding*i*cos(heading - PI);
+          _y = first.getY() + padding*i*sin(heading - PI);
+          s.setX(_x%width);
+          s.setY(_y%height);
           s.setArranged(true);
         }
       }
@@ -32,8 +36,11 @@ void arrangeShapes() {
       for (int i = 0; i < columns; ++i) {
         for (int j = 0; j < rows; ++j) {
           Shape s = shapes.get(i*rows+j);
-          s.setX(first.getX() + padding*i);
-          s.setY(first.getY() + padding*j);
+          if (!s.isArranged()) {
+
+            s.setX((first.getX() + padding*i)%width);
+            s.setY((first.getY() + padding*j)%height);
+          }
         }
       }
     break;
@@ -42,8 +49,8 @@ void arrangeShapes() {
         Shape s = shapes.get(i);
         if (!s.isArranged()) {
           //set in circle; first shape is at 0 degrees along radius
-          s.setX((first.getX() - padding) + padding*cos(i*TAU/shapes.size()));
-          s.setY((first.getY()) + padding*sin(i*TAU/shapes.size()));
+          s.setX(((first.getX() - padding) + padding*cos(i*TAU/shapes.size()))%width);
+          s.setY(((first.getY()) + padding*sin(i*TAU/shapes.size()))%height);
           s.setArranged(true);
         }
       }

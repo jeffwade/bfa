@@ -6,6 +6,7 @@ class Shape {
 
     //motion variables
     int m, b; //mass, bounce
+    float G;
     PVector position, velocity, acceleration; //position, velocity, acceleration;
     float dx; //horizontal offset (center of rotation)
     float theta, aVel, aAcc; //angle, angular velocity, angular acceleration;
@@ -14,6 +15,7 @@ class Shape {
     color c;
 
     boolean arranged = false;
+    boolean randomized = false;
   //Constructors
   //default constructor (no params)
     Shape() {
@@ -21,12 +23,13 @@ class Shape {
       S = B = A = 90;
       c = color(H,S,B,A);
 
-      r = height/6;
+      r = radius;
 
       n = 6;
 
       m = 1;
       b = 1;
+      G = 0;
 
       position = center.get();
       dx = 0;
@@ -112,6 +115,17 @@ class Shape {
       popMatrix();
     }
 
+    //can be negative (ie repel)
+    void attract(Shape s) {
+      PVector force = PVector.sub(position, s.getPosition());
+      float distance = force.mag();
+      distance = constrain(distance, 5.0, 25.0);
+
+      force.normalize();
+      force.mult(G*m*s.getMass()/(distance*distance));
+      applyForce(force);
+    }
+
   //getters and setters
     public int getHue() {
         return H;
@@ -136,6 +150,13 @@ class Shape {
     public void setSides(int newSides) {
         n = newSides;
     }
+    public int getShape() {
+        return n;
+    }
+
+    public void setShape(int newSides) {
+        n = newSides;
+    }
 
     public int getMass() {
         return m;
@@ -143,6 +164,14 @@ class Shape {
 
     public void setMass(int newMass) {
         m = newMass;
+    }
+
+    public float getAttraction() {
+        return G;
+    }
+
+    public void setAttraction(float newAttraction) {
+        G = newAttraction;
     }
 
     public int getBounce() {
@@ -200,6 +229,19 @@ class Shape {
     public float getSpeed() {
         return velocity.mag();
     }
+    public void setSpeed(float newSpeed) {
+       velocity = new PVector(cos(heading), sin(heading));
+       velocity.mult(newSpeed);
+    }
+    public float getHeading() {
+        return velocity.heading();
+    }
+    public void setHeading(float newHeading) {
+        float heading = newHeading;
+        float speed = velocity.mag();
+        velocity = new PVector(speed*cos(heading), speed*sin(heading));
+    }
+
     public PVector getVelocity() {
         return velocity;
     }
@@ -218,6 +260,7 @@ class Shape {
         velocity.x = newX;
         velocity.y = newY;
     }
+
     public PVector getAcceleration() {
         return acceleration;
     }
@@ -247,5 +290,11 @@ class Shape {
     }
     public void setArranged(boolean newArranged) {
         arranged = newArranged;
+    }
+    public boolean isRandomized() {
+        return randomized;
+    }
+    public void setRandomized(boolean newRandomized) {
+        randomized = newRandomized;
     }
 }

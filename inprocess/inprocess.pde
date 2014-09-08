@@ -22,23 +22,27 @@
   int switch4 = 11; //fourth switch on pin 9
   int[] switches = {switch1, switch2, switch3, switch4};
 
-  float pv; //potentiometer value
+  int pv; //potentiometer value
+  int initPV; //to control value jumps
   boolean[] sw = {false, false, false, false}; //array holding switch states
 //Global/Default Property values
   int shapeHue = 150;
-  float radius = height/6;
-  float angle = 0.0;
-  float strength = 0;
-  float heading = 0.0;
-  PVector velocity = new PVector(0,0);
-  float padding = 100;
+  float radius = 100f;
   int sides = 6;
-  int mass = 1;
-  float spin = 0;
-  float offset = 0;
-  int arrangement = 2; //default is GRID
-  boolean arranged = false;
+  float speed = 0f;
+  PVector velocity = new PVector(0,0);
+  float strength = 0f;
+  float heading = 0.0f;
   int number = 1;
+  int arrangement = 1; //default is LINE
+  float padding = 100f;
+  float angle = 0.0f;
+  float spin = 0f;
+  float offset = 0f;
+  float attraction = 0.0f;
+  int mass = 1;
+  boolean arranged = false;
+  int randomizer = 0;
 
 //Global property constants
   //ARRANGEMENTS
@@ -50,25 +54,31 @@
 
 
 //Global limits
-  float minRadius = 15;
-  float maxRadius;
-  int maxShapes = 9;
+  float minRadius = 15f;
+  float maxRadius; //(height/6); set in setup
+  int maxShapes = 20;
   int maxSides = 10;
-  float maxStrength = 1;
-  float maxSpeed = 10;
-  float maxSpin = 0.05;
+  float maxStrength = 1.0f;
+  float maxSpeed = 10.0f;
+  float maxSpin = 0.05f;
+  int minMass = 1;
+  int maxMass = 75;
+  int maxAttract = 2;
+
 
 void setup() {
   //general sketch settings
-    size(displayWidth/2, displayHeight/2, P2D);
+    size(displayWidth, displayHeight, P2D);
+
     colorMode(HSB, 360, 100, 100, 100);
     white = color(0,0,100,100);
     black = color(0,0,0,100);
     center = new PVector(width/2, height/2);
-    maxRadius = height/6;
+    maxRadius = height/6f;
     background(white);
     noStroke();
     smooth();
+
   //initialize arraylist of shapes
     shapes = new ArrayList<Shape>();
     shapes.add(new Shape());
@@ -172,4 +182,8 @@ void keyReleased() {
       sw[2] = false;
       sw[3] = false;
     }
+}
+
+boolean sketchFullScreen() {
+  return true;
 }
