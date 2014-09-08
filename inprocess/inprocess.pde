@@ -27,20 +27,21 @@
   boolean[] sw = {false, false, false, false}; //array holding switch states
 //Global/Default Property values
   int shapeHue = 150;
-  float radius = 100;
+  float radius = 100f;
   int sides = 6;
-  float speed = 0;
+  float speed = 0f;
   PVector velocity = new PVector(0,0);
-  float strength = 0;
-  float heading = 0.0;
-  float angle = 0.0;
-  float padding = 100;
-  int mass = 10;
-  float spin = 0;
-  float offset = 0;
-  int arrangement = 1; //default is LINE
-  boolean arranged = false;
+  float strength = 0f;
+  float heading = 0.0f;
   int number = 1;
+  int arrangement = 1; //default is LINE
+  float padding = 100f;
+  float angle = 0.0f;
+  float spin = 0f;
+  float offset = 0f;
+  float attraction = 0.0f;
+  int mass = 10;
+  boolean arranged = false;
   int randomizer = 0;
 
 //Global property constants
@@ -53,13 +54,13 @@
 
 
 //Global limits
-  float minRadius = 15;
+  float minRadius = 15f;
   float maxRadius; //(height/6); set in setup
   int maxShapes = 16;
   int maxSides = 10;
-  float maxStrength = 1.0;
-  float maxSpeed = 10.0;
-  float maxSpin = 0.05;
+  float maxStrength = 1.0f;
+  float maxSpeed = 10.0f;
+  float maxSpin = 0.05f;
   int minMass = 1;
   int maxMass = 75;
 
@@ -71,7 +72,7 @@ void setup() {
     white = color(0,0,100,100);
     black = color(0,0,0,100);
     center = new PVector(width/2, height/2);
-    maxRadius = height/6;
+    maxRadius = height/6f;
     background(white);
     noStroke();
     smooth();
