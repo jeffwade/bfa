@@ -151,7 +151,9 @@ void changeProperties(boolean[] sw) {
 //[x][x][x][ ]: ATTRACTION
 if (sw[0] && sw[1] && sw[2] && !(sw[3])) {
   for (int i = 0; i < shapes.size(); ++i) {
-    attraction = map(pv, 0, 1023, 0, 1);
+    Shape s = shapes.get(i);
+    attraction = map(pv, 0, 1023, -maxAttract, maxAttract);
+    s.setAttraction(attraction);
   }
 }
 

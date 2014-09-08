@@ -11,7 +11,7 @@ void randomize(Shape _s, int property) {
         s.setTheta(angle);
         s.spin(spin);
         s.setOffset(offset);
-        // s.setAttraction(attraction);
+        s.setAttraction(attraction);
         // s.setBounce(bounce);
       }
     break;
@@ -27,7 +27,7 @@ void randomize(Shape _s, int property) {
         s.setTheta(angle);
         s.spin(spin);
         s.setOffset(offset);
-        // s.setAttraction(attraction);
+        s.setAttraction(attraction);
         // s.setBounce(bounce);
         }
       }
@@ -44,7 +44,7 @@ void randomize(Shape _s, int property) {
         s.setTheta(angle);
         s.spin(spin);
         s.setOffset(offset);
-        // s.setAttraction(attraction);
+        s.setAttraction(attraction);
         // s.setBounce(bounce);
 
         }
@@ -62,7 +62,7 @@ void randomize(Shape _s, int property) {
         s.setTheta(angle);
         s.spin(spin);
         s.setOffset(offset);
-        // s.setAttraction(attraction);
+        s.setAttraction(attraction);
         // s.setBounce(bounce);
 
         }
@@ -81,7 +81,7 @@ void randomize(Shape _s, int property) {
         s.setTheta(angle);
         s.spin(spin);
         s.setOffset(offset);
-        // s.setAttraction(attraction);
+        s.setAttraction(attraction);
         // s.setBounce(bounce);
 
         }
@@ -100,7 +100,7 @@ void randomize(Shape _s, int property) {
         s.setTheta(angle);
         s.spin(spin);
         s.setOffset(offset);
-        // s.setAttraction(attraction);
+        s.setAttraction(attraction);
         // s.setBounce(bounce);
 
         }
@@ -126,7 +126,7 @@ void randomize(Shape _s, int property) {
         s.setVelocity(speed, heading);
         s.spin(spin);
         s.setOffset(offset);
-        // s.setAttraction(attraction);
+        s.setAttraction(attraction);
         // s.setBounce(bounce);
 
       }
@@ -136,13 +136,15 @@ void randomize(Shape _s, int property) {
         Shape s = shapes.get(i);
         float da = random(-maxSpin, maxSpin);
         s.spin(da);
+
+
         s.setHue(shapeHue);
         s.setRadius(radius);
         s.setShape(sides);
         s.setVelocity(speed, heading);
         s.setTheta(angle);
         s.setOffset(offset);
-        // s.setAttraction(attraction);
+        s.setAttraction(attraction);
         // s.setBounce(bounce);
 
       }
@@ -158,14 +160,22 @@ void randomize(Shape _s, int property) {
         s.setVelocity(speed, heading);
         s.setTheta(angle);
         s.spin(spin);
-        // s.setAttraction(attraction);
+        s.setAttraction(attraction);
         // s.setBounce(bounce);
 
       }
     break;
     case 12 : //ATTRACTION
       for (int i = 0; i < shapes.size(); ++i) {
-
+        Shape s = shapes.get(i);
+        s.setAttraction(random(-maxAttract, maxAttract));
+        s.setOffset(offset);
+        s.setHue(shapeHue);
+        s.setRadius(radius);
+        s.setShape(sides);
+        s.setVelocity(speed, heading);
+        s.setTheta(angle);
+        s.spin(spin);
       }
     break;
     case 17 :
@@ -178,7 +188,8 @@ void randomize(Shape _s, int property) {
         s.setTheta(random(TAU));
         s.spin(random(maxSpin));
         s.setOffset(random(-maxRadius, maxRadius));
-        // s.setAttraction(attraction);
+        s.setMass((int) random(minMass, maxMass));
+        s.setAttraction(random(-maxAttract, maxAttract));
         // s.setBounce(bounce);
       }
     break;

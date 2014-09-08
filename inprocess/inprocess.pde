@@ -40,7 +40,7 @@
   float spin = 0f;
   float offset = 0f;
   float attraction = 0.0f;
-  int mass = 10;
+  int mass = 1;
   boolean arranged = false;
   int randomizer = 0;
 
@@ -56,13 +56,15 @@
 //Global limits
   float minRadius = 15f;
   float maxRadius; //(height/6); set in setup
-  int maxShapes = 16;
+  int maxShapes = 20;
   int maxSides = 10;
   float maxStrength = 1.0f;
   float maxSpeed = 10.0f;
   float maxSpin = 0.05f;
   int minMass = 1;
   int maxMass = 75;
+  int maxAttract = 2;
+
 
 void setup() {
   //general sketch settings

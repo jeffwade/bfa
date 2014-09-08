@@ -27,7 +27,7 @@ class Shape {
 
       n = 6;
 
-      m = 10;
+      m = 1;
       b = 1;
       G = 0;
 
@@ -115,15 +115,15 @@ class Shape {
       popMatrix();
     }
 
-    PVector attract(Shape s) {
+    //can be negative (ie repel)
+    void attract(Shape s) {
       PVector force = PVector.sub(position, s.getPosition());
       float distance = force.mag();
       distance = constrain(distance, 5.0, 25.0);
 
       force.normalize();
-      float traction = (G*m*s.getMass())/(distance*distance);
-      force.mult(traction);
-      return force;
+      force.mult(G*m*s.getMass()/(distance*distance));
+      applyForce(force);
     }
 
   //getters and setters
@@ -164,6 +164,14 @@ class Shape {
 
     public void setMass(int newMass) {
         m = newMass;
+    }
+
+    public float getAttraction() {
+        return G;
+    }
+
+    public void setAttraction(float newAttraction) {
+        G = newAttraction;
     }
 
     public int getBounce() {
