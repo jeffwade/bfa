@@ -4,7 +4,7 @@ void drawShape(int n, float r, color c, float dx){
     stroke(c);
     strokeWeight(random(1, 3));
     line(-r + dx, 0, r + dx, 0);
-  } else if (n >= 3 && n < maxSides) {
+  } else if (n >= 3 && n <= maxSides) {
     fill(c);
     PShape s = createShape();
     s.beginShape();
@@ -13,7 +13,7 @@ void drawShape(int n, float r, color c, float dx){
     }
     s.endShape(CLOSE);
     shape(s, dx, 0);
-  } else { //n == maxSides
+  } else { //n > maxSides
     fill(c);
     ellipse(dx, 0, 2*r, 2*r);
   }

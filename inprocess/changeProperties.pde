@@ -33,7 +33,7 @@ void changeProperties(boolean[] sw) {
   if (sw[1] && !(sw[0] || sw[2] || sw[3])) {
     for (int i = 0; i < shapes.size(); ++i) {
       Shape s = shapes.get(i);
-      sides = (int) map(pv, 0, 1023, 0, 10);
+      sides = (int) map(pv, 0, 1023, 0, maxSides + 2);
       s.setSides(sides);
     }
     // println("sides: "+sides);
@@ -174,7 +174,7 @@ if (sw[0] && sw[1] && sw[2] && !(sw[3])) {
 //[x][x][x][x]: RANDOM
   if (sw[0] && sw[1] && sw[2] && sw[3]) {
     int initRandomizer = randomizer;
-    randomizer = (int) map(pv, 0, 1023, 0, 17);
+    randomizer = (int) map(pv, 0, 1023, 0, 18);
     if (randomizer != initRandomizer) {
       for (int i = 0; i < shapes.size(); ++i) {
         Shape s = shapes.get(i);

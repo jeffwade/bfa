@@ -179,7 +179,8 @@ void randomize(Shape _s, int property) {
       }
     break;
     case 17 :
-      for (int i = 0; i < shapes.size(); ++i) {
+    case 18 :
+        for (int i = 0; i < shapes.size(); ++i) {
         Shape s = shapes.get(i);
         s.setHue((int) random(360));
         s.setRadius(random(minRadius, maxRadius));
@@ -192,6 +193,6 @@ void randomize(Shape _s, int property) {
         s.setAttraction(random(-maxAttract, maxAttract));
         // s.setBounce(bounce);
       }
-    break;
+    break;    
   }
 }
