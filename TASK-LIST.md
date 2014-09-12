@@ -22,6 +22,10 @@
   + [x] `display` method
   + [x] `update` method
   + [ ] physics (look into libraries for this)
+    + [x] attraction
+    + [x] mass
+    + [ ] bounce
+    + [ ] walls
 + [x] switch combinations
 
 ##DESIGN

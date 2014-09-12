@@ -13,7 +13,6 @@ void changeProperties(boolean[] sw) {
           s.setHue(shapeHue);
         }
       }
-      initPV = pv;
     // println("Hue: "+shapeHue);
     }
   }
@@ -25,7 +24,6 @@ void changeProperties(boolean[] sw) {
       radius = map(pv, 0, 1023, minRadius, maxRadius);
       s.setRadius(radius);
     }
-    initPV = pv;
     // println("Radius: "+radius);
   }
 
@@ -159,7 +157,7 @@ if (sw[0] && sw[1] && sw[2] && !(sw[3])) {
 
 //[x][x][ ][x]: BOUNCE
 
-//[x][ ][x][x]: GRAVITY
+//[x][ ][x][x]: MASS
   if ( sw[0] && sw[2] && sw[3] && !(sw[1]) ) {
     for (int i = 0; i < shapes.size(); ++i) {
       Shape s = shapes.get(i);
