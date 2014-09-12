@@ -193,6 +193,6 @@ void randomize(Shape _s, int property) {
         s.setAttraction(random(-maxAttract, maxAttract));
         // s.setBounce(bounce);
       }
-    break;    
+    break;
   }
 }
