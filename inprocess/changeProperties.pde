@@ -13,7 +13,7 @@ void changeProperties(boolean[] sw) {
           s.setHue(shapeHue);
         }
       }
-    // println("Hue: "+shapeHue);
+    // println("Hue: " + shapeHue);
     }
   }
 
@@ -24,7 +24,7 @@ void changeProperties(boolean[] sw) {
       radius = map(pv, 0, 1023, minRadius, maxRadius);
       s.setRadius(radius);
     }
-    // println("Radius: "+radius);
+    // println("Radius: " + radius);
   }
 
 //[ ][x][ ][ ]: SHAPE
@@ -34,7 +34,7 @@ void changeProperties(boolean[] sw) {
       sides = (int) map(pv, 0, 1023, 0, maxSides + 2);
       s.setSides(sides);
     }
-    // println("sides: "+sides);
+    // println("sides: " + sides);
   }
 
 //[ ][ ][x][ ]: SPEED
@@ -46,13 +46,13 @@ void changeProperties(boolean[] sw) {
         s.setVelocity(new PVector(0,0));
       }
     }
-    // println("strength: "+strength);
+    // println("strength: " + strength);
   }
 
 //[ ][ ][ ][x]: HEADING
   if (sw[3] && !(sw[0] || sw[1] || sw[2])) {
     heading = map(pv, 0, 1023, 0, TAU);
-    // println("heading: "+heading);
+    // println("heading: " + heading);
   }
 
 //[x][x][ ][ ]: NUMBER
@@ -87,7 +87,7 @@ void changeProperties(boolean[] sw) {
       }
     }
     arrangeShapes();
-    // println("shapes: "+shapes.size());
+    // println("shapes: " + shapes.size());
   }
 
 //[x][ ][x][ ]: ARRANGEMENT
@@ -100,7 +100,7 @@ void changeProperties(boolean[] sw) {
       }
     }
     arrangeShapes();
-    // println("arrangement: "+arrangement);
+    // println("arrangement: " + arrangement);
   }
 
 //[x][ ][ ][x]: PADDING
@@ -112,7 +112,7 @@ void changeProperties(boolean[] sw) {
       s.setArranged(false);
     }
     arrangeShapes();
-    // println("padding: "+padding);
+    // println("padding: " + padding);
   }
 
 //[ ][x][x][ ]: ANGLE
@@ -123,7 +123,7 @@ void changeProperties(boolean[] sw) {
       // s.spin(0); //stop spin if setting angle
       s.setTheta(angle);
     }
-    // println("angle: "+angle);
+    // println("angle: " + angle);
   }
 
 //[ ][x][ ][x]: SPIN
@@ -133,7 +133,7 @@ void changeProperties(boolean[] sw) {
       spin = map(pv, 0, 1023, -maxSpin, maxSpin);
       s.spin(spin);
     }
-    // println("spin: "+spin);
+    // println("spin: " + spin);
   }
 
 //[ ][ ][x][x]: CENTER
@@ -143,7 +143,7 @@ void changeProperties(boolean[] sw) {
     offset = map(pv, 0, 1023, -radius, radius);
     s.setOffset(offset);
   }
-  // println("offset: "+offset);
+  // println("offset: " + offset);
   }
 
 //[x][x][x][ ]: ATTRACTION
@@ -152,6 +152,7 @@ if (sw[0] && sw[1] && sw[2] && !(sw[3])) {
     Shape s = shapes.get(i);
     attraction = map(pv, 0, 1023, -maxAttract, maxAttract);
     s.setAttraction(attraction);
+    // println("attraction: " + attraction);
   }
 }
 
@@ -161,6 +162,7 @@ if (sw[0] && sw[1] && sw[3] && !(sw[2])) {
     Shape s = shapes.get(i);
     bounce = map(pv, 0, 1023, 0, 1);
     s.setBounce(bounce);
+    // println("bounce: " + bounce);
   }
 }
 
@@ -168,13 +170,18 @@ if (sw[0] && sw[1] && sw[3] && !(sw[2])) {
   if ( sw[0] && sw[2] && sw[3] && !(sw[1]) ) {
     for (int i = 0; i < shapes.size(); ++i) {
       Shape s = shapes.get(i);
-      mass = (int) map(pv, 0, 1023, 1, 100);
+      mass = (int) map(pv, 0, 1023, minMass, maxMass);
       s.setMass(mass);
     }
-    // println("mass: "+mass);
+    // println("mass: " + mass);
   }
 
 //[ ][x][x][x]: WALLS
+  if ( sw[1] && sw[2] && sw[3] && !(sw[0]) ) {
+    walls = (int) map(pv, 0, 1023, 0, 4);
+    // println("walls: " + walls);
+  }
+
 
 //[x][x][x][x]: RANDOM
   if (sw[0] && sw[1] && sw[2] && sw[3]) {
@@ -188,9 +195,4 @@ if (sw[0] && sw[1] && sw[3] && !(sw[2])) {
     }
   }
 
-//run all of the shapes
-  for (int i = 0; i < shapes.size(); ++i) {
-    Shape s = shapes.get(i);
-    s.run();
-  }
 }

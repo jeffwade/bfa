@@ -43,7 +43,7 @@
   int mass = 1;
   boolean arranged = false;
   int randomizer = 0;
-  int walls = 3;
+  int walls = 0;
   float bounce = 0.75f;
   int wallThickness = 25;
 
@@ -99,12 +99,20 @@ void setup() {
 void draw () {
   motionBlur(white, 60); //set color and level of motion blur
   readInputs();  //read states of switches and value of potentiometer
-  changeProperties(sw);
+  if (pv != initPV) {
+    changeProperties(sw);
+  }
+  //run all of the shapes
+  for (int i = 0; i < shapes.size(); ++i) {
+    Shape s = shapes.get(i);
+    s.run();
+  }
   applyForces();
   drawWalls(walls);
   drawHUD();
   //grab snapshot/gif
   //post/store the above
+  initPV = pv;
   }
 
 

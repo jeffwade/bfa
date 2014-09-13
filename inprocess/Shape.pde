@@ -133,6 +133,7 @@ class Shape {
           }
         break;
         case 3 : //ALL
+        case 4 :
           //bounce off TOP and BOTTOM
           if (position.y < r + wallThickness || position.y > height - (r+wallThickness)) {
             setHeading(-velocity.heading());
