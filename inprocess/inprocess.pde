@@ -43,6 +43,9 @@
   int mass = 1;
   boolean arranged = false;
   int randomizer = 0;
+  int walls = 3;
+  float bounce = 0.75f;
+  int wallThickness = 25;
 
 //Global property constants
   //ARRANGEMENTS
@@ -98,6 +101,7 @@ void draw () {
   readInputs();  //read states of switches and value of potentiometer
   changeProperties(sw);
   applyForces();
+  drawWalls(walls);
   drawHUD();
   //grab snapshot/gif
   //post/store the above
