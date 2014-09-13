@@ -175,7 +175,7 @@ void keyReleased() {
       sw[1] = false;
       sw[3] = false;
     }
-    //GRAVITY
+    //MASS
     if (key == 'c') {
       sw[0] = false;
       sw[2] = false;
