@@ -51,8 +51,8 @@
 - [x] Number
 - [x] Arrangement
 - [x] Padding
-- [ ] Gravity
-- [ ] Walls
+- [x] Mass
+- [x] Walls
 - [ ] Random
 
 ## Implement in Shape Class
@@ -65,5 +65,5 @@
 - [x] Spin
 - [x] Center
 - [x] Mass
-- [ ] Attraction
-- [ ] Bounce
+- [x] Attraction
+- [x] Bounce
