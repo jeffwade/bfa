@@ -66,4 +66,4 @@
 - [x] Center
 - [x] Mass
 - [x] Attraction
-- [x] Bounce
+- [ ] Bounce

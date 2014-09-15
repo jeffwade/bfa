@@ -8,7 +8,7 @@
   import processing.serial.*;
   import cc.arduino.*;
 //Generic global variables
-  color white, black;
+  color white, black, grey;
   PVector center;
   boolean change = false;
 //Global objects
@@ -25,6 +25,7 @@
   int pv; //potentiometer value
   int initPV; //to control value jumps
   boolean[] sw = {false, false, false, false}; //array holding switch states
+
 //Global/Default Property values
   int shapeHue = 150;
   float radius = 100f;
@@ -76,6 +77,7 @@ void setup() {
     colorMode(HSB, 360, 100, 100, 100);
     white = color(0,0,100,100);
     black = color(0,0,0,100);
+    grey = color(0,0,20,100);
     center = new PVector(width/2, height/2);
     maxRadius = height/6f;
     background(white);
@@ -85,6 +87,7 @@ void setup() {
   //initialize arraylist of shapes
     shapes = new ArrayList<Shape>();
     shapes.add(new Shape());
+
   //initialize arduino
     // println(Arduino.list()); //list serial ports
     String port = Arduino.list()[5]; //on wMac: 5 is tty.usb
@@ -94,6 +97,10 @@ void setup() {
       arduino.pinMode(switches[i], Arduino.INPUT);
     }
     arduino.pinMode(pot, Arduino.INPUT);
+
+  //array for icons
+    Graphic[] icons = new Graphic[16];
+    // loadIcons();
 }
 
 void draw () {
