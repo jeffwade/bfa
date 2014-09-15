@@ -5,8 +5,9 @@ class Shape {
     float r; //radius
 
     //motion variables
-    int m, b; //mass, bounce
-    float G;
+    int m; //mass
+    float b; //bounce
+    float G; //attraction
     PVector position, velocity, acceleration; //position, velocity, acceleration;
     float dx; //horizontal offset (center of rotation)
     float theta, aVel, aAcc; //angle, angular velocity, angular acceleration;
@@ -63,7 +64,8 @@ class Shape {
   //Main methods
     void run(){
       update();
-      checkEdges();
+      checkWalls(walls);
+      // checkCollision();
       display();
     }
 
@@ -81,20 +83,79 @@ class Shape {
       theta += aVel;
     }
 
-    void checkEdges() {
-        if (position.x < 0) {
+    void checkWalls(int w) {
+          pushStyle();
+          fill(black);
+      switch (w) {
+        case 0 : //NONE
+          //wrap all directions
+          if (position.x < 0) {
             position.x = width;
-        }
-        if (position.y < 0) {
+          }
+          if (position.y < 0) {
             position.y = height;
-        }
-        if (position.x > width) {
+          }
+          if (position.x > width) {
             position.x = 0;
-        }
-        if (position.y > height) {
+          }
+          if (position.y > height) {
             position.y = 0;
-        }
+          }
+        break;
+        case 1 : //TOP and BOTTOM
+          //wrap LEFT and RIGHT
+          if (position.x < 0) {
+            position.x = width;
+          }
+          if (position.x > width) {
+            position.x = 0;
+          }
+
+          //bounce off TOP and BOTTOM
+          if (position.y < r + wallThickness || position.y > height - (r+wallThickness)) {
+            setHeading(-velocity.heading());
+            velocity.mult(bounce);
+          }
+        break;
+        case 2 : //LEFT and RIGHT
+          //wrap TOP and BOTTOM
+          if (position.y < 0) {
+            position.y = height;
+          }
+          if (position.y > height) {
+            position.y = 0;
+          }
+
+          //bounce off LEFT and RIGHT
+          if (position.x < r + wallThickness || position.x > width - (r+wallThickness)) {
+            setHeading(PI - velocity.heading());
+            velocity.mult(bounce);
+          }
+        break;
+        case 3 : //ALL
+        case 4 :
+          //bounce off TOP and BOTTOM
+          if (position.y < r + wallThickness || position.y > height - (r+wallThickness)) {
+            setHeading(-velocity.heading());
+            velocity.mult(bounce);
+          }
+          //bounce off LEFT and RIGHT
+          if (position.x < r + wallThickness || position.x > width - (r+wallThickness)) {
+            setHeading(PI - velocity.heading());
+            velocity.mult(bounce);
+          }
+        break;
+      }
+
     }
+
+    // void checkCollision(Shape s) {
+    //   PVector difference = PVector.sub(position, s.getPosition());
+    //   float distance = difference.mag();
+    //   if (distance.mag() < 5) {
+
+    //   }
+    // }
 
     void applyForce(PVector f) {
       PVector force = PVector.div(f, m);
@@ -174,11 +235,11 @@ class Shape {
         G = newAttraction;
     }
 
-    public int getBounce() {
+    public float getBounce() {
         return b;
     }
 
-    public void setBounce(int newBounce) {
+    public void setBounce(float newBounce) {
         b = newBounce;
     }
 

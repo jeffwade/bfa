@@ -10,7 +10,8 @@
 ###Processing
 + [x] smooth transitions (eg. when adding vertex)
   > adding partial differences?
-+ [ ] how to deal with jumping values
++ [x] how to deal with jumping values
+  > add 100nF capacitor between input and ground
 + [ ] bounce
 + [ ] sound
 
@@ -21,6 +22,10 @@
   + [x] `display` method
   + [x] `update` method
   + [ ] physics (look into libraries for this)
+    + [x] attraction
+    + [x] mass
+    + [ ] bounce
+    + [ ] walls
 + [x] switch combinations
 
 ##DESIGN
@@ -28,18 +33,20 @@
   - hide arduino
   - dial
   - hold cubes
-+ [ ] .dxf for laser cutter
 + [x] property icons
 + [ ] HUD
-+ [ ] cut vinyl artist statement
++ [x] cut vinyl artist statement
 
 ##BUILD
-+ [ ] wood cubes, cone
-  - [ ] sanding
-  - [ ] staining
-  - [ ] sealing
-  - [ ] aluminum strip
++ [x] wood cubes, cone
+  - [x] sanding
+  - [x] oiling
+  - [x] aluminum strips
 + [ ] control box
+  - [ ] sanding
+  - [ ] oiling
+  - [x] aluminum strips
+  - [ ] install capacitor for pot
 
 ##Questions
 

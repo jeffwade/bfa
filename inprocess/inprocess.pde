@@ -8,7 +8,7 @@
   import processing.serial.*;
   import cc.arduino.*;
 //Generic global variables
-  color white, black;
+  color white, black, grey;
   PVector center;
   boolean change = false;
 //Global objects
@@ -25,6 +25,7 @@
   int pv; //potentiometer value
   int initPV; //to control value jumps
   boolean[] sw = {false, false, false, false}; //array holding switch states
+
 //Global/Default Property values
   int shapeHue = 150;
   float radius = 100f;
@@ -43,6 +44,9 @@
   int mass = 1;
   boolean arranged = false;
   int randomizer = 0;
+  int walls = 0;
+  float bounce = 0.75f;
+  int wallThickness = 25;
 
 //Global property constants
   //ARRANGEMENTS
@@ -73,6 +77,7 @@ void setup() {
     colorMode(HSB, 360, 100, 100, 100);
     white = color(0,0,100,100);
     black = color(0,0,0,100);
+    grey = color(0,0,20,100);
     center = new PVector(width/2, height/2);
     maxRadius = height/6f;
     background(white);
@@ -82,6 +87,7 @@ void setup() {
   //initialize arraylist of shapes
     shapes = new ArrayList<Shape>();
     shapes.add(new Shape());
+
   //initialize arduino
     // println(Arduino.list()); //list serial ports
     String port = Arduino.list()[5]; //on wMac: 5 is tty.usb
@@ -91,16 +97,29 @@ void setup() {
       arduino.pinMode(switches[i], Arduino.INPUT);
     }
     arduino.pinMode(pot, Arduino.INPUT);
+
+  //array for icons
+    Graphic[] icons = new Graphic[16];
+    // loadIcons();
 }
 
 void draw () {
   motionBlur(white, 60); //set color and level of motion blur
   readInputs();  //read states of switches and value of potentiometer
-  changeProperties(sw);
+  if (pv != initPV) {
+    changeProperties(sw);
+  }
+  //run all of the shapes
+  for (int i = 0; i < shapes.size(); ++i) {
+    Shape s = shapes.get(i);
+    s.run();
+  }
   applyForces();
+  drawWalls(walls);
   drawHUD();
   //grab snapshot/gif
   //post/store the above
+  initPV = pv;
   }
 
 
@@ -163,7 +182,7 @@ void keyReleased() {
       sw[1] = false;
       sw[3] = false;
     }
-    //GRAVITY
+    //MASS
     if (key == 'c') {
       sw[0] = false;
       sw[2] = false;
