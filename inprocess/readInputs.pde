@@ -1,5 +1,6 @@
 void readInputs() {
-    pv = arduino.analogRead(pot);
+    // pv = arduino.analogRead(pot);
+    pv = (int) map(mouseX, 0, width, 0, 1023);
   for (int i = 0; i < switches.length; ++i) {
     int state = arduino.digitalRead(switches[i]);
     if (state == Arduino.HIGH) {
@@ -9,6 +10,7 @@ void readInputs() {
     }
   }
   if (keyPressed) {
+    //simulate potentiometer
     //SIZE
     if (key == 'q') {
       sw[0] = true;
@@ -86,6 +88,5 @@ void readInputs() {
       sw[2] = true;
       sw[3] = true;
     }
-
   }
 }

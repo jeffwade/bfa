@@ -4,14 +4,14 @@ void changeProperties(boolean[] sw) {
 
 //[ ][ ][ ][ ]: COLOR
   if (!(sw[0] || sw[1] || sw[2] || sw[3])) {
-    if (pv != initPV) {
+    // if (pv != initPV) {
       int initHue = shapeHue;
       shapeHue = (int) map(pv, 0, 1023, 0, 360);
       if (shapeHue > 5 + initHue || shapeHue < initHue - 5 && !(randomizer == 17 || randomizer == 1)) {
         for (int i = 0; i < shapes.size(); ++i) {
           Shape s = shapes.get(i);
           s.setHue(shapeHue);
-        }
+        // }
       }
     // println("Hue: " + shapeHue);
     }
@@ -179,6 +179,11 @@ if (sw[0] && sw[1] && sw[3] && !(sw[2])) {
 //[ ][x][x][x]: WALLS
   if ( sw[1] && sw[2] && sw[3] && !(sw[0]) ) {
     walls = (int) map(pv, 0, 1023, 0, 4);
+    if (walls > 0) {
+      for (int i = 0; i < shapes.size(); ++i) {
+        shapes.get(i).setOffset(0);
+      }
+    }
     // println("walls: " + walls);
   }
 

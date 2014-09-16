@@ -22,7 +22,7 @@
   int switch4 = 9; //fourth switch on pin 9
   int[] switches = {switch1, switch2, switch3, switch4};
 
-  int pv; //potentiometer value
+  int pv = 0; //potentiometer value
   int initPV; //to control value jumps
   boolean[] sw = {false, false, false, false}; //array holding switch states
 
@@ -84,13 +84,15 @@ void setup() {
     noStroke();
     smooth();
 
+  //create shapes for use in shape class
+    // createShapes();
   //initialize arraylist of shapes
     shapes = new ArrayList<Shape>();
     shapes.add(new Shape());
 
   //initialize arduino
     // println(Arduino.list()); //list serial ports
-    String port = Arduino.list()[5]; //on wMac: 5 is tty.usb
+    String port = Arduino.list()[0]; //on wMac: 5 is tty.usb
     arduino = new Arduino(this, port, 57600);
   //set pin modes
     for (int i = 0; i < switches.length; ++i) {
@@ -202,6 +204,7 @@ void keyReleased() {
       sw[3] = false;
     }
 }
+
 
 boolean sketchFullScreen() {
   return true;
