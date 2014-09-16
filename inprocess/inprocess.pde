@@ -73,8 +73,10 @@
 PShape penta, hexa, septa, octa, nona;
 
 //fonts
-PFont font;
-font = loadFont("verlag-24.vlw");
+// PFont verlag24;
+// verlag24 = loadFont("verlag-24.vlw");
+// PFont verlag60;
+// verlag60 = loadFont("verlag-60.vlw");
 void setup() {
   //general sketch settings
     size(displayWidth, displayHeight, P2D);
