@@ -73,7 +73,7 @@
 void setup() {
   //general sketch settings
     size(displayWidth, displayHeight, P2D);
-
+    // noCursor();
     colorMode(HSB, 360, 100, 100, 100);
     white = color(0,0,100,100);
     black = color(0,0,0,100);
