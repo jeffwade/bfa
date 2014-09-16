@@ -71,6 +71,10 @@
 
 //Polygons
 PShape penta, hexa, septa, octa, nona;
+
+//fonts
+PFont font;
+font = loadFont("verlag-24.vlw");
 void setup() {
   //general sketch settings
     size(displayWidth, displayHeight, P2D);
@@ -102,8 +106,8 @@ void setup() {
     arduino.pinMode(pot, Arduino.INPUT);
 
   //array for icons
-    Graphic[] icons = new Graphic[16];
-    // loadIcons();
+    Icon[] icons = new Icon[16];
+    loadIcons();
 }
 
 void draw () {

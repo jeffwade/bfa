@@ -13,31 +13,35 @@ void drawShape(int n, float r, color c, float dx){
     case 4 :
       fill(c);
       rectMode(RADIUS);
-      rect(dx, 0, r, r);
+      pushMatrix();
+      rotate(PI/4);
+      rect(dx, 0, (pow(2,0.5)/2)*r, (pow(2,0.5)/2)*r);
+
+      popMatrix();
     break;
     case 5 :
       fill(c);
-      shape(penta, dx, 0, 2*r, 2*r);
+      shape(penta, dx, 0f, 1.809017*r);
     break;
     case 6 :
       fill(c);
-      shape(hexa, dx, 0, 2*r, pow(3, 0.5)*r);
+      shape(hexa, dx, 0f, 2*r, pow(3, 0.5)*r);
     break;
     case 7 :
       fill(c);
-      shape(septa, dx, 0, 2*r, 2*r);
+      shape(septa, dx, 0f, 2*r, 2*r);
     break;
     case 8 :
       fill(c);
-      shape(octa, dx, 0, 2*r, 2*r);
+      shape(octa, dx, 0f, 2*r, 2*r);
     break;
     case 9 :
       fill(c);
-      shape(nona, dx, 0, 2*r, 2*r);
+      shape(nona, dx, 0f, 2*r, 2*r);
     break;
     case 10 :
       fill(c);
-      ellipse(dx, 0, 2*r, 2*r);
+      ellipse(dx, 0f, 2*r, 2*r);
     break;
   }
 }

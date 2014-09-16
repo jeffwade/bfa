@@ -16,16 +16,16 @@
 + [ ] sound
 
 ##CODE
-+ [ ] Shape class (see `PROPERTIES.md`)
++ [ x] Shape class (see `PROPERTIES.md`)
   + [x] Default construction
   + [x] getters/setters
   + [x] `display` method
   + [x] `update` method
-  + [ ] physics (look into libraries for this)
+  + [x] physics (look into libraries for this)
     + [x] attraction
     + [x] mass
-    + [ ] bounce
-    + [ ] walls
+    + [x] bounce
+    + [x] walls
 + [x] switch combinations
 
 ##DESIGN
