@@ -12,7 +12,7 @@
   > adding partial differences?
 + [x] how to deal with jumping values
   > add 100nF capacitor between input and ground
-+ [ ] bounce
++ [x] bounce
 + [ ] sound
 
 ##CODE

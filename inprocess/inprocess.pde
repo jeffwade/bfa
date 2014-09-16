@@ -61,7 +61,7 @@
   float minRadius = 15f;
   float maxRadius; //(height/6); set in setup
   int maxShapes = 20;
-  int maxSides = 9;
+  int maxSides = 10;
   float maxStrength = 1.0f;
   float maxSpeed = 10.0f;
   float maxSpin = 0.05f;
@@ -69,7 +69,8 @@
   int maxMass = 75;
   int maxAttract = 2;
 
-
+//Polygons
+PShape penta, hexa, septa, octa, nona;
 void setup() {
   //general sketch settings
     size(displayWidth, displayHeight, P2D);
@@ -85,7 +86,7 @@ void setup() {
     smooth();
 
   //create shapes for use in shape class
-    // createShapes();
+    createShapes();
   //initialize arraylist of shapes
     shapes = new ArrayList<Shape>();
     shapes.add(new Shape());

@@ -31,7 +31,7 @@ void changeProperties(boolean[] sw) {
   if (sw[1] && !(sw[0] || sw[2] || sw[3])) {
     for (int i = 0; i < shapes.size(); ++i) {
       Shape s = shapes.get(i);
-      sides = (int) map(pv, 0, 1023, 0, maxSides + 2);
+      sides = (int) map(pv, 0, 1023, 2, maxSides);
       s.setSides(sides);
     }
     // println("sides: " + sides);
