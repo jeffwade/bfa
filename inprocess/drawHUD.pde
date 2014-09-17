@@ -46,7 +46,41 @@ void updateValues() {
     Icon icon = icons[i];
     switch (i) {
       case 0 :
-        icon.setValue(shapeHue + "");
+        icon.setValue(shapeHue + "º");
+      break;
+      case 1 :
+        icon.setValue(int(radius) + "px");
+      break;
+      case 2 :
+        switch (sides) {
+          case 2 :
+            icon.setValue("line");
+          break;
+          case 3 :
+            icon.setValue("triangle");
+          break;
+          case 4 :
+            icon.setValue("square");
+          break;
+          case 5 :
+            icon.setValue("pentagon");
+          break;
+          case 6 :
+            icon.setValue("hexagon");
+          break;
+          case 7 :
+            icon.setValue("septagon");
+          break;
+          case 8 :
+            icon.setValue("octagon");
+          break;
+          case 9 :
+            icon.setValue("nonagon");
+          break;
+          case 10 :
+            icon.setValue("circle");
+          break;
+        }
       break;
     }
   }
