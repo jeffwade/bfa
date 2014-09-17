@@ -88,6 +88,9 @@ void updateValues() {
       case 4 :
         icon.setValue(round(heading*(180/PI)) + "º");
       break;
+      case 5 :
+        icon.setValue(str(number));
+      break;
     }
   }
 }
