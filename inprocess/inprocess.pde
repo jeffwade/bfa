@@ -75,8 +75,11 @@ PShape penta, hexa, septa, octa, nona;
 //fonts
 PFont verlag24;
 
+//create array for HUD icons
 Icon[] icons = new Icon[16];
 
+//count clicks (to draw centering lines)
+int clicks = 0;
 
 void setup() {
   //general sketch settings
@@ -133,7 +136,17 @@ void draw () {
   //grab snapshot/gif
   //post/store the above
   initPV = pv;
+
+  if (clicks%2 == 1) {
+    pushStyle();
+    stroke(grey);
+    strokeWeight(1);
+    line(center.x, 0, center.x, height);
+    line(0, center.y, width, center.y);
+    popStyle();
   }
+
+}
 
 
 void keyReleased() {
@@ -216,7 +229,10 @@ void keyReleased() {
     }
 }
 
-
+void mouseReleased() {
+  clicks++;
+  delay(200);
+}
 boolean sketchFullScreen() {
   return true;
 }

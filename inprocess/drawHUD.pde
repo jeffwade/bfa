@@ -1,12 +1,7 @@
 void drawHUD() {
   displayInputs();
   displayIcons();
-  // pushStyle();
-  // stroke(grey);
-  // strokeWeight(1);
-  // line(center.x, 0, center.x, height);
-  // line(0, center.y, width, center.y);
-  // popStyle();
+
 }
 
 void displayInputs() {
