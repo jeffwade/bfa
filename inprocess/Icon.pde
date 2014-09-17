@@ -7,6 +7,7 @@ class Icon {
   PVector position;
   int w, h, wX, hX, wL, hL;
   String iconLabel;
+  String value;
 
   //constructor
   Icon(float x, float y, PShape _switch, PShape _small/*, PShape _large*/) {
@@ -23,7 +24,7 @@ class Icon {
     // largeIcon = _large;
 
     iconLabel = "unset";
-
+    value = "N/A";
   }
 
   //methods
@@ -35,12 +36,14 @@ class Icon {
       // shape(smallIcon, position.x - 53, position.y - 20, w, h);
       textAlign(RIGHT);
       textSize(14);
-      text(iconLabel, position.x + 45, position.y - 5);
+      text(iconLabel, position.x + 46, position.y + 28);
+      text(value, (position.x + 41) - textWidth(iconLabel), position.y + 28);
     } else {
       // shape(smallIcon, position.x + 53, position.y - 20, w, h);
       textAlign(LEFT);
       textSize(14);
-      text(iconLabel, position.x, position.y - 5);
+      text(iconLabel, position.x - 1, position.y + 28);
+      text(value, position.x + textWidth(iconLabel) + 5, position.y + 28);
     }
   }
 
@@ -55,5 +58,8 @@ class Icon {
   }
   public void setLabel(String newIconLabel) {
       iconLabel = newIconLabel;
+  }
+  public void setValue(String newValue) {
+      value = newValue;
   }
 }

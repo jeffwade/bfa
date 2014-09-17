@@ -1,5 +1,6 @@
 void drawHUD() {
   displayInputs();
+  updateValues();
   displayIcons();
 
 }
@@ -37,5 +38,16 @@ void  displayIcons() {
   for (int i = 0; i < icons.length; ++i) {
     Icon icon = icons[i];
     icon.display();
+  }
+}
+
+void updateValues() {
+  for (int i = 0; i < icons.length; ++i) {
+    Icon icon = icons[i];
+    switch (i) {
+      case 0 :
+        icon.setValue(shapeHue + "");
+      break;
+    }
   }
 }
