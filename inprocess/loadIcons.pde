@@ -16,10 +16,10 @@ void loadIcons() {
       case 11 :
       case 15 :
         icons[i].setWidth(35);
-        icons[i].setHeight(20);
+        icons[i].setHeight(17);
       break;
       case 13 :
-        icons[i].setWidth(20);
+        icons[i].setWidth(17);
         icons[i].setHeight(35);
       break;
 

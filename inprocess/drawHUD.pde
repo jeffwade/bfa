@@ -1,6 +1,12 @@
 void drawHUD() {
   displayInputs();
   displayIcons();
+  // pushStyle();
+  // stroke(grey);
+  // strokeWeight(1);
+  // line(center.x, 0, center.x, height);
+  // line(0, center.y, width, center.y);
+  // popStyle();
 }
 
 void displayInputs() {
@@ -10,29 +16,25 @@ void displayInputs() {
   float potAngle = map(pv, 0, 1023, TAU/3, 7*PI/3);
   for (int i = 0; i < sw.length; ++i) {
     pushStyle();
+      stroke(grey);
+      strokeWeight(3);
+      strokeJoin(ROUND);
     if (sw[i]) {
       fill(grey);
-      noStroke();
-      // swD = 50;
-      // swY = height - 25;
     } else {
-      fill(white);
-      stroke(grey);
-      strokeWeight(5);
-      strokeJoin(ROUND);
-      // swD = 45;
-      // swY = height - 22.5;
+      // fill(white);
+      noFill();
     }
     rectMode(CENTER);
-    rect((center.x - 130) + 70*i, swY, swD, swD);
+    rect((center.x - 105) + 70*i, swY, swD, swD);
     popStyle();
   }
   pushStyle();
-  fill(white);
+  noFill();
   stroke(grey);
-  strokeWeight(5);
-  ellipse(center.x + 150, swY, 35, 35);
-  line((center.x + 150) + 5*cos(potAngle), swY + 5*sin(potAngle), (center.x + 150) + 17.5*cos(potAngle), swY + 17.5*sin(potAngle));
+  strokeWeight(3);
+  ellipse(center.x + 160, swY, 30, 30);
+  line((center.x + 160) + 7*cos(potAngle), swY + 7*sin(potAngle), (center.x + 160) + 15*cos(potAngle), swY + 15*sin(potAngle));
   popStyle();
 }
 
