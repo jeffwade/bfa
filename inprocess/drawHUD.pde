@@ -34,11 +34,11 @@ void displayInputs() {
   ellipse(center.x + 150, swY, 35, 35);
   line((center.x + 150) + 5*cos(potAngle), swY + 5*sin(potAngle), (center.x + 150) + 17.5*cos(potAngle), swY + 17.5*sin(potAngle));
   popStyle();
+}
 
 void  displayIcons() {
   for (int i = 0; i < icons.length; ++i) {
     Icon icon = icons[i];
     icon.display();
   }
-}
 }

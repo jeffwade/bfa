@@ -5,13 +5,17 @@ class Icon {
   boolean rightAlign = false;
   boolean active = false;
   PVector position;
-  int w, h, wL, hL;
+  int w, h, wX, hX, wL, hL;
 
   //constructor
-  Icon(float x, float y, PShape _switch, PShape _small, PShape _large) {
+  Icon(float x, float y, PShape _switch, PShape _small/*, PShape _large*/) {
     position = new PVector (x,y);
-    w = 75;
-    h = 75;
+    w = 100;
+    h = 100;
+    wX = 100;
+    hX = 100;
+    wL = 100;
+    hL = 100;
 
     switchIcon = _switch;
     smallIcon = _small;
@@ -22,10 +26,10 @@ class Icon {
 
   //methods
   void display() {
-    if (showLarge) {
-      shape(large, center.x, center.y, wL, hL);
+    if (showLargeIcon) {
     }
-    shape(off, position.x, position.y, w, h);
+    shape(switchIcon, position.x, position.y, wS, hS);
+    shape(sma, x, y, w, h);
   }
 
 }
