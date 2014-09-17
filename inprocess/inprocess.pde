@@ -90,7 +90,7 @@ void setup() {
     black = color(0,0,0,100);
     grey = color(0,0,20,100);
     center = new PVector(width/2, height/2);
-    maxRadius = height/6f + 1;
+    maxRadius = height/6f;
     background(white);
     noStroke();
     smooth();

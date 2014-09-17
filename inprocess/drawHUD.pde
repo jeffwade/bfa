@@ -49,7 +49,7 @@ void updateValues() {
         icon.setValue(shapeHue + "º");
       break;
       case 1 :
-        icon.setValue(int(radius) + "px");
+        icon.setValue(nfc(radius, 2) + "px");
       break;
       case 2 :
         switch (sides) {
@@ -83,7 +83,10 @@ void updateValues() {
         }
       break;
       case 3 :
-
+        icon.setValue(nfc(strength, 2) + "");
+      break;
+      case 4 :
+        icon.setValue(round(heading*(180/PI)) + "º");
       break;
     }
   }
