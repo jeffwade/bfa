@@ -45,7 +45,7 @@
   boolean arranged = false;
   int randomizer = 0;
   int walls = 0;
-  float bounce = 0.75f;
+  float bounce = 1f;
   int wallThickness = 25;
 
 //Global property constants
@@ -75,6 +75,8 @@ PShape penta, hexa, septa, octa, nona;
 //fonts
 PFont verlag24;
 
+Icon[] icons = new Icon[16];
+
 
 void setup() {
   //general sketch settings
@@ -100,7 +102,7 @@ void setup() {
     shapes.add(new Shape());
 
   //initialize arduino
-    // println(Arduino.list()); //list serial ports
+    println(Arduino.list()); //list serial ports
     String port = Arduino.list()[0]; //on wMac: 5 is tty.usb
     arduino = new Arduino(this, port, 57600);
   //set pin modes
@@ -110,7 +112,6 @@ void setup() {
     arduino.pinMode(pot, Arduino.INPUT);
 
   //array for icons
-    Icon[] icons = new Icon[16];
     loadIcons();
 }
 

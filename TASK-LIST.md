@@ -27,6 +27,8 @@
     + [x] bounce
     + [x] walls
 + [x] switch combinations
++ [ ] HUD
+  - [ ] non-transparent backrounds
 
 ##DESIGN
 + [x] control box
@@ -34,8 +36,9 @@
   - dial
   - hold cubes
 + [x] property icons
-+ [ ] HUD
++ [x] HUD
 + [x] cut vinyl artist statement
++ [ ] large icons
 
 ##BUILD
 + [x] wood cubes, cone

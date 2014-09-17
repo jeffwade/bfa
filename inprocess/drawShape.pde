@@ -21,7 +21,7 @@ void drawShape(int n, float r, color c, float dx){
     break;
     case 5 :
       fill(c);
-      shape(penta, dx, 0f, 1.809017*r);
+      shape(penta, dx, 0f, 1.809017*r, 1.809017*r);
     break;
     case 6 :
       fill(c);

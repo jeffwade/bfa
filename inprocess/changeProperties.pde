@@ -52,7 +52,7 @@ void changeProperties(boolean[] sw) {
 //[ ][ ][ ][x]: HEADING
   if (sw[3] && !(sw[0] || sw[1] || sw[2])) {
     heading = map(pv, 0, 1023, 0, TAU);
-    println("heading: " + heading);
+    println("heading: " + heading*(180/PI));
   }
 
 //[x][x][ ][ ]: NUMBER
