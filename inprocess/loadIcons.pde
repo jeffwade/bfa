@@ -41,7 +41,7 @@ void loadIcons() {
         label = "shape";
       break;
       case 3 :
-        label = "speed";
+        label = "force";
       break;
       case 4 :
         label = "heading";
