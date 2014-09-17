@@ -6,6 +6,7 @@ class Icon {
   boolean active = false;
   PVector position;
   int w, h, wX, hX, wL, hL;
+  String iconLabel;
 
   //constructor
   Icon(float x, float y, PShape _switch, PShape _small/*, PShape _large*/) {
@@ -21,6 +22,7 @@ class Icon {
     smallIcon = _small;
     // largeIcon = _large;
 
+    iconLabel = "unset";
 
   }
 
@@ -30,9 +32,15 @@ class Icon {
     }
     shape(switchIcon, position.x, position.y, wX, hX);
     if (rightAlign) {
-      shape(smallIcon, position.x - 53, position.y - 20, w, h);
+      // shape(smallIcon, position.x - 53, position.y - 20, w, h);
+      textAlign(RIGHT);
+      textSize(14);
+      text(iconLabel, position.x + 45, position.y - 5);
     } else {
-      shape(smallIcon, position.x + 53, position.y - 20, w, h);
+      // shape(smallIcon, position.x + 53, position.y - 20, w, h);
+      textAlign(LEFT);
+      textSize(14);
+      text(iconLabel, position.x, position.y - 5);
     }
   }
 
@@ -45,5 +53,7 @@ class Icon {
   public void setRightAlign(boolean newRightAlign) {
       rightAlign = newRightAlign;
   }
-
+  public void setLabel(String newIconLabel) {
+      iconLabel = newIconLabel;
+  }
 }

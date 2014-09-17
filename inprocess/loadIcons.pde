@@ -29,7 +29,7 @@ void loadIcons() {
     }
 
     //load labels
-    String label;
+    String label = "unset";
     switch (i) {
       case 0 :
         label = "color";
@@ -80,6 +80,7 @@ void loadIcons() {
         label = "random";
       break;
     }
+    label = label.toUpperCase();
     icons[i].setLabel(label);
 
   }
