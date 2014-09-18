@@ -192,13 +192,14 @@ if (sw[0] && sw[1] && sw[3] && !(sw[2])) {
 //[x][x][x][x]: RANDOM
   if (sw[0] && sw[1] && sw[2] && sw[3]) {
     int initRandomizer = randomizer;
-    randomizer = (int) map(pv, 0, 1023, 0, 18);
+    randomizer = (int) map(pv, 0, 1023, 0, 6);
     if (randomizer != initRandomizer) {
       for (int i = 0; i < shapes.size(); ++i) {
         Shape s = shapes.get(i);
         randomize(s, randomizer);
       }
     }
+    println("randomizer: "+randomizer);
   }
 
 }

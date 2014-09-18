@@ -18,15 +18,15 @@ void displayInputs() {
     if (sw[i]) {
       fill(grey);
     } else {
-      // fill(white);
-      noFill();
+      fill(white);
+      // noFill();
     }
     rectMode(CENTER);
     rect((center.x - 105) + 70*i, swY, swD, swD);
     popStyle();
   }
   pushStyle();
-  noFill();
+  fill(white);
   stroke(grey);
   strokeWeight(3);
   ellipse(center.x + 160, swY, 30, 30);
@@ -83,7 +83,7 @@ void updateValues() {
         }
       break;
       case 3 : //FORCE
-        icon.setValue(nfc(strength, 2) + "");
+        icon.setValue(nfc(strength, 2) + "N");
       break;
       case 4 : //HEADING
         icon.setValue(round(heading*(180/PI)) + "º");
@@ -117,9 +117,55 @@ void updateValues() {
         icon.setValue(round(spin*(180/PI)*60) + "º/s");
       break;
       case 10 : //OFFSET
-        icon.setValue(offset + "px");
+        icon.setValue(nfc(offset, 2) + "px");
       break;
-
+      case 11 : //ATTRACTION
+        icon.setValue(nfc(-attraction,2) + "n");
+      break;
+      case 12 : //BOUNCE
+        icon.setValue(nfc(bounce, 2) + "");
+      break;
+      case 13 : //MASS
+        icon.setValue((mass - 1) + "kg");
+      break;
+      case 14 : //WALLS
+        switch (walls) {
+          case 0 : //none
+            icon.setValue("no");
+          break;
+          case 1 : //top and bottom
+            icon.setValue("horizontal");
+          break;
+          case 2 : //left and right
+            icon.setValue("vertical");
+          break;
+          case 3 : //all
+            icon.setValue("all");
+          break;
+        }
+      break;
+      case 15 : //RANDOM
+        switch (randomizer) {
+          case 0 : //none
+            icon.setValue("none");
+          break;
+          case 1 : //appearance
+            icon.setValue("appearance");
+          break;
+          case 2 : //motion
+            icon.setValue("motion");
+          break;
+          case 3 : //set
+            icon.setValue("set");
+          break;
+          case 4 : //physics
+            icon.setValue("physics");
+          break;
+          case 5 : //everything
+            icon.setValue("all");
+          break;
+        }
+      break;
     }
   }
 }
