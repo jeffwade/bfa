@@ -70,7 +70,7 @@ void randomize(Shape _s, int property) {
         _s.setRandomized(false);
         if (!(_s.isRandomized())) {
         //random values for attraction, bounce, mass, walls
-            _s.setAttraction(random(-maxAttract, maxAttract));
+            _s.setAttraction(random(minAttract, maxAttract));
 
         //preset values for appearance, movement, set
             _s.setOffset(offset);

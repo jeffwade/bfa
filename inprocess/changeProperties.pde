@@ -249,7 +249,7 @@ void changeProperties(boolean[] sw) {
 if (sw[0] && sw[1] && sw[2] && !(sw[3])) {
   for (int i = 0; i < shapes.size(); ++i) {
     Shape s = shapes.get(i);
-    attraction = map(pv, 0, 1023, maxAttract, -maxAttract);
+    attraction = map(pv, 0, 1023, minAttract, maxAttract);
     s.setAttraction(attraction);
   }
     println("attraction: " + attraction);
@@ -269,7 +269,7 @@ if (sw[0] && sw[1] && sw[2] && !(sw[3])) {
 if (sw[0] && sw[1] && sw[3] && !(sw[2])) {
   for (int i = 0; i < shapes.size(); ++i) {
     Shape s = shapes.get(i);
-    bounce = map(pv, 0, 1023, 0, 1);
+    bounce = map(pv, 0, 1023, minBounce, maxBounce);
     s.setBounce(bounce);
   }
     println("bounce: " + bounce);

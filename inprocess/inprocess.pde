@@ -29,18 +29,18 @@
 //Global/Default Property values
   int shapeHue = 150;
   float radius = 100f;
-  int sides = 3;
-  float speed = 0f;
+  int sides = 2;
+  float speed = 3f;
   PVector velocity = new PVector(0,0);
   float strength = 0f;
-  float heading = 0.0f;
-  int number = 1;
-  int arrangement = 1; //default is LINE
+  float heading = 5.24f;
+  int number = 100;
+  int arrangement = 0; //default is RADIAL
   float padding = 100f;
   float angle = 0.0f;
-  float spin = 0f;
+  float spin = 0.05f;
   float offset = 0f;
-  float attraction = 0.0f;
+  float attraction = 0.15f;
   int mass = 10;
   boolean arranged = false;
   int randomizer = 0;
@@ -60,14 +60,16 @@
 //Global limits
   float minRadius = 15f;
   float maxRadius; //(height/6); set in setup
-  int maxShapes = 20;
+  int maxShapes = 100;
   int maxSides = 10;
-  float maxStrength = 1.0f;
-  float maxSpeed = 10.0f;
+  float maxStrength = 1.2f;
+  float maxSpeed = 15.0f;
   float maxSpin = 0.075f;
-  int minMass = 1;
-  int maxMass = 75;
-  int maxAttract = 2;
+  int minMass = 15;
+  int maxMass = 50;
+  float minAttract = 0.05;
+  float maxAttract = -0.15;
+  float minBounce = 0.75;
   float maxBounce = 2;
 
 //Polygons
@@ -111,8 +113,10 @@ void setup() {
     createShapes();
   //initialize arraylist of shapes
     shapes = new ArrayList<Shape>();
-    shapes.add(new Shape());
-
+    for (int i = 0; i < number; i++){
+      shapes.add(new Shape(shapeHue, radius, angle, speed, heading, sides, mass, spin, offset)); //Shape(int _H, float _r, float _theta, float _speed, float _heading, int _sides, int _mass, float _spin, float _offset) {
+    }
+    arrangeShapes();
   //initialize arduino
     println(Arduino.list()); //list serial ports
     String port = Arduino.list()[0]; //on wMac: 5 is tty.usb
