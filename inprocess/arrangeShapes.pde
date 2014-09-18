@@ -5,14 +5,13 @@ void arrangeShapes() {
 
   switch (arrangement) {
     case NONE :
-      //if shapes are arranged, then set randomly
-      //new shapes should be added at center
-      if (arranged) {
+      // set randomly
         for (int i = 0; i < shapes.size(); ++i) {
-          Shape s = shapes.get(i);
-          s.setX(random(wallThickness, width - wallThickness));
-          s.setY(random(wallThickness, height - wallThickness));
-          s.setArranged(false);
+        Shape s = shapes.get(i);
+        if (!s.isArranged()) {
+          s.setX(random(width));
+          s.setY(random(height));
+          s.setArranged(true);
         }
       }
     break;
@@ -53,17 +52,6 @@ void arrangeShapes() {
           //set in circle; first shape is at 0 degrees along radius
           s.setX(((first.getX() - padding) + padding*cos(i*TAU/shapes.size()))%width);
           s.setY(((first.getY()) + padding*sin(i*TAU/shapes.size()))%height);
-          s.setArranged(true);
-        }
-      }
-    break;
-
-    case RANDOM :
-      for (int i = 0; i < shapes.size(); ++i) {
-        Shape s = shapes.get(i);
-        if (!s.isArranged()) {
-          s.setX(random(width));
-          s.setY(random(height));
           s.setArranged(true);
         }
       }

@@ -93,7 +93,7 @@ void changeProperties(boolean[] sw) {
 //[x][ ][x][ ]: ARRANGEMENT
   if ( sw[0] && sw[2] && !(sw[1] || sw[3]) ) {
     int initArr = arrangement;
-    arrangement = (int) map(pv, 0, 1023, 0, 4);
+    arrangement = (int) map(pv, 0, 1023, 0, 3.9);
     if (arrangement != initArr) {
       for (int i = 0; i < shapes.size(); ++i) {
         shapes.get(i).setArranged(false);

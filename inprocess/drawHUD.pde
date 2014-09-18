@@ -91,6 +91,22 @@ void updateValues() {
       case 5 :
         icon.setValue(str(number));
       break;
+      case 6 :
+        switch (arrangement) {
+          case NONE :
+            icon.setValue("none");
+          break;
+          case LINE :
+            icon.setValue("line");
+          break;
+          case GRID :
+            icon.setValue("grid");
+          break;
+          case RADIAL :
+            icon.setValue("radial");
+          break;
+        }
+      break;
     }
   }
 }
