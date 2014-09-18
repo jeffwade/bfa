@@ -26,9 +26,9 @@ class Shape {
 
       r = radius;
 
-      n = 6;
+      n = 3;
 
-      m = 1;
+      m = mass;
       b = 1;
       G = 0;
 

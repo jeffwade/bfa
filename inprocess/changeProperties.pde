@@ -14,6 +14,15 @@ void changeProperties(boolean[] sw) {
         // }
       }
     // println("Hue: " + shapeHue);
+
+    // set property value highlighting
+      for (int i = 0; i < icons.length; ++i) {
+        if (i == 0) {
+          icons[i].setFill(highlight);
+        } else {
+          icons[i].setFill(grey);
+        }
+      }
     }
   }
 
@@ -25,6 +34,17 @@ void changeProperties(boolean[] sw) {
       s.setRadius(radius);
     }
     println("Radius: " + radius + "(" + maxRadius + ")");
+    // set property value highlighting
+      for (int i = 0; i < icons.length; ++i) {
+        if (i == 1) {
+          icons[i].setFill(highlight);
+        } else if (i == 7) {
+          icons[i].setFill(secondary);
+        }
+        else {
+          icons[i].setFill(grey);
+        }
+      }
   }
 
 //[ ][x][ ][ ]: SHAPE
@@ -35,6 +55,14 @@ void changeProperties(boolean[] sw) {
       s.setSides(sides);
     }
     println("sides: " + sides);
+    // set property value highlighting
+      for (int i = 0; i < icons.length; ++i) {
+        if (i == 2) {
+          icons[i].setFill(highlight);
+        } else {
+          icons[i].setFill(grey);
+        }
+      }
   }
 
 //[ ][ ][x][ ]: FORCE
@@ -47,12 +75,29 @@ void changeProperties(boolean[] sw) {
       }
     }
     println("strength: " + strength);
+    // set property value highlighting
+      for (int i = 0; i < icons.length; ++i) {
+        if (i == 3) {
+          icons[i].setFill(highlight);
+        } else {
+          icons[i].setFill(grey);
+        }
+      }
   }
 
 //[ ][ ][ ][x]: HEADING
   if (sw[3] && !(sw[0] || sw[1] || sw[2])) {
     heading = map(pv, 0, 1023, 0, TAU);
     println("heading: " + heading*(180/PI));
+    // set property value highlighting
+      for (int i = 0; i < icons.length; ++i) {
+        if (i == 4) {
+          icons[i].setFill(highlight);
+        } else {
+          icons[i].setFill(grey);
+        }
+      }
+
   }
 
 //[x][x][ ][ ]: NUMBER
@@ -88,6 +133,15 @@ void changeProperties(boolean[] sw) {
     }
     arrangeShapes();
     println("shapes: " + shapes.size());
+    // set property value highlighting
+      for (int i = 0; i < icons.length; ++i) {
+        if (i == 5) {
+          icons[i].setFill(highlight);
+        } else {
+          icons[i].setFill(grey);
+        }
+      }
+
   }
 
 //[x][ ][x][ ]: ARRANGEMENT
@@ -101,6 +155,14 @@ void changeProperties(boolean[] sw) {
     }
     arrangeShapes();
     println("arrangement: " + arrangement);
+    // set property value highlighting
+      for (int i = 0; i < icons.length; ++i) {
+        if (i == 6) {
+          icons[i].setFill(highlight);
+        } else {
+          icons[i].setFill(grey);
+        }
+      }
   }
 
 //[x][ ][ ][x]: PADDING
@@ -113,6 +175,14 @@ void changeProperties(boolean[] sw) {
     }
     arrangeShapes();
     println("padding: " + padding);
+    // set property value highlighting
+      for (int i = 0; i < icons.length; ++i) {
+        if (i == 7) {
+          icons[i].setFill(highlight);
+        } else {
+          icons[i].setFill(grey);
+        }
+      }
   }
 
 //[ ][x][x][ ]: ANGLE
@@ -122,9 +192,21 @@ void changeProperties(boolean[] sw) {
       angle = map(pv, 0, 1023, 0, TAU);
       // s.spin(0); //stop spin if setting angle
       s.setTheta(angle);
+      spin = 0;
       s.setSpin(0);
     }
     println("angle: " + angle);
+    // set property value highlighting
+      for (int i = 0; i < icons.length; ++i) {
+        if (i == 8) {
+          icons[i].setFill(highlight);
+        } else if (i == 9) {
+          icons[i].setFill(secondary);
+        }
+        else {
+          icons[i].setFill(grey);
+        }
+      }
   }
 
 //[ ][x][ ][x]: SPIN
@@ -135,6 +217,14 @@ void changeProperties(boolean[] sw) {
       s.spin(spin);
     }
     println("spin: " + spin);
+    // set property value highlighting
+      for (int i = 0; i < icons.length; ++i) {
+        if (i == 9) {
+          icons[i].setFill(highlight);
+        } else {
+          icons[i].setFill(grey);
+        }
+      }
   }
 
 //[ ][ ][x][x]: CENTER
@@ -145,7 +235,15 @@ void changeProperties(boolean[] sw) {
     s.setOffset(offset);
   }
   println("offset: " + offset);
-  }
+      // set property value highlighting
+      for (int i = 0; i < icons.length; ++i) {
+        if (i == 10) {
+          icons[i].setFill(highlight);
+        } else {
+          icons[i].setFill(grey);
+        }
+      }
+}
 
 //[x][x][x][ ]: ATTRACTION
 if (sw[0] && sw[1] && sw[2] && !(sw[3])) {
@@ -155,6 +253,16 @@ if (sw[0] && sw[1] && sw[2] && !(sw[3])) {
     s.setAttraction(attraction);
   }
     println("attraction: " + attraction);
+    // set property value highlighting
+      for (int i = 0; i < icons.length; ++i) {
+        if (i == 11) {
+          icons[i].setFill(highlight);
+        } else if (i == 3 || i == 4) {
+          icons[i].setFill(secondary);
+        } else {
+          icons[i].setFill(grey);
+        }
+      }
 }
 
 //[x][x][ ][x]: BOUNCE
@@ -165,6 +273,14 @@ if (sw[0] && sw[1] && sw[3] && !(sw[2])) {
     s.setBounce(bounce);
   }
     println("bounce: " + bounce);
+    // set property value highlighting
+      for (int i = 0; i < icons.length; ++i) {
+        if (i == 12) {
+          icons[i].setFill(highlight);
+        } else {
+          icons[i].setFill(grey);
+        }
+      }
 }
 
 //[x][ ][x][x]: MASS
@@ -175,6 +291,17 @@ if (sw[0] && sw[1] && sw[3] && !(sw[2])) {
       s.setMass(mass);
     }
     println("mass: " + mass);
+        // set property value highlighting
+      for (int i = 0; i < icons.length; ++i) {
+        if (i == 13) {
+          icons[i].setFill(highlight);
+        } else if (i == 3 || i == 11 || i == 12) {
+          icons[i].setFill(secondary);
+        } else {
+          icons[i].setFill(grey);
+        }
+      }
+
   }
 
 //[ ][x][x][x]: WALLS
@@ -186,6 +313,15 @@ if (sw[0] && sw[1] && sw[3] && !(sw[2])) {
       }
     }
     println("walls: " + walls);
+    // set property value highlighting
+      for (int i = 0; i < icons.length; ++i) {
+        if (i == 14) {
+          icons[i].setFill(highlight);
+        } else {
+          icons[i].setFill(grey);
+        }
+      }
+
   }
 
 
@@ -200,6 +336,16 @@ if (sw[0] && sw[1] && sw[3] && !(sw[2])) {
       }
     }
     println("randomizer: "+randomizer);
+    println("bounce: " + bounce);
+    // set property value highlighting
+      for (int i = 0; i < icons.length; ++i) {
+        if (i == 15) {
+          icons[i].setFill(highlight);
+        } else {
+          icons[i].setFill(grey);
+        }
+      }
+
   }
 
 }

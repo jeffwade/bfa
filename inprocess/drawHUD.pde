@@ -44,7 +44,6 @@ void  displayIcons() {
 void updateValues() {
   for (int i = 0; i < icons.length; ++i) {
     Icon icon = icons[i];
-    icon.setFill(secondary);
     switch (i) {
       case 0 : //COLOR
         icon.setValue(shapeHue + "º");

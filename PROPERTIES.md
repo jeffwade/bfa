@@ -10,7 +10,7 @@
 - [ ][x][ ][ ] : SHAPE
   - number of sides: 2 => line; [3, 9] => polygon; 10 => circle
 
-- [ ][ ][x][ ] : SPEED
+- [ ][ ][x][ ] : FORCE
   - [0,10]
 
 - [ ][ ][ ][x] : HEADING

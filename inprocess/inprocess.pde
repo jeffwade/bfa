@@ -29,7 +29,7 @@
 //Global/Default Property values
   int shapeHue = 150;
   float radius = 100f;
-  int sides = 6;
+  int sides = 3;
   float speed = 0f;
   PVector velocity = new PVector(0,0);
   float strength = 0f;
@@ -43,7 +43,7 @@
   float attraction = 0.0f;
   int mass = 10;
   boolean arranged = false;
-  int randomizer = 5;
+  int randomizer = 0;
   int walls = 0;
   float bounce = 1f;
   int wallThickness = 25;
@@ -129,6 +129,9 @@ void setup() {
 
 void draw () {
   motionBlur(white, 60); //set color and level of motion blur
+  if (clicks%2 == 1) {
+    drawGrid();
+  }
   readInputs();  //read states of switches and value of potentiometer
   if (pv != initPV) {
     changeProperties(sw);
@@ -144,16 +147,6 @@ void draw () {
   //grab snapshot/gif
   //post/store the above
   initPV = pv;
-
-  if (clicks%2 == 1) {
-    pushStyle();
-    stroke(grey);
-    strokeWeight(1);
-    line(center.x, 0, center.x, height);
-    line(0, center.y, width, center.y);
-    popStyle();
-  }
-
 }
 
 

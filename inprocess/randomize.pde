@@ -15,6 +15,11 @@ void randomize(Shape _s, int property) {
         // _s.setBounce(bounce);
 
         _s.setRandomized(false);
+
+        //set property value text fill
+        for (int i = 0; i < icons.length; ++i) {
+            icons[i].setFill(grey);
+        }
     break;
     case 1 : //APPEARANCE (color, size, shape)
         _s.setRandomized(false);
