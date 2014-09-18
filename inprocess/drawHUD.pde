@@ -45,13 +45,13 @@ void updateValues() {
   for (int i = 0; i < icons.length; ++i) {
     Icon icon = icons[i];
     switch (i) {
-      case 0 :
+      case 0 : //COLOR
         icon.setValue(shapeHue + "º");
       break;
-      case 1 :
+      case 1 : //RADIUS
         icon.setValue(nfc(radius, 2) + "px");
       break;
-      case 2 :
+      case 2 : //SHAPE
         switch (sides) {
           case 2 :
             icon.setValue("line");
@@ -82,16 +82,16 @@ void updateValues() {
           break;
         }
       break;
-      case 3 :
+      case 3 : //FORCE
         icon.setValue(nfc(strength, 2) + "");
       break;
-      case 4 :
+      case 4 : //HEADING
         icon.setValue(round(heading*(180/PI)) + "º");
       break;
-      case 5 :
+      case 5 : //NUMBER
         icon.setValue(str(number));
       break;
-      case 6 :
+      case 6 : //ARRANGEMENT
         switch (arrangement) {
           case NONE :
             icon.setValue("none");
@@ -107,9 +107,19 @@ void updateValues() {
           break;
         }
       break;
-      case 7 :
+      case 7 : //SPACING
         icon.setValue(nfc(padding/radius, 2) + "r");
       break;
+      case 8 : //ANGLE
+        icon.setValue(round(angle*(180/PI)) + "º");
+      break;
+      case 9 : //SPIN
+        icon.setValue(round(spin*(180/PI)*60) + "º/s");
+      break;
+      case 10 : //OFFSET
+        icon.setValue(offset + "px");
+      break;
+
     }
   }
 }
