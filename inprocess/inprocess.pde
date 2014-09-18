@@ -64,7 +64,7 @@
   int maxSides = 10;
   float maxStrength = 1.0f;
   float maxSpeed = 10.0f;
-  float maxSpin = 0.05f;
+  float maxSpin = 0.075f;
   int minMass = 1;
   int maxMass = 75;
   int maxAttract = 2;

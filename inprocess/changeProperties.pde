@@ -122,6 +122,7 @@ void changeProperties(boolean[] sw) {
       angle = map(pv, 0, 1023, 0, TAU);
       // s.spin(0); //stop spin if setting angle
       s.setTheta(angle);
+      s.setSpin(0);
     }
     println("angle: " + angle);
   }

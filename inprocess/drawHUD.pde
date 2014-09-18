@@ -107,6 +107,9 @@ void updateValues() {
           break;
         }
       break;
+      case 7 :
+        icon.setValue(nfc(padding/radius, 2) + "r");
+      break;
     }
   }
 }

@@ -255,7 +255,7 @@ class Shape {
         return aVel;
     }
 
-    public void setAVel(float newAVel) {
+    public void setSpin(float newAVel) {
         aVel = newAVel;
     }
 
