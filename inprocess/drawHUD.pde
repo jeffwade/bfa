@@ -44,6 +44,7 @@ void  displayIcons() {
 void updateValues() {
   for (int i = 0; i < icons.length; ++i) {
     Icon icon = icons[i];
+    icon.setFill(secondary);
     switch (i) {
       case 0 : //COLOR
         icon.setValue(shapeHue + "º");
@@ -120,13 +121,13 @@ void updateValues() {
         icon.setValue(nfc(offset, 2) + "px");
       break;
       case 11 : //ATTRACTION
-        icon.setValue(nfc(-attraction,2) + "n");
+        icon.setValue(nfc(-attraction,2) /*+ "N(m/kg)\u00B2"*/);
       break;
       case 12 : //BOUNCE
         icon.setValue(nfc(bounce, 2) + "");
       break;
       case 13 : //MASS
-        icon.setValue((mass - 1) + "kg");
+        icon.setValue(mass + "kg");
       break;
       case 14 : //WALLS
         switch (walls) {

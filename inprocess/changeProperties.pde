@@ -37,7 +37,7 @@ void changeProperties(boolean[] sw) {
     println("sides: " + sides);
   }
 
-//[ ][ ][x][ ]: SPEED
+//[ ][ ][x][ ]: FORCE
   if (sw[2] && !(sw[0] || sw[1] || sw[3])) {
     strength = map(pv, 0, 1023, 0, maxStrength);
     if (strength == 0) {
@@ -151,7 +151,7 @@ void changeProperties(boolean[] sw) {
 if (sw[0] && sw[1] && sw[2] && !(sw[3])) {
   for (int i = 0; i < shapes.size(); ++i) {
     Shape s = shapes.get(i);
-    attraction = map(pv, 0, 1023, -maxAttract, maxAttract);
+    attraction = map(pv, 0, 1023, maxAttract, -maxAttract);
     s.setAttraction(attraction);
   }
     println("attraction: " + attraction);

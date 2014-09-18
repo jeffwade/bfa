@@ -65,7 +65,7 @@ void loadIcons() {
         label = "offset";
       break;
       case 11 :
-        label = "attraction";
+        label = "gravitation";
       break;
       case 12 :
         label = "bounce";

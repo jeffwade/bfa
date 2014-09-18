@@ -8,7 +8,7 @@
   import processing.serial.*;
   import cc.arduino.*;
 //Generic global variables
-  color white, black, grey;
+  color white, black, grey, highlight, secondary;
   PVector center;
   boolean change = false;
 //Global objects
@@ -41,9 +41,9 @@
   float spin = 0f;
   float offset = 0f;
   float attraction = 0.0f;
-  int mass = 1;
+  int mass = 10;
   boolean arranged = false;
-  int randomizer = 0;
+  int randomizer = 5;
   int walls = 0;
   float bounce = 1f;
   int wallThickness = 25;
@@ -68,6 +68,7 @@
   int minMass = 1;
   int maxMass = 75;
   int maxAttract = 2;
+  float maxBounce = 2;
 
 //Polygons
 PShape penta, hexa, septa, octa, nona;
@@ -84,13 +85,20 @@ int clicks = 0;
 void setup() {
   //general sketch settings
     size(displayWidth, displayHeight, P2D);
-    // noCursor();
+    // noCursor(); //hide the cursor
+
+    //initialize colors
     colorMode(HSB, 360, 100, 100, 100);
     white = color(0,0,100,100);
     black = color(0,0,0,100);
     grey = color(0,0,20,100);
+    highlight = color(5,100,80,100);
+    secondary = color(210,80,80,100);
+
+    //initialize unset global variables
     center = new PVector(width/2, height/2);
     maxRadius = height/6f;
+
     background(white);
     noStroke();
     smooth();

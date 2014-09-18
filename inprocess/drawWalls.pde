@@ -3,7 +3,7 @@ void drawWalls(int w) {
     translate(0, 0);
     rotate(0);
     pushStyle();
-      fill(black,50);
+      fill(grey);
       noStroke();
       rectMode(CORNER);
 

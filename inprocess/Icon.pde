@@ -8,6 +8,7 @@ class Icon {
   int w, h, wX, hX, wL, hL;
   String iconLabel;
   String value;
+  color textFill;
 
   //constructor
   Icon(float x, float y, PShape _switch, PShape _small/*, PShape _large*/) {
@@ -37,13 +38,19 @@ class Icon {
       textAlign(RIGHT);
       textSize(14);
       text(iconLabel, position.x + 46, position.y + 28);
-      text(value, (position.x + 41) - textWidth(iconLabel), position.y + 28);
+      pushStyle();
+        fill(textFill);
+        text(value, (position.x + 41) - textWidth(iconLabel), position.y + 28);
+      popStyle();
     } else {
       // shape(smallIcon, position.x + 53, position.y - 20, w, h);
       textAlign(LEFT);
       textSize(14);
       text(iconLabel, position.x - 1, position.y + 28);
-      text(value, position.x + textWidth(iconLabel) + 5, position.y + 28);
+      pushStyle();
+        fill(textFill);
+        text(value, position.x + textWidth(iconLabel) + 5, position.y + 28);
+      popStyle();
     }
   }
 
@@ -61,5 +68,8 @@ class Icon {
   }
   public void setValue(String newValue) {
       value = newValue;
+  }
+  public void setFill(color newTextFill) {
+      textFill = newTextFill;
   }
 }
