@@ -1,5 +1,4 @@
 /*IN FIERI
-
   main Processing sketch
 */
 
@@ -118,7 +117,7 @@ void setup() {
     }
     arrangeShapes();
   //initialize arduino
-    println(Arduino.list()); //list serial ports
+    // println(Arduino.list()); //list serial ports
     String port = Arduino.list()[0]; //on wMac: 5 is tty.usb
     arduino = new Arduino(this, port, 57600);
   //set pin modes

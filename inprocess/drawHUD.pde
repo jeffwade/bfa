@@ -2,7 +2,6 @@ void drawHUD() {
   displayInputs();
   updateValues();
   displayIcons();
-
 }
 
 void displayInputs() {
@@ -19,7 +18,6 @@ void displayInputs() {
       fill(grey);
     } else {
       fill(white);
-      // noFill();
     }
     rectMode(CENTER);
     rect((center.x - 105) + 70*i, swY, swD, swD);

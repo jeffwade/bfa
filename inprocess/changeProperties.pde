@@ -33,7 +33,7 @@ void changeProperties(boolean[] sw) {
       radius = map(pv, 0, 1023, minRadius, maxRadius);
       s.setRadius(radius);
     }
-    println("Radius: " + radius + "(" + maxRadius + ")");
+    // println("Radius: " + radius + "(" + maxRadius + ")");
     // set property value highlighting
       for (int i = 0; i < icons.length; ++i) {
         if (i == 1) {
@@ -54,7 +54,7 @@ void changeProperties(boolean[] sw) {
       sides = (int) map(pv, 0, 1023, 2, maxSides+1);
       s.setSides(sides);
     }
-    println("sides: " + sides);
+    // println("sides: " + sides);
     // set property value highlighting
       for (int i = 0; i < icons.length; ++i) {
         if (i == 2) {
@@ -74,7 +74,7 @@ void changeProperties(boolean[] sw) {
         s.setVelocity(new PVector(0,0));
       }
     }
-    println("strength: " + strength);
+    // println("strength: " + strength);
     // set property value highlighting
       for (int i = 0; i < icons.length; ++i) {
         if (i == 3) {
@@ -88,7 +88,7 @@ void changeProperties(boolean[] sw) {
 //[ ][ ][ ][x]: HEADING
   if (sw[3] && !(sw[0] || sw[1] || sw[2])) {
     heading = map(pv, 0, 1023, 0, TAU);
-    println("heading: " + heading*(180/PI));
+    // println("heading: " + heading*(180/PI));
     // set property value highlighting
       for (int i = 0; i < icons.length; ++i) {
         if (i == 4) {
@@ -132,7 +132,7 @@ void changeProperties(boolean[] sw) {
       }
     }
     arrangeShapes();
-    println("shapes: " + shapes.size());
+    // println("shapes: " + shapes.size());
     // set property value highlighting
       for (int i = 0; i < icons.length; ++i) {
         if (i == 5) {
@@ -154,7 +154,7 @@ void changeProperties(boolean[] sw) {
       }
     }
     arrangeShapes();
-    println("arrangement: " + arrangement);
+    // println("arrangement: " + arrangement);
     // set property value highlighting
       for (int i = 0; i < icons.length; ++i) {
         if (i == 6) {
@@ -174,7 +174,7 @@ void changeProperties(boolean[] sw) {
       s.setArranged(false);
     }
     arrangeShapes();
-    println("padding: " + padding);
+    // println("padding: " + padding);
     // set property value highlighting
       for (int i = 0; i < icons.length; ++i) {
         if (i == 7) {
@@ -195,7 +195,7 @@ void changeProperties(boolean[] sw) {
       spin = 0;
       s.setSpin(0);
     }
-    println("angle: " + angle);
+    // println("angle: " + angle);
     // set property value highlighting
       for (int i = 0; i < icons.length; ++i) {
         if (i == 8) {
@@ -216,7 +216,7 @@ void changeProperties(boolean[] sw) {
       spin = map(pv, 0, 1023, -maxSpin, maxSpin);
       s.spin(spin);
     }
-    println("spin: " + spin);
+    // println("spin: " + spin);
     // set property value highlighting
       for (int i = 0; i < icons.length; ++i) {
         if (i == 9) {
@@ -234,7 +234,7 @@ void changeProperties(boolean[] sw) {
     offset = map(pv, 0, 1023, -radius, radius);
     s.setOffset(offset);
   }
-  println("offset: " + offset);
+  // println("offset: " + offset);
       // set property value highlighting
       for (int i = 0; i < icons.length; ++i) {
         if (i == 10) {
@@ -252,7 +252,7 @@ if (sw[0] && sw[1] && sw[2] && !(sw[3])) {
     attraction = map(pv, 0, 1023, minAttract, maxAttract);
     s.setAttraction(attraction);
   }
-    println("attraction: " + attraction);
+    // println("attraction: " + attraction);
     // set property value highlighting
       for (int i = 0; i < icons.length; ++i) {
         if (i == 11) {
@@ -272,7 +272,7 @@ if (sw[0] && sw[1] && sw[3] && !(sw[2])) {
     bounce = map(pv, 0, 1023, minBounce, maxBounce);
     s.setBounce(bounce);
   }
-    println("bounce: " + bounce);
+    // println("bounce: " + bounce);
     // set property value highlighting
       for (int i = 0; i < icons.length; ++i) {
         if (i == 12) {
@@ -290,7 +290,7 @@ if (sw[0] && sw[1] && sw[3] && !(sw[2])) {
       mass = (int) map(pv, 0, 1023, minMass, maxMass);
       s.setMass(mass);
     }
-    println("mass: " + mass);
+    // println("mass: " + mass);
         // set property value highlighting
       for (int i = 0; i < icons.length; ++i) {
         if (i == 13) {
@@ -312,7 +312,7 @@ if (sw[0] && sw[1] && sw[3] && !(sw[2])) {
         shapes.get(i).setOffset(0);
       }
     }
-    println("walls: " + walls);
+    // println("walls: " + walls);
     // set property value highlighting
       for (int i = 0; i < icons.length; ++i) {
         if (i == 14) {
@@ -335,8 +335,8 @@ if (sw[0] && sw[1] && sw[3] && !(sw[2])) {
         randomize(s, randomizer);
       }
     }
-    println("randomizer: "+randomizer);
-    println("bounce: " + bounce);
+    // println("randomizer: "+randomizer);
+    // println("bounce: " + bounce);
     // set property value highlighting
       for (int i = 0; i < icons.length; ++i) {
         if (i == 15) {

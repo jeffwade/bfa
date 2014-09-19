@@ -14,9 +14,8 @@ void drawShape(int n, float r, color c, float dx){
       fill(c);
       rectMode(RADIUS);
       pushMatrix();
-      rotate(PI/4);
-      rect(dx, 0, (pow(2,0.5)/2)*r, (pow(2,0.5)/2)*r);
-
+        rotate(PI/4);
+        rect(dx, 0, (pow(2,0.5)/2)*r, (pow(2,0.5)/2)*r);
       popMatrix();
     break;
     case 5 :
