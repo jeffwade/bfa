@@ -3,13 +3,17 @@ void arrangeShapes() {
   float _x = 0.0f;
   float _y = 0.0f;
 
+  if (walls != NONE) {
+
+  }
+
   switch (arrangement) {
     case NONE :
       // set randomly
         for (int i = 0; i < shapes.size(); ++i) {
         Shape s = shapes.get(i);
         if (!s.isArranged()) {
-          s.setX(random(width));
+          s.setX(random(width ));
           s.setY(random(height));
           s.setArranged(true);
         }
@@ -20,9 +24,9 @@ void arrangeShapes() {
         Shape s = shapes.get(i);
         if (!s.isArranged()) {
           _x = first.getX() + padding*i*cos(heading - PI);
-          constrain(_x, wallThickness, width - wallThickness);
+          constrain(_x, (wallThickness + radius), width - (wallThickness + radius));
           _y = first.getY() + padding*i*sin(heading - PI);
-          constrain(_y, wallThickness, height - wallThickness);
+          constrain(_y, (wallThickness + radius), height - (wallThickness + radius));
           s.setX(_x%width);
           s.setY(_y%height);
           s.setArranged(true);
