@@ -2,9 +2,10 @@
 ##Code
 + [x] HUD
   - [x] property values
-  - [ ] change colors?
+  - [x] change colors?
   - [ ] affected property values
-+ [ ] change how speed is controlled
+  - [ ] large icons(?)
++ [ ] change how speed is controlled(?)
 + [ ] arrangement tweaks:
   - [ ] set attraction to 0
   - [ ] set position within visible walls
@@ -13,7 +14,7 @@
 + [ ] create gifs at intervals
 + [ ] collisions(?)
 + [ ] all properties in new shape
-+ [ ] optimize value limits for awesomeness
++ [x] optimize value limits for awesomeness
 + [ ] RANDOM
   - [ ] affected property groups: labels and new shapes
 

@@ -132,9 +132,9 @@ void setup() {
 
 void draw () {
   motionBlur(white, 60); //set color and level of motion blur
-  if (clicks%2 == 0) {
-    drawGrid();
-  }
+  // if (clicks%2 == 0) {
+  //   drawGrid();
+  // }
   readInputs();  //read states of switches and value of potentiometer
   if (pv != initPV) {
     changeProperties(sw);
