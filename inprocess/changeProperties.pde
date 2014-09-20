@@ -353,6 +353,7 @@ if (sw[0] && sw[1] && sw[3] && !(sw[2])) {
         randomize(s, randomizer);
       }
     }
+
     // println("randomizer: "+randomizer);
     // println("bounce: " + bounce);
     // set property value highlighting
@@ -360,7 +361,40 @@ if (sw[0] && sw[1] && sw[3] && !(sw[2])) {
         if (i == 15) {
           icons[i].setFill(highlight);
         } else {
-          icons[i].setFill(grey);
+          switch (randomizer) {
+            case 0 : //NONE
+              icons[i].setFill(grey);        
+            break;        
+            case 1 : //APPEARANCE
+              if (i < 3) {
+                icons[i].setValue("random");
+                icons[i].setFill(secondary);
+              } else {
+                icons[i].setFill(grey);
+              }
+            break;  
+            case 2 : //MOVEMENT
+              if (i == 4 || i == 5 || (i >= 8 && i <= 10)) {
+                icons[i].setFill(secondary);
+              } else {
+                icons[i].setFill(grey);
+              }
+            break;  
+            case 3 : //SET
+              if (i >= 5 && i <= 7) {
+                icons[i].setFill(secondary);
+              } else {
+                icons[i].setFill(grey);
+              }
+            break;  
+            case 4 : //PHYSICS
+              if (i >= 11 && i <= 14) {
+                icons[i].setFill(secondary);
+              } else {
+                icons[i].setFill(grey);
+              }
+            break;  
+          }
         }
       }
 
