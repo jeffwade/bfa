@@ -37,7 +37,10 @@ class Icon {
       // shape(smallIcon, position.x - 53, position.y - 20, w, h);
       textAlign(RIGHT);
       textSize(14);
-      text(iconLabel, position.x + 46, position.y + 28);
+      pushStyle();
+        fill(grey);
+        text(iconLabel, position.x + 46, position.y + 28);
+      popStyle();
       pushStyle();
         fill(textFill);
         text(value, (position.x + 41) - textWidth(iconLabel), position.y + 28);
@@ -46,7 +49,10 @@ class Icon {
       // shape(smallIcon, position.x + 53, position.y - 20, w, h);
       textAlign(LEFT);
       textSize(14);
-      text(iconLabel, position.x - 1, position.y + 28);
+      pushStyle();
+        fill(grey);
+        text(iconLabel, position.x - 1, position.y + 28);
+      popStyle();
       pushStyle();
         fill(textFill);
         text(value, position.x + textWidth(iconLabel) + 5, position.y + 28);
