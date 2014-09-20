@@ -2,9 +2,17 @@ void arrangeShapes() {
   Shape first = shapes.get(0);
   float _x = 0.0f;
   float _y = 0.0f;
-
-  if (walls != NONE) {
-
+  float marginX, marginY;
+  if (walls == NONE) {
+    marginX = marginY = 0f;
+  } else if (walls == TB) {
+    marginX = 0f;
+    marginY = (wallThickness + radius + 10);
+  } else if (walls == LR) {
+    marginX = (wallThickness + radius + 10);
+    marginY = 0f;
+  } else {
+    marginX = marginY = (wallThickness + radius +10);
   }
 
   switch (arrangement) {
@@ -24,9 +32,9 @@ void arrangeShapes() {
         Shape s = shapes.get(i);
         if (!s.isArranged()) {
           _x = first.getX() + padding*i*cos(heading - PI);
-          constrain(_x, (wallThickness + radius), width - (wallThickness + radius));
+          constrain(_x, marginX, width - marginX);
           _y = first.getY() + padding*i*sin(heading - PI);
-          constrain(_y, (wallThickness + radius), height - (wallThickness + radius));
+          constrain(_y, marginY, height - marginY);
           s.setX(_x%width);
           s.setY(_y%height);
           s.setArranged(true);
@@ -42,9 +50,13 @@ void arrangeShapes() {
         for (int j = 0; j < rows; ++j) {
           Shape s = shapes.get(i*rows+j);
           if (!s.isArranged()) {
+            _x = (first.getX() + padding*i)%width;
+            constrain(_x, marginX, width - marginX);
+            s.setX(_x);
 
-            s.setX((first.getX() + padding*i)%width);
-            s.setY((first.getY() + padding*j)%height);
+            _y = (first.getY() + padding*j)%height;
+            constrain(_y, marginY, height-marginY);
+            s.setY(_y);
           }
         }
       }

@@ -120,8 +120,11 @@ void changeProperties(boolean[] sw) {
     if (difference > 0) {
       for (int i = 0; i < difference; ++i) {
         speed = shapes.get(0).getSpeed();
+        heading = shapes.get(0).getHeading();
+        PVector _pos = shapes.get(0).getPosition();
+        // angle = shapes.get(0).getTheta();
         // Shape(int _hue, float _radius,  int _sides, float _speed, float _heading, float _theta, float _spin, float _offset, float _attraction, float _bounce, int _mass)
-        Shape s = new Shape(shapeHue, radius, sides, speed, heading, angle, spin, offset, attraction, bounce, mass);
+        Shape s = new Shape(_pos, shapeHue, radius, sides, speed, heading, angle, spin, offset, attraction, bounce, mass);
         if (randomizer > 0) {
           randomize(s, randomizer);
         }
@@ -147,11 +150,14 @@ void changeProperties(boolean[] sw) {
 
 //[x][ ][x][ ]: ARRANGEMENT
   if ( sw[0] && sw[2] && !(sw[1] || sw[3]) ) {
+    attraction = 0f;
     int initArr = arrangement;
     arrangement = (int) map(pv, 0, 1023, 0, 3.9);
     if (arrangement != initArr) {
       for (int i = 0; i < shapes.size(); ++i) {
         shapes.get(i).setArranged(false);
+        shapes.get(i).setAttraction(0);
+        shapes.get(i).setVelocity("a", speed, angle);
       }
     }
     arrangeShapes();

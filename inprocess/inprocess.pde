@@ -84,12 +84,12 @@ PFont verlag24;
 Icon[] icons = new Icon[16];
 
 //count clicks (to draw centering lines)
-int clicks = 0;
+// int clicks = 0;
 
 void setup() {
   //general sketch settings
     size(displayWidth, displayHeight, P2D);
-    // noCursor(); //hide the cursor
+    noCursor(); //hide the cursor
 
     //initialize colors
     colorMode(HSB, 360, 100, 100, 100);
@@ -117,7 +117,7 @@ void setup() {
     shapes = new ArrayList<Shape>();
     for (int i = 0; i < number; i++){
       //Shape(int _hue, float _radius, float _theta, float _speed, float _heading, int _sides, int _mass, float _spin, float _offset)
-      shapes.add(new Shape(shapeHue, radius,  sides, speed, heading, angle, spin, offset, attraction, bounce, mass));
+      shapes.add(new Shape(center, shapeHue, radius,  sides, speed, heading, angle, spin, offset, attraction, bounce, mass));
     }
     arrangeShapes();
   //initialize arduino
