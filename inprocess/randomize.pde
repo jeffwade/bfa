@@ -11,9 +11,11 @@ void randomize(Shape _s, int property) {
         _s.spin(spin);
         _s.setOffset(offset);
         _s.setAttraction(attraction);
-
-        // _s.setBounce(bounce);
-
+        _s.setBounce(bounce);
+        _s.setMass(mass);
+        // arrangeShapes(number,arrangement,padding);
+        // setWalls(walls);
+    
         _s.setRandomized(false);
 
         //set property value text fill
