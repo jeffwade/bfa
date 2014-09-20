@@ -1,50 +1,50 @@
 #PROPERTIES
 
 ##Switch Combos
-- [ ][ ][ ][ ] : COLOR
+- 0. [ ][ ][ ][ ] : COLOR
   - Hue : [0, 360]
 
-- [x][ ][ ][ ] : RADIUS
+- 1. [x][ ][ ][ ] : RADIUS
   - r: [25, height/6]
 
-- [ ][x][ ][ ] : SHAPE
+- 2. [ ][x][ ][ ] : SHAPE
   - number of sides: 2 => line; [3, 9] => polygon; 10 => circle
 
-- [ ][ ][x][ ] : FORCE
+- 3. [ ][ ][x][ ] : FORCE
   - [0,10]
 
-- [ ][ ][ ][x] : HEADING
+- 4. [ ][ ][ ][x] : HEADING
   - angle: [0,360]
 
-- [x][x][ ][ ] : NUMBER
+- 5. [x][x][ ][ ] : NUMBER
   - [1, 9]
 
-- [x][ ][x][ ] : ARRANGEMENT
+- 6. [x][ ][x][ ] : ARRANGEMENT
   - options: none, line, grid, radial, random
 
-- [x][ ][ ][x] : PADDING
+- 7. [x][ ][ ][x] : PADDING
   - [r, 3r]
 
-- [ ][x][x][ ] : ANGLE
+- 8. [ ][x][x][ ] : ANGLE
   - Theta : [0, 360]
 
-- [ ][x][ ][x] : SPIN
+- 9. [ ][x][ ][x] : SPIN
   - Angular velocity : [0, 360]
 
-- [ ][ ][x][x] : CENTER
+-10. [ ][ ][x][x] : CENTER
   - x:[-100,100]
 
-- [x][x][x][ ] : ATTRACTION
+-11. [x][x][x][ ] : ATTRACTION
 
-- [x][x][ ][x] : BOUNCE
+-12. [x][x][ ][x] : BOUNCE
   - range: [0,1]
 
-- [x][ ][x][x] : MASS
+-13. [x][ ][x][x] : MASS
 
-- [ ][x][x][x] : WALLS
+-14. [ ][x][x][x] : WALLS
   - options: combinations of screen sides
 
-- [x][x][x][x] : RANDOM
+-15. [x][x][x][x] : RANDOM
   - options: shape, color, size, speed, angle, mass, bounce, etc.
 
 ## Implement in Main Program

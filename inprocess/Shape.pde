@@ -20,7 +20,8 @@ class Shape {
   //Constructor
     Shape(PVector _position, int _hue, float _radius,  int _sides, float _speed, float _heading, float _theta, float _spin, float _offset, float _attraction, float _bounce, int _mass) {
       H = _hue;
-      S = B = A = 90;
+      S = B = 90;
+      A = 75;
 
       r = _radius;
 

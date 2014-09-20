@@ -155,9 +155,12 @@ void changeProperties(boolean[] sw) {
     arrangement = (int) map(pv, 0, 1023, 0, 3.9);
     if (arrangement != initArr) {
       for (int i = 0; i < shapes.size(); ++i) {
-        shapes.get(i).setArranged(false);
-        shapes.get(i).setAttraction(0);
-        shapes.get(i).setVelocity("a", speed, angle);
+        Shape s = shapes.get(i);
+        s.setArranged(false);
+        if (attraction != 0) {
+          s.setAttraction(0);
+          s.setVelocity("a", speed, angle);
+        }
       }
     }
     arrangeShapes();
@@ -166,6 +169,8 @@ void changeProperties(boolean[] sw) {
       for (int i = 0; i < icons.length; ++i) {
         if (i == 6) {
           icons[i].setFill(highlight);
+        } else if (i == 11) {
+          icons[i].setFill(secondary);
         } else {
           icons[i].setFill(grey);
         }
@@ -179,6 +184,10 @@ void changeProperties(boolean[] sw) {
     for (int i = 0; i < shapes.size(); ++i) {
       Shape s = shapes.get(i);
       s.setArranged(false);
+      if (attraction != 0) {
+        s.setAttraction(0);
+        s.setVelocity("a", speed, angle);
+      }
     }
     arrangeShapes();
     // println("padding: " + padding);
@@ -186,6 +195,8 @@ void changeProperties(boolean[] sw) {
       for (int i = 0; i < icons.length; ++i) {
         if (i == 7) {
           icons[i].setFill(highlight);
+        } else if (i == 11) {
+          icons[i].setFill(secondary);
         } else {
           icons[i].setFill(grey);
         }
