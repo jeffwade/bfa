@@ -84,8 +84,6 @@ class Shape {
     }
 
     void checkWalls(int w) {
-          pushStyle();
-          fill(black);
       switch (w) {
         case 0 : //NONE
           //wrap all directions
