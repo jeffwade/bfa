@@ -120,7 +120,8 @@ void changeProperties(boolean[] sw) {
     if (difference > 0) {
       for (int i = 0; i < difference; ++i) {
         speed = shapes.get(0).getSpeed();
-        Shape s = new Shape(shapeHue, radius, angle, speed, heading, sides, mass, spin, offset);
+        // Shape(int _hue, float _radius,  int _sides, float _speed, float _heading, float _theta, float _spin, float _offset, float _attraction, float _bounce, int _mass)
+        Shape s = new Shape(shapeHue, radius, sides, speed, heading, angle, spin, offset, attraction, bounce, mass);
         if (randomizer > 0) {
           randomize(s, randomizer);
         }

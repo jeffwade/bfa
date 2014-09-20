@@ -25,35 +25,17 @@
   int initPV; //to control value jumps
   boolean[] sw = {false, false, false, false}; //array holding switch states
 
-//Global/Default Property values
-  int shapeHue = 150;
-  float radius = 100f;
-  int sides = 2;
-  float speed = 3f;
-  PVector velocity = new PVector(0,0);
-  float strength = 0f;
-  float heading = 5.24f;
-  int number = 100;
-  int arrangement = 0; //default is RADIAL
-  float padding = 100f;
-  float angle = 0.0f;
-  float spin = 0.05f;
-  float offset = 0f;
-  float attraction = 0.15f;
-  int mass = 10;
-  boolean arranged = false;
-  int randomizer = 0;
-  int walls = 0;
-  float bounce = 1f;
-  int wallThickness = 25;
-
 //Global property constants
+  final int NONE = 0; //new shapes added in random location
   //ARRANGEMENTS
-  final int NONE = 0; //add new shapes at center
   final int LINE = 1; //add new shapes behind previous
   final int GRID = 2; //arrange shapes in grid formation
   final int RADIAL = 3; //arrange shapes around center
-  final int RANDOM = 4; //new shapes added in random location
+  //WALLS
+  final int TB = 1; //TOP and BOTTOM
+  final int LR = 2; //LEFT and RIGHT
+  final int ALL = TB + LR;
+  final int wallThickness = 25;
 
 
 //Global limits
@@ -70,6 +52,27 @@
   float maxAttract = -0.15;
   float minBounce = 0.75;
   float maxBounce = 2;
+
+
+//Global default property values
+  int shapeHue = 150;
+  float radius = 60f;
+  int sides = 2;
+  float speed = 3f;
+  float strength = 0f;
+  float heading = 5.24f;
+  int number = 100;
+  boolean arranged = false;
+  int arrangement = NONE;
+  float padding = 100f;
+  float angle = 0.0f;
+  float spin = 0.05f;
+  float offset = 0f;
+  float attraction = 0f; //negative values attract, positive values repel
+  float bounce = 1f;
+  int mass = 10;
+  int walls = NONE;
+  int randomizer = NONE;
 
 //Polygons
 PShape penta, hexa, septa, octa, nona;
@@ -113,7 +116,8 @@ void setup() {
   //initialize arraylist of shapes
     shapes = new ArrayList<Shape>();
     for (int i = 0; i < number; i++){
-      shapes.add(new Shape(shapeHue, radius, angle, speed, heading, sides, mass, spin, offset)); //Shape(int _H, float _r, float _theta, float _speed, float _heading, int _sides, int _mass, float _spin, float _offset) {
+      //Shape(int _hue, float _radius, float _theta, float _speed, float _heading, int _sides, int _mass, float _spin, float _offset)
+      shapes.add(new Shape(shapeHue, radius,  sides, speed, heading, angle, spin, offset, attraction, bounce, mass));
     }
     arrangeShapes();
   //initialize arduino
@@ -233,10 +237,10 @@ void keyReleased() {
     }
 }
 
-void mouseReleased() {
-  clicks++;
-  delay(200);
-}
+// void mouseReleased() {
+//   clicks++;
+//   delay(200);
+// }
 boolean sketchFullScreen() {
   return true;
 }

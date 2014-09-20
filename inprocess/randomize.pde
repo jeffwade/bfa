@@ -14,8 +14,8 @@ void randomize(Shape _s, int property) {
         _s.setBounce(bounce);
         _s.setMass(mass);
         // arrangeShapes(number,arrangement,padding);
-        // setWalls(walls);
-    
+        drawWalls(walls);
+
         _s.setRandomized(false);
 
         //set property value text fill

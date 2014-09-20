@@ -7,10 +7,10 @@ void loadIcons() {
 
     //draw switch keys and property icons
     if (i > 7) {
-      icons[i] = new Icon(width - 75, 150 + 100*(i%8), switchIcon, smallIcon);
+      icons[i] = new Icon(width - 75, (height/10) + (height/10)*(i%8), switchIcon, smallIcon);
       icons[i].setRightAlign(true);
     } else {
-      icons[i] = new Icon(30, 150 + 100*i, switchIcon, smallIcon);
+      icons[i] = new Icon(30, (height/10) + (height/10)*i, switchIcon, smallIcon);
     }
 
     //correct dimensions

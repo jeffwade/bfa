@@ -17,39 +17,18 @@ class Shape {
 
     boolean arranged = false;
     boolean randomized = false;
-  //Constructors
-  //default constructor (no params)
-    Shape() {
-      H = 150;
-      S = B = A = 90;
-      c = color(H,S,B,A);
-
-      r = radius;
-
-      n = 3;
-
-      m = mass;
-      b = 1;
-      G = 0;
-
-      position = center.get();
-      dx = 0;
-      velocity = new PVector();
-      acceleration = new PVector(0,0);
-
-      theta = aVel = aAcc = 0;
-    }
-  //constructor (all params)
-    Shape(int _H, float _r, float _theta, float _speed, float _heading, int _sides, int _mass, float _spin, float _offset) {
-      H = _H;
+  //Constructor
+    Shape(int _hue, float _radius,  int _sides, float _speed, float _heading, float _theta, float _spin, float _offset, float _attraction, float _bounce, int _mass) {
+      H = _hue;
       S = B = A = 90;
 
-      r = _r;
+      r = _radius;
 
       n = _sides;
 
       m = _mass;
-      b = 1;
+      G = _attraction;
+      b = _bounce;
 
       position = center.get();
       dx = _offset;
