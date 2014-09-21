@@ -64,13 +64,13 @@
   int number = 100;
   boolean arranged = false;
   int arrangement = NONE;
-  float padding = 100f;
+  float padding = radius;
   float angle = 0.0f;
   float spin = 0.05f;
   float offset = 0f;
   float attraction = 0f; //negative values attract, positive values repel
   float bounce = 1f;
-  int mass = 10;
+  int mass = 15;
   int walls = NONE;
   int randomizer = NONE;
 
@@ -108,7 +108,7 @@ void setup() {
     smooth();
 
   //loadfonts
-    verlag24 = loadFont("verlag-24.vlw");
+    verlag24 = loadFont("Verlag-24.vlw");
     textFont(verlag24);
 
   //create shapes for use in shape class
