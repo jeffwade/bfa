@@ -8,7 +8,7 @@
   import cc.arduino.*;
 //Generic global variables
   color white, black, grey, highlight, secondary;
-  PVector center;
+  PVector center, origin;
   boolean change = false;
 //Global objects
   ArrayList<Shape> shapes;
@@ -37,11 +37,10 @@
   final int ALL = TB + LR;
   final int wallThickness = 25;
 
-
 //Global limits
   float minRadius = 15f;
   float maxRadius; //(height/6); set in setup
-  int maxShapes = 100;
+  int maxShapes = 1000;
   int maxSides = 10;
   float maxStrength = 1.2f;
   float maxSpeed = 12.0f;
@@ -58,12 +57,12 @@
   int shapeHue = 150;
   float radius = 60f;
   int sides = 2;
-  float speed = 3f;
+  float speed = 0;
   float strength = 0f;
   float heading = 0f;
-  int number = 100;
+  int number = maxShapes;
   boolean arranged = false;
-  int arrangement = NONE;
+  int arrangement = GRID;
   float padding = radius;
   float angle = 0.0f;
   float spin = 0.05f;
@@ -100,6 +99,7 @@ void setup() {
     secondary = color(210,80,80,100);
 
     //initialize unset global variables
+    origin = new PVector(0,0);
     center = new PVector(width/2, height/2);
     maxRadius = height/6f;
 
@@ -117,7 +117,7 @@ void setup() {
     shapes = new ArrayList<Shape>();
     for (int i = 0; i < number; i++){
       //Shape(int _hue, float _radius, float _theta, float _speed, float _heading, int _sides, int _mass, float _spin, float _offset)
-      shapes.add(new Shape(center, shapeHue, radius,  sides, speed, heading, angle, spin, offset, attraction, bounce, mass));
+      shapes.add(new Shape(origin, shapeHue, radius,  sides, speed, heading, angle, spin, offset, attraction, bounce, mass));
     }
     arrangeShapes();
   //initialize arduino
