@@ -60,7 +60,7 @@
   int sides = 2;
   float speed = 3f;
   float strength = 0f;
-  float heading = 5.24f;
+  float heading = 0f;
   int number = 100;
   boolean arranged = false;
   int arrangement = NONE;
