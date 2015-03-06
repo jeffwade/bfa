@@ -108,7 +108,7 @@ void setup() {
     smooth();
 
   //loadfonts
-    verlag24 = loadFont("Verlag-24.vlw");
+    verlag24 = loadFont("verlag-24.vlw");
     textFont(verlag24);
 
   //create shapes for use in shape class
