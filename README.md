@@ -1,5 +1,5 @@
 #IN FIERI
-Code base for my BFA capstone exhibit
+An interactive exhibit built with Arduino & Processing.
 
 ##Definition
 _in fieri_

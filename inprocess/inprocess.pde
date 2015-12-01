@@ -92,7 +92,7 @@ void setup() {
 
     //initialize colors
     colorMode(HSB, 360, 100, 100, 100);
-    white = color(0,0,100,100);
+    white = color(0,0,70,100);
     black = color(0,0,0,100);
     grey = color(0,0,20,100);
     highlight = color(5,100,80,100);
@@ -135,7 +135,7 @@ void setup() {
 }
 
 void draw () {
-  motionBlur(white, 60); //set color and level of motion blur
+  motionBlur(black, 60); //set color and level of motion blur
   // if (clicks%2 == 0) {
   //   drawGrid();
   // }
@@ -150,7 +150,7 @@ void draw () {
   }
   applyForces();
   drawWalls(walls);
-  drawHUD();
+//  drawHUD();
   //grab snapshot/gif
   //post/store the above
   initPV = pv;
