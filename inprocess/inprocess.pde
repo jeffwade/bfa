@@ -150,7 +150,7 @@ void draw () {
   }
   applyForces();
   drawWalls(walls);
-//  drawHUD();
+  drawHUD();
   //grab snapshot/gif
   //post/store the above
   initPV = pv;
@@ -241,6 +241,6 @@ void keyReleased() {
 //   clicks++;
 //   delay(200);
 // }
-boolean sketchFullScreen() {
-  return true;
-}
+// boolean sketchFullScreen() {
+//   return true;
+// }
