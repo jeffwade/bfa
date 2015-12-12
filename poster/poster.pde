@@ -4,11 +4,7 @@ color white, black, strokeColor;
 float rx, ry, rLen, rHue, rSat, rVal, rAlp, rSW;
   //initialize ranges
   int[] lenRange = {3, 150};
-<<<<<<< HEAD
   int[] hueRange = {60, 180};
-=======
-  int[] hueRange = {90, 150};
->>>>>>> 301913094f2bf3b316053e8899e4fbd7bf1ad179
     /*HUE KEY
     Red: 0;
     Orange: 30;
@@ -20,16 +16,11 @@ float rx, ry, rLen, rHue, rSat, rVal, rAlp, rSW;
     Magenta: 300;
     Pink: 330;
     Red: 360; */
-<<<<<<< HEAD
   int[] satRange = {20, 80};
   int[] valRange = {40, 100};
   int[] alpRange = {60, 100};
-=======
-  int[] satRange = {30, 90};
-  int[] valRange = {15, 90};
-  int[] alpRange = {0, 100};
->>>>>>> 301913094f2bf3b316053e8899e4fbd7bf1ad179
 boolean paused = false;
+
 void setup() {
   //actual poster size is 16x30in
   size(640, 1200);
