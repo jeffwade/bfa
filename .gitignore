@@ -13,3 +13,4 @@ application.macosx
 **/build-tmp/**
 #arduino in sublime
 **stino.settings
+**design/

@@ -23,5 +23,5 @@
 + reset after a certain amount of time?
 
 ##Humans
-- [ ] Contact faculty
-- [ ] contact someone about DVA newsletter
+- [x] Contact faculty
+- [x] contact someone about DVA newsletter

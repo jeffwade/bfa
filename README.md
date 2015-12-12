@@ -1,9 +1,5 @@
 #IN FIERI
-An interactive exhibit built with Arduino & Processing.
-
-##Definition
-_in fieri_
-: _L_. being in process of accomplishment, in progress, pending; beginning to have existence, not yet completely formed, becoming; to become, be made
+An interactive exhibit built with Arduino & Processing. 
 
 ##Project Files
 + `_support/` : partials and experimentation
@@ -16,7 +12,7 @@ _in fieri_
     + `motionBlur.pde` : function for emulating motion blur
     + `readInputs.pde` : funtion for reading arduino inputs
     + `changeProperties.pde` : function containing interaction rules
-      +`arrangeShapes.pde` : defines how shapes are arranged
+    + `arrangeShapes.pde` : defines how shapes are arranged
   + `Shape.pde` : Shape class
     + `drawShape.pde` : function to draw shape according to number of sides
 
