@@ -40,7 +40,7 @@
 //Global limits
   float minRadius = 15f;
   float maxRadius; //(height/6); set in setup
-  int maxShapes = 1000;
+  int maxShapes = 2000;
   int maxSides = 10;
   float maxStrength = 1.2f;
   float maxSpeed = 12.0f;
@@ -87,6 +87,7 @@ Icon[] icons = new Icon[16];
 
 void setup() {
   //general sketch settings
+  // fullScreen();
     size(displayWidth, displayHeight, P2D);
     noCursor(); //hide the cursor
 
@@ -121,7 +122,7 @@ void setup() {
     }
     arrangeShapes();
   //initialize arduino
-    // println(Arduino.list()); //list serial ports
+    println(Arduino.list()); //list serial ports
     String port = Arduino.list()[0]; //on wMac: 5 is tty.usb
     arduino = new Arduino(this, port, 57600);
   //set pin modes
@@ -135,7 +136,7 @@ void setup() {
 }
 
 void draw () {
-  motionBlur(black, 60); //set color and level of motion blur
+  motionBlur(white, 60); //set color and level of motion blur
   // if (clicks%2 == 0) {
   //   drawGrid();
   // }
